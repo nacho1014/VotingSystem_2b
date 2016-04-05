@@ -4,7 +4,7 @@
 <body>
 <div th:replace="fragments/header :: cabecera"><p>Hello!</p></div>
 
-<h1> ${marcador}</h1>
+<h1> Buenos días Vota</h1>
 
 </body>
 </html>

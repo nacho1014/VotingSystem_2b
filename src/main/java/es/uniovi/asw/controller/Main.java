@@ -21,14 +21,17 @@ public class Main {
 
   @RequestMapping("/")
   public String landing(Map<String,Object> model) {
-
-
       model.put("usuario","Naucé López");
-
       model.put("marcador","Voting System");
-
-
     return "freemarkerTest";
+  }
+
+  @RequestMapping("/Vote")
+    public String loadVote(){
+
+
+      return "landing";
+
   }
   
 }
