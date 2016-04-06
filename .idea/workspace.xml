@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cbc9fc7d-279c-4674-9580-2f864c914c37" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
     </list>
     <ignored path="VotingSystem_2b.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,8 +48,8 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.16666667">
-              <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.6">
+              <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -857,7 +857,7 @@
       <workItem from="1459849897242" duration="4626000" />
       <workItem from="1459854873384" duration="6014000" />
       <workItem from="1459950188673" duration="242000" />
-      <workItem from="1459950512589" duration="603000" />
+      <workItem from="1459950512589" duration="822000" />
     </task>
     <servers />
   </component>
@@ -876,7 +876,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11485000" />
+    <option name="totallyTimeSpent" value="11704000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
@@ -1285,8 +1285,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16666667">
-          <caret line="40" column="4" selection-start-line="40" selection-start-column="4" selection-end-line="40" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.6">
+          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
           <folding />
         </state>
       </provider>
