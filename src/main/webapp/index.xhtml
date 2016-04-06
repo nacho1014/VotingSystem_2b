@@ -1,0 +1,23 @@
+<f:view xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:prime="http://primefaces.org/ui">
+
+	<h:head>
+	</h:head>
+
+	<h:body>
+		<h:form>
+
+			<b:panel>
+				<b:label text="#{defaultBean.key}" severity="success" />
+				<b:commandButton value="Result" action="#{defaultBean.action}"></b:commandButton>
+			</b:panel>
+
+		</h:form>
+	</h:body>
+
+</f:view>
