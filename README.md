@@ -10,6 +10,11 @@ Voting System
 # Authors
 
 * Jose Labra
+* Ignacio Fernández 
+* Naucé López
+* Jorge Riopedre
+
+
 
 
 
