@@ -38,7 +38,7 @@
                         <p class="text-inverse">Bienvenido ${usuario} ! Ayuda a tu pais con un voto</p>
                         <br>
                         <br>
-                        <a href="Vote" class="btn btn-lg btn-primary">Vota!</a>
+                        <a href="Vote" id="botonPrimario" class="btn btn-lg btn-primary">Vota!</a>
                     </div>
                 </div>
             </div>

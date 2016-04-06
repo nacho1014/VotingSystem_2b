@@ -26,8 +26,29 @@ public class Main {
     return "freemarkerTest";
   }
 
+    public class Nacho {
+
+ private       String name;
+
+        public String getName(){
+            return name;
+        }
+        public void setName(String name){
+
+            this.name=name;
+        }
+
+    }
+
+
+
   @RequestMapping("/Vote")
-    public String loadVote(){
+    public String loadVote(Map<String,Object> values){
+
+
+      Nacho n = new Nacho();
+      n.setName("n");
+      values.put("nacho",n);
 
 
       return "landing";

@@ -4,7 +4,6 @@
 <body>
 <div th:replace="fragments/header :: cabecera"><p>Hello!</p></div>
 
-<h1> Buenos días Vota</h1>
-
-</body>
+<h1> ${nacho.name} </h1>
+    </body>
 </html>

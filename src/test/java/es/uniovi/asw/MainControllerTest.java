@@ -8,6 +8,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
@@ -34,9 +38,27 @@ public class MainControllerTest {
     mvc = MockMvcBuilders.webAppContextSetup(context).build();
   }
 
+  /*
   @Test
   public void testLanding() throws Exception {
-    mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Voting")));
+    mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Voting System")));
+  }
+  */
+
+
+  @Test
+  public void TryingSeleniumTest(){
+
+
+    WebDriver driver = new FirefoxDriver();
+    driver.get("http://localhost:8080");
+
+    WebElement boton = driver.findElement(By.id("botonPrimario"));
+    boton.click();
+    driver.close();
+
+
+
   }
 
 }
