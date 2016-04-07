@@ -33,14 +33,9 @@ public class MainControllerTest {
 
   private MockMvc mvc;
 
- 
 
-  /*
-  @Test
-  public void testLanding() throws Exception {
-    mvc.perform(get("/")).andExpect(status().isOk()).andExpect(content().string(containsString("Voting System")));
-  }
-  */
+
+
 
 
   private void wait(int millis){
