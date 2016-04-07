@@ -56,9 +56,9 @@ public class MainControllerTest {
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8080");
 
-    wait(4);
+    wait(10);
     WebElement boton = driver.findElement(By.id("form:botonPrimario"));
-    wait(4);
+    wait(10);
     boton.click();
     driver.close();
 
