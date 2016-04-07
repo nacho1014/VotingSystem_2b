@@ -5,6 +5,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import org.apache.commons.logging.Log;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -54,9 +55,12 @@ public class MainControllerTest {
 
 
     WebDriver driver = new FirefoxDriver();
-    driver.get("http://localhost:8080");
+    driver.get("http://localhost:8080/index.xhtml");
 
-    wait(30);
+    System.out.println(  driver.getCurrentUrl());
+
+
+    wait(10);
     WebElement boton = driver.findElement(By.id("form:botonPrimario"));
     wait(10);
     boton.click();
