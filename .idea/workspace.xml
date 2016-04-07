@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3f8dd49b-222d-4203-b54e-9d84e282c202" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/obama.mp4" afterPath="$PROJECT_DIR$/src/main/webapp/video/obama.mp4" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/index.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/result.xhtml" afterPath="$PROJECT_DIR$/src/main/webapp/result.xhtml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/FailsTest.java" afterPath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/FailsTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" afterPath="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
     </list>
     <ignored path="VotingSystem_2b.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,7 +35,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="favicon.ico" pinned="false" current-in-tab="true">
+      <file leaf-file-name="favicon.ico" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/favicon.ico">
           <provider selected="true" editor-type-id="images">
             <state />
@@ -53,6 +47,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-17.416666">
               <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.44852942">
+              <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -84,6 +88,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/result.xhtml" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/FailsTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
+        <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
       </list>
     </option>
   </component>
@@ -791,7 +796,7 @@
       <created>1460063236627</created>
       <option name="number" value="Default" />
       <updated>1460063236627</updated>
-      <workItem from="1460063237821" duration="2133000" />
+      <workItem from="1460063237821" duration="2413000" />
     </task>
     <servers />
   </component>
@@ -805,9 +810,15 @@
     <history-entry file="MainControllerTest - 2016.04.07 at 23h 43m 20s.xml">
       <configuration name="MainControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MainControllerTest - 2016.04.07 at 23h 53m 29s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest - 2016.04.07 at 23h 54m 49s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2133000" />
+    <option name="totallyTimeSpent" value="2413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
@@ -879,6 +890,14 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/favicon.ico">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44852942">
+          <caret line="35" column="1" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

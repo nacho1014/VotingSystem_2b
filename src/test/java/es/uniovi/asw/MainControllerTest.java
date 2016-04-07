@@ -33,10 +33,7 @@ public class MainControllerTest {
 
   private MockMvc mvc;
 
-  @Before
-  public void setUp() throws Exception {
-    mvc = MockMvcBuilders.webAppContextSetup(context).build();
-  }
+ 
 
   /*
   @Test
