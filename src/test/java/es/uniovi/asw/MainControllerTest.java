@@ -46,6 +46,17 @@ public class MainControllerTest {
   */
 
 
+  private void wait(int millis){
+
+
+    try {
+      Thread.sleep(millis*1000);
+    } catch (InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+
+
   @Test
   public void TryingSeleniumTest(){
 
@@ -53,7 +64,9 @@ public class MainControllerTest {
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8080");
 
-    WebElement boton = driver.findElement(By.id("botonPrimario"));
+    wait(2);
+
+    WebElement boton = driver.findElement(By.id("form:botonPrimario"));
     boton.click();
     driver.close();
 
