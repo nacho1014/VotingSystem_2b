@@ -55,7 +55,7 @@ public class MainControllerTest {
   public void TryingSeleniumTest(){
 
 
-    WebDriver driver = new ChromeDriver();
+    WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8999/index.xhtml");
     wait(120);
     WebElement boton = driver.findElement(By.id("form:botonPrimario"));
