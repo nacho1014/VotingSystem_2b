@@ -1,28 +1,49 @@
 <f:view xmlns="http://www.w3c.org/1999/xhtml"
-	xmlns:b="http://bootsfaces.net/ui"
-	xmlns:bt="http://butterfaces.larmic.de/components"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+        xmlns:f="http://java.sun.com/jsf/core"
+        xmlns:h="http://java.sun.com/jsf/html"
+>
 
-	<h:head>
+    <h:head>
+        <link rel="stylesheet" href="css/bootstrap.min.css"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-	</h:head>
+    </h:head>
 
-	<h:body>
+    <h:body>
+        <form class="form-controll" method="post" action="login">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="page-header">
+                            <h1>Iniciar sesión</h1>
+                        </div>
 
-		<p:dataTable>
-			<p:column headerText="Columna1">
-			</p:column>
-		</p:dataTable>
 
-		<br />
+                        <div class="form-group">
+                            <label class="control-label" for="nombreUsuario">Usuario</label>
+                            <input
+                                    class="form-control" id="nombreUsuario" name="nombreUsuario"
+                                    type="text" required="true"/>
+                        </div>
 
-		<bt:table>
-			<bt:column label="Columna1"></bt:column>
-		</bt:table>
+                        <div class="form-group">
+                            <label class="control-label" for="contrasenya">Contraseña</label>
+                            <input class="form-control" id="contrasenya" name="contrasenya"
+                                   type="password" required="true"/>
+                        </div>
 
-	</h:body>
+                        <button id="enviarBoton" type="submit" class="btn btn-block btn-primary">Iniciar sesión
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+
+
+
+    </h:body>
 
 </f:view>
