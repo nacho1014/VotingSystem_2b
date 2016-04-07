@@ -55,7 +55,7 @@ public class MainControllerTest {
 
 
     WebDriver driver = new FirefoxDriver();
-    driver.get("http://localhost:8080/index.xhtml");
+    driver.get("http://localhost:8999/index.xhtml");
 
     System.out.println(  driver.getCurrentUrl());
 
