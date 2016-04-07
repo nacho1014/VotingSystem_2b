@@ -12,6 +12,7 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,15 +55,11 @@ public class MainControllerTest {
   public void TryingSeleniumTest(){
 
 
-    WebDriver driver = new FirefoxDriver();
+    WebDriver driver = new ChromeDriver();
     driver.get("http://localhost:8999/index.xhtml");
-
-    System.out.println(  driver.getCurrentUrl());
-
-
-    wait(10);
+    wait(120);
     WebElement boton = driver.findElement(By.id("form:botonPrimario"));
-    wait(10);
+    wait(120);
     boton.click();
     driver.close();
 
