@@ -73,8 +73,8 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8425197">
-              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.37007874">
+              <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1044,17 +1044,11 @@
       <created>1460063236627</created>
       <option name="number" value="Default" />
       <updated>1460063236627</updated>
-      <workItem from="1460063237821" duration="7463000" />
+      <workItem from="1460063237821" duration="7931000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainControllerTest - 2016.04.08 at 09h 58m 26s.xml">
-      <configuration name="MainControllerTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest - 2016.04.08 at 10h 04m 39s.xml">
-      <configuration name="MainControllerTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MainControllerTest - 2016.04.08 at 10h 08m 36s.xml">
       <configuration name="MainControllerTest" configurationId="JUnit" />
     </history-entry>
@@ -1079,13 +1073,19 @@
     <history-entry file="MainControllerTest - 2016.04.08 at 10h 23m 47s.xml">
       <configuration name="MainControllerTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MainControllerTest - 2016.04.08 at 10h 37m 42s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest - 2016.04.08 at 10h 38m 34s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7463000" />
+    <option name="totallyTimeSpent" value="7931000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="719" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1094,7 +1094,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32923076" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1271,8 +1271,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8425197">
-          <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.37007874">
+          <caret line="59" column="59" selection-start-line="59" selection-start-column="59" selection-end-line="59" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

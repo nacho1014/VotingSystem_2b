@@ -57,7 +57,8 @@ public class MainControllerTest {
     System.out.println(driver.getPageSource());
 
 
-    WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+    WebDriverWait wait = new WebDriverWait(driver, 60, 1500);// 1 minute
+
     //wait(15);
     WebElement boton =   wait.until(ExpectedConditions.presenceOfElementLocated(By.id("form:botonPrimario")));
    // wait(3);
