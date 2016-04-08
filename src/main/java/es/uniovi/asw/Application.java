@@ -26,6 +26,7 @@ public class Application extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
+        System.out.println("Entro por el main ");
         app.run(args);
     }
 
