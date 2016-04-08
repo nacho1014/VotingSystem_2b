@@ -14,6 +14,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
@@ -57,9 +59,11 @@ public class MainControllerTest {
 
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8999/index.xhtml");
-    wait(4);
-    WebElement boton = driver.findElement(By.id("form:botonPrimario"));
-    wait(4);
+
+
+    WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+    WebElement boton =   wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("form:botonPrimario")));
+    wait(3);
     boton.click();
     driver.close();
 
