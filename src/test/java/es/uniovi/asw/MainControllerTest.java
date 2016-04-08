@@ -34,7 +34,6 @@ import java.util.concurrent.TimeUnit;
 @SpringApplicationConfiguration(classes = Application.class)
 @WebIntegrationTest
 @WebAppConfiguration
-@IntegrationTest({ "server.port=8999" })
 public class MainControllerTest {
 
   @Autowired
