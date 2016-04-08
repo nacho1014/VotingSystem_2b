@@ -11,9 +11,10 @@ env:
 beforescript:
 
 - "export DISPLAY=:99.0"
-
 - sh -e /etc/init.d/xvfb start
 - nohup bash -c "./nodemodules/protractor/bin/webdriver-manager start 2>&1 &"
 - sleep 5
+- rackup  # start a Web server
+- sleep 3
 after_success:
   - bash <(curl -s https://codecov.io/bash)
