@@ -26,6 +26,8 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import java.util.concurrent.TimeUnit;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
 @WebAppConfiguration
@@ -51,16 +53,10 @@ public class MainControllerTest {
 
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8999/index.xhtml");
-    System.out.println();
-    System.out.println(driver.getCurrentUrl());
-    System.out.println(driver);
-    System.out.println(driver.getPageSource());
-
-
-    WebDriverWait wait = new WebDriverWait(driver, 60, 1500);// 1 minute
+    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 
     //wait(15);
-    WebElement boton =   wait.until(ExpectedConditions.presenceOfElementLocated(By.id("form:botonPrimario")));
+    WebElement boton =   driver.findElement(By.id("form:botonPrimario"));
    // wait(3);
     boton.click();
     driver.close();
