@@ -7,6 +7,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import org.apache.commons.logging.Log;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -20,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.boot.test.WebIntegrationTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.springframework.test.web.servlet.MockMvc;
@@ -30,8 +32,9 @@ import java.util.concurrent.TimeUnit;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = Application.class)
+@WebIntegrationTest
 @WebAppConfiguration
-@IntegrationTest({ "server.port=0" })
+@IntegrationTest({ "server.port=8999" })
 public class MainControllerTest {
 
   @Autowired
@@ -39,12 +42,10 @@ public class MainControllerTest {
 
   private MockMvc mvc;
 
-
-
-
-
-
-
+  @BeforeClass
+  public static void initialize() {
+    Application.main(new String[]{"none"});
+  }
 
 
   @Test
@@ -53,11 +54,8 @@ public class MainControllerTest {
 
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8999/index.xhtml");
-    driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-
-    //wait(15);
+    System.out.println(driver.getPageSource());
     WebElement boton =   driver.findElement(By.id("form:botonPrimario"));
-   // wait(3);
     boton.click();
     driver.close();
 
