@@ -42,28 +42,25 @@ public class MainControllerTest {
 
 
 
-  private void wait(int millis){
 
-
-    try {
-      Thread.sleep(millis*1000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-  }
 
 
   @Test
-  public void TryingSeleniumTest(){
+  public void TryingSeleniumTest() throws InterruptedException {
 
 
     WebDriver driver = new FirefoxDriver();
     driver.get("http://localhost:8999/index.xhtml");
+    System.out.println();
+    System.out.println(driver.getCurrentUrl());
+    System.out.println(driver);
+    System.out.println(driver.getPageSource());
 
 
     WebDriverWait wait = new WebDriverWait(driver, 60);// 1 minute
+    //wait(15);
     WebElement boton =   wait.until(ExpectedConditions.presenceOfElementLocated(By.id("form:botonPrimario")));
-    wait(3);
+   // wait(3);
     boton.click();
     driver.close();
 
