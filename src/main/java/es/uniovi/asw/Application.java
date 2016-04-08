@@ -4,16 +4,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.webapp.FacesServlet;
+import javax.servlet.ServletContext;
 
+import com.sun.faces.config.ConfigureListener;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.ServletContextInitializer;
+import org.springframework.boot.context.embedded.ServletListenerRegistrationBean;
 import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.context.ServletConfigAware;
+import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -22,7 +27,7 @@ import es.uniovi.asw.configuration.ViewScope;
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"es.uniovi.asw"})
-public class Application extends SpringBootServletInitializer {
+public class Application extends SpringBootServletInitializer implements ServletContextAware {
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
@@ -64,5 +69,26 @@ public class Application extends SpringBootServletInitializer {
                         "redirect:/index.xhtml");
             }
         };
+    }
+
+    @Bean
+    public ServletRegistrationBean facesServletRegistration() {
+        ServletRegistrationBean registration = new ServletRegistrationBean(
+                new FacesServlet(), "*.xhtml");
+        registration.setLoadOnStartup(1);
+        return registration;
+    }
+
+    @Bean
+    public ServletListenerRegistrationBean<ConfigureListener> jsfConfigureListener() {
+        return new ServletListenerRegistrationBean<ConfigureListener>(
+                new ConfigureListener());
+    }
+
+
+    @Override
+    public void setServletContext(ServletContext servletContext) {
+        servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
+
     }
 }
