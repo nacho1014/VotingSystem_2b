@@ -3,6 +3,7 @@ package es.uniovi.asw;
 import es.uniovi.asw.dataBase.CandidatureRepository;
 import es.uniovi.asw.dataBase.DataBase;
 import es.uniovi.asw.model.*;
+import org.h2.store.Data;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -61,36 +63,14 @@ public class MainControllerTest {
         candidate.setDNI("67890976E");
         candidate.setSurname("Herzog");
         candidate.setCandidature(candidature);
+        candidate.setCandidature(candidature);
 
-        ClosedList closedList = new ClosedList();
-        closedList.addCandidature(candidature);
-        closedList.setName("Lista UpyD");
-        closedList.setExpiryDate(new Date());
-        closedList.setInstructions("Instrucciones");
-        closedList.setStartDate(new Date());
-        candidature.addElection(closedList);
-        cR.save(candidature);
+        DataBase.candidatureRepository.save(candidature);
 
-        Constituency cons = new Constituency();
-        cons.setName("Arava");
+        Candidature candidature1 = DataBase.candidatureRepository.findByName("Union progreso y democracia");
 
-        Region region = new Region();
-        region.setName("BasqueContry");
-        cons.setRegion(region);
+        assertEquals("MismaCandidaturas",candidature,candidature1);
 
-        PollingPlace pp = new PollingPlace();
-        pp.setConstituency(cons);
-
-        Vote vote = new VoteClosedList();
-        vote.setElection(closedList);
-        vote.setNumVotes(10);
-        vote.setPollingPlace(pp);
-
-
-        Candidature candidatura1 = cR.findByName("Union progreso y democracia");
-        assertEquals("Identicos",candidature,candidatura1);
-
-        System.out.println(candidatura1.toString());
 
 
 

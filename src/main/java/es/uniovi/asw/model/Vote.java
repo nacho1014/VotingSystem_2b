@@ -12,7 +12,7 @@ import javax.persistence.ManyToOne;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class Vote {
 	
-	@Id @GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@Id @GeneratedValue(strategy = GenerationType.TABLE)
 	private Long id;
 	
 	@ManyToOne

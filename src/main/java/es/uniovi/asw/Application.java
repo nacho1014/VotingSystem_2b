@@ -5,11 +5,9 @@ import java.util.Map;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
-
 import com.sun.faces.config.ConfigureListener;
 import es.uniovi.asw.dataBase.CandidatureRepository;
 import es.uniovi.asw.dataBase.DataBase;
-import es.uniovi.asw.model.Candidature;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
