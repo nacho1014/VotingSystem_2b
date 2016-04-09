@@ -8,14 +8,12 @@ public class VoteKey implements Serializable {
 	
 	Long election;
 	Long pollingPlace;
-	Long optionVote;
 	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((election == null) ? 0 : election.hashCode());
-		result = prime * result + ((optionVote == null) ? 0 : optionVote.hashCode());
 		result = prime * result + ((pollingPlace == null) ? 0 : pollingPlace.hashCode());
 		return result;
 	}
@@ -32,11 +30,6 @@ public class VoteKey implements Serializable {
 			if (other.election != null)
 				return false;
 		} else if (!election.equals(other.election))
-			return false;
-		if (optionVote == null) {
-			if (other.optionVote != null)
-				return false;
-		} else if (!optionVote.equals(other.optionVote))
 			return false;
 		if (pollingPlace == null) {
 			if (other.pollingPlace != null)

@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -29,7 +30,7 @@ public class Voter {
 	@Column(nullable = false)
 	private String password;
 	
-	@OneToMany(mappedBy = "voter")
+	@OneToMany(mappedBy = "voter", fetch = FetchType.EAGER)
 	private Set<Turnout> turnout = new HashSet<>();
 	
 	protected Voter() {}
@@ -39,7 +40,6 @@ public class Voter {
 		this.nif = nif;
 		this.email = email;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -61,6 +61,14 @@ public class Voter {
 		return nif;
 	}
 
+	public void setPollingPlace(PollingPlace pollingPlace) {
+		if (pollingPlace != null) {
+			this.pollingPlace._getVoters().remove(this);
+			this.pollingPlace = pollingPlace;
+			this.pollingPlace._getVoters().add(this);
+		}
+	}
+
 	public PollingPlace getPollingPlace() {
 		return pollingPlace;
 	}
@@ -70,6 +78,10 @@ public class Voter {
 	}
 	
 	public Set<Turnout> getTurnout() {
+		return new HashSet<>(turnout);
+	}
+	
+	Set<Turnout> _getTurnout() {
 		return turnout;
 	}
 

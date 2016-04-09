@@ -1,10 +1,12 @@
 package es.uniovi.asw.model;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "VotesReferendum")
+@DiscriminatorValue("voteReferendum")
 public class VoteReferendum extends Vote {
 
 	private int yeses;
@@ -34,6 +36,11 @@ public class VoteReferendum extends Vote {
 
 	public void setNoes(int noes) {
 		this.noes = noes;
+	}
+
+	@Override
+	public String toString() {
+		return "VoteReferendum [yeses=" + yeses + ", noes=" + noes + "]";
 	}
 	
 }
