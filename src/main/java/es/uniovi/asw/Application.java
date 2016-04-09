@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
+import com.sun.faces.config.ConfigureListener;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,6 +17,10 @@ import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+<<<<<<< HEAD
+=======
+import org.springframework.web.context.ServletConfigAware;
+>>>>>>> 329040c2582c7b139e79d6c0f5a2d2510b8a292f
 import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
