@@ -1,39 +1,136 @@
 <f:view xmlns="http://www.w3c.org/1999/xhtml"
         xmlns:f="http://java.sun.com/jsf/core"
         xmlns:h="http://java.sun.com/jsf/html"
->
-<head>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet"
-          type="text/css"/>
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet"
-          type="text/css"/>
-</head>
-<body>
+        xmlns:b="http://butterfaces.larmic.de/components"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<div class="section">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="jumbotron" id="Posibles"><h1>Configure el sistema electoral</h1>
 
-                    <p>Seleccione el tipo de elecciones que desea.</p>
+    <h:body>
 
-                    <div class="btn-group btn-group-lg"><a class="btn btn-success dropdown-toggle"
-                                                           data-toggle="dropdown">Escoja una de las siguientes<br/><span class="fa fa-caret-down"></span></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Lista cerrada</a></li>
-                            <li><a href="#">Listas abiertas</a></li>
-                            <li><a href="#">Lista cerradas</a></li>
-                        </ul>
+        <h:head>
+            <link rel="stylesheet" href="css/bootstrap.min.css"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
+            <meta charset="utf-8"/>
+            <script type="text/javascript"
+                    src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+            <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css"
+                  rel="stylesheet" type="text/css"/>
+            <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet"
+                  type="text/css"/>
+            <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+                  rel="stylesheet"/>
+        </h:head>
+
+
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron" id="Posibles"><h1>Configure el sistema electoral</h1>
+
+                            <p>Seleccione el tipo de elecciones que desea.</p>
+                            <h:form class="form">
+
+                                <h:selectOneRadio class="checkbox" value="#{beanConfigElection.choice}">
+                                    <f:selectItem   itemValue="abierta" itemLabel="Listas abiertas" />
+                                    <f:selectItem itemValue="cerrada" itemLabel="Listas cerradas"/>
+                                    <f:selectItem itemValue="referendum" itemLabel="Referendum"/>
+
+                                </h:selectOneRadio>
+
+
+                            </h:form>
+                            <b:commandLink id="Configurar"
+                                           value="Configurar"
+                                           glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                           styleClass="btn btn-primary"
+                                           ajaxDisableLinkOnRequest="true"
+                                           ajaxShowWaitingDotsOnRequest="true"
+                                           ajaxHideGlyphiconOnRequest="false"
+                                           ajaxDisableRenderRegionsOnRequest="true"
+                                           ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                           action="#{beanConfigElection.println}"
+                                           rendered="true"
+                                           update="votaciones"
+                            >
+                                <f:ajax render="votaciones" />
+                            </b:commandLink>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
-</body>
+
+
+        <b:section id="votaciones">
+        <b:section class="section" rendered="#{beanConfigElection.listasAbiertas()}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><h3 class="panel-title">Listas Abiertas</h3></div>
+                            <div class="panel-body">
+
+                                <h:form>
+
+                                    <ui:include src="/snippets/basicElections.xhtml"/>
+
+                                </h:form>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b:section>
+
+
+        <b:section class="section" rendered="#{beanConfigElection.listasCerradas()}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><h3 class="panel-title">Listas Cerradas</h3></div>
+                            <div class="panel-body">
+
+                                <h:form>
+
+                                    <ui:include src="/snippets/basicElections.xhtml"/>
+
+                                </h:form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b:section>
+
+
+        <b:section class="section" rendered="#{beanConfigElection.referendum()}">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading"><h3 class="panel-title">Referendum</h3></div>
+                            <div class="panel-body">
+
+                                <h:form>
+
+                                    <ui:include src="/snippets/basicElections.xhtml"/>
+
+                                </h:form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </b:section>
+        </b:section>
+
+    </h:body>
+
+
 </f:view>
