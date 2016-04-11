@@ -1,8 +1,8 @@
-package es.uniovi.asw.dataBase;
+package es.uniovi.asw.dbupdate;
 
-import es.uniovi.asw.model.Candidate;
-import es.uniovi.asw.model.Candidature;
 import org.springframework.data.repository.CrudRepository;
+
+import es.uniovi.asw.model.Candidature;
 
 /**
  * Created by ignaciofernandezalvarez on 9/4/16.

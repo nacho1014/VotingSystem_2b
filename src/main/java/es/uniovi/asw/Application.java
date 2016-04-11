@@ -5,11 +5,8 @@ import java.util.Map;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
-import com.sun.faces.config.ConfigureListener;
-import es.uniovi.asw.dataBase.CandidatureRepository;
-import es.uniovi.asw.dataBase.DataBase;
+
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,6 +20,8 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
+import com.sun.faces.config.ConfigureListener;
+
 import es.uniovi.asw.configuration.ViewScope;
 
 @SpringBootApplication
@@ -35,18 +34,6 @@ public class Application extends SpringBootServletInitializer implements Servlet
         System.out.println("Entro por el main ");
         app.run(args);
     }
-
-
-
-    @Bean
-    public CommandLineRunner demo(CandidatureRepository repository) {
-        return (args) -> {
-
-            DataBase.candidatureRepository = repository;
-        };
-
-    }
-
 
     @Bean
     public ServletRegistrationBean facesServletRegistraiton() {
