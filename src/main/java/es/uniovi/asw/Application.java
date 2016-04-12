@@ -91,4 +91,5 @@ public class Application extends SpringBootServletInitializer implements Servlet
         servletContext.setInitParameter("com.sun.faces.forceLoadConfiguration", Boolean.TRUE.toString());
 
     }
+
 }

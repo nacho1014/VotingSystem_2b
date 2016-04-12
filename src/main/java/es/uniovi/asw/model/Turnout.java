@@ -17,17 +17,27 @@ public class Turnout {
 	private Voter voter;
 	
 	public Turnout() {}
+	
+	public Turnout(Election election, Voter voter) {
+		this.election = election;
+		this.voter = voter;
+		
+		if (this.election != null && this.voter != null) {
+			this.election._getTurnout().add(this);
+			this.voter._getTurnout().add(this);
+		}
+	}
 
 	public Election getElection() {
 		return election;
 	}
 
 	public void setElection(Election election) {
-		if (election != null) {
+		if (this.election != null)
 			this.election._getTurnout().remove(this);
 			this.election = election;
+		if (this.election != null)
 			this.election._getTurnout().add(this);
-		}
 	}
 
 	public Voter getVoter() {
@@ -35,11 +45,11 @@ public class Turnout {
 	}
 
 	public void setVoter(Voter voter) {
-		if (voter != null) {
+		if (this.voter != null)
 			this.voter._getTurnout().remove(this);
 			this.voter = voter;
+		if (this.voter != null)
 			this.voter._getTurnout().add(this);
-		}
 	}
 
 	@Override

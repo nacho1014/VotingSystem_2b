@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,14 +20,16 @@ public abstract class Election {
 
 	@Id @GeneratedValue
 	private Long id;
+	@Column(unique = true)
 	private String name;
 	private Date startDate;
 	private Date expiryDate;
 	private String instructions;
+	private int numChoices = 1;
 	
 	@OneToMany(mappedBy = "election", fetch = FetchType.EAGER)
 	private Set<Vote> votes = new HashSet<>();
-	@OneToMany(mappedBy = "election", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "election", fetch = FetchType.EAGER, cascade={CascadeType.ALL})
 	private Set<Turnout> turnout = new HashSet<>();
 	
 	public String getName() {
@@ -59,6 +63,15 @@ public abstract class Election {
 	public void setInstructions(String instructions) {
 		this.instructions = instructions;
 	}
+	
+	public int getNumChoices() {
+		return numChoices;
+	}
+
+	public void setNumChoices(int numChoices) {
+		this.numChoices = numChoices;
+	}
+
 
 	public Set<Vote> getVotes() {
 		return new HashSet<>(votes);
@@ -90,9 +103,7 @@ public abstract class Election {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((expiryDate == null) ? 0 : expiryDate.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((startDate == null) ? 0 : startDate.hashCode());
 		return result;
 	}
 
@@ -105,20 +116,10 @@ public abstract class Election {
 		if (getClass() != obj.getClass())
 			return false;
 		Election other = (Election) obj;
-		if (expiryDate == null) {
-			if (other.expiryDate != null)
-				return false;
-		} else if (!expiryDate.equals(other.expiryDate))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
-			return false;
-		if (startDate == null) {
-			if (other.startDate != null)
-				return false;
-		} else if (!startDate.equals(other.startDate))
 			return false;
 		return true;
 	}
