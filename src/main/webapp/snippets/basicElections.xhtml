@@ -7,7 +7,7 @@
 
 
     <b:text label="Nombre elecciones" id="nombreElecciones"
-            value="#{beanElectionConfig.nameElections}" required="true"/>
+            value="#{beanConfigElection.electionName}" required="true"/>
 
 
     <b:calendar id="calendarioInicio"
@@ -16,17 +16,18 @@
                 pickDate="true"
                 pickTime="true"
                 sideBySide="false"
-                language="es"
+                language="en"
                 glyphiconDate="fa fa-calendar"
                 glyphiconTime="fa fa-clock-o"
                 glyphiconUp="fa fa-chevron-up"
                 glyphiconDown="fa fa-chevron-down"
                 placeholder="Enter date or click icon..."
                 readonly="false"
-                required="false"
+                required="true"
                 disabled="false"
                 autoFocus="false"
-                rendered="true">
+                rendered="true"
+                value="#{beanConfigElection.initialDate}">
 
     </b:calendar>
 
@@ -37,17 +38,18 @@
                 pickDate="true"
                 pickTime="true"
                 sideBySide="false"
-                language="es"
+                language="en"
                 glyphiconDate="fa fa-calendar"
                 glyphiconTime="fa fa-clock-o"
                 glyphiconUp="fa fa-chevron-up"
                 glyphiconDown="fa fa-chevron-down"
                 placeholder="Enter date or click icon..."
                 readonly="false"
-                required="false"
+                required="true"
                 disabled="false"
                 autoFocus="false"
-                rendered="true">
+                rendered="true"
+                value="#{beanConfigElection.expireDate}">
 
     </b:calendar>
 
@@ -58,11 +60,12 @@
                 tooltip="tooltip"
                 styleClass="null"
                 readonly="false"
-                required="false"
+                required="true"
                 disabled="false"
                 placeholder="Enter text..."
                 autoFocus="false"
-                rendered="true">
+                rendered="true"
+                value="#{beanConfigElection.instructions}">
 
     </b:textArea>
 
