@@ -1,13 +1,16 @@
 package es.uniovi.asw.dbupdate;
 
+import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Voter;
+
+import java.util.List;
+
 import org.springframework.data.repository.CrudRepository;
 
-/**
- * Created by ignaciofernandezalvarez on 9/4/16.
- */
 public interface VoterRepository extends CrudRepository<Voter,Long>{
 
+	Voter findByEmail(String email);
+	Voter findByNif(String nif);
 
-
+	List<Voter> findByPollingPlace(PollingPlace pollingPlace);
 }
