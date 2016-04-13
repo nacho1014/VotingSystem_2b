@@ -129,5 +129,12 @@ public class Candidate {
 	public String toString() {
 		return "Candidate [id=" + id + ", name=" + name + ", surname=" + surname + "]";
 	}
+
+	public boolean isEmpty() {
+		return (name == null )
+				&& (getName() == null )
+				&& (getCandidature() == null )
+				&& (getDNI() == null );
+	}
 	
 }
