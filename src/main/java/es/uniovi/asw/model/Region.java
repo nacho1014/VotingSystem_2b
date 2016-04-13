@@ -72,5 +72,9 @@ public class Region {
 			return false;
 		return true;
 	}
+
+	public boolean isEmpty() {
+		return (getName() == null );
+	}
 	
 }
