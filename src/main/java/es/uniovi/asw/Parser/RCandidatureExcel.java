@@ -1,4 +1,5 @@
 package es.uniovi.asw.Parser;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -9,20 +10,18 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 
+public class RCandidatureExcel {
 
-public class RCandidateExcel{
-
-	public List<Candidate> readFile(String path) {
+	public List<Candidature> readFile(String path) {
 		XSSFWorkbook wb;
 		XSSFSheet sheet;
 		Iterator<Row> rows;
 		Row row = null;
-		Candidate candidate;
+		Candidature candidatura;
 		
-		List<Candidate> candidatos = new ArrayList<Candidate>();
+		List<Candidature> candidaturas = new ArrayList<Candidature>();
 		
 		try {
 
@@ -37,14 +36,14 @@ public class RCandidateExcel{
 			while (rows.hasNext()) {
 				row = rows.next();
 					
-				candidate = new Candidate();
-				candidate.setName(row.getCell(0).toString());
-				candidate.setCandidature((Candidature) row.getCell(1));
-				candidate.setDNI(row.getCell(2).toString());
+				candidatura = new Candidature();
+				candidatura.setName(row.getCell(0).toString());
+				candidatura.setInitial(row.getCell(1).toString());
+				candidatura.setDescription(row.getCell(2).toString());
 				
 				//Row empty, without cells
-				if (!candidate.isEmpty())
-					candidatos.add(candidate);
+				if (!candidatura.isEmpty())
+					candidaturas.add(candidatura);
 					
 			}
 								
@@ -55,6 +54,6 @@ public class RCandidateExcel{
 			System.out.println("El fichero " + fileName[fileName.length - 1] + " no existe");
 		}
 		
-		return candidatos;
+		return candidaturas;
 	}
 }
