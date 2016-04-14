@@ -163,6 +163,7 @@ public class BeanConfigElection implements Serializable {
 
     public void creaReferendum(){
 
+        System.out.println("I try");
         // 04/15/2016 11:25 AM
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 
