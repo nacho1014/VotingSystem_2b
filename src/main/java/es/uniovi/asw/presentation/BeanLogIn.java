@@ -1,5 +1,9 @@
 package es.uniovi.asw.presentation;
 
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.Election;
+import es.uniovi.asw.model.Referendum;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -31,8 +35,6 @@ public class BeanLogIn {
     }
 
 
-
-
     public String login() {
 
 
@@ -40,10 +42,31 @@ public class BeanLogIn {
 
         if ("admin".equals(getUser()) && "admin".equals(getPassword())) {
             return "exito";
+        } else {
+
+            //llamada a Voters para comprar
+
+            //comprobamos la elección que hay ese día
+
+            Election election = Repository.electionR.findActual();
+
+            return reditectToElectionType(election);
+
         }
 
-        System.out.println("deberia haber cambiado pero no lo he echo");
-        return "fallo";
+        
+    }
+
+    private String reditectToElectionType(Election type) {
+
+        if (type == null) {
+            return "fallo";
+        } else if (type instanceof Referendum)
+            return "referendum";
+        else if (type instanceof ClosedList)
+            return "cerrada";
+        else return "abierta";
+
     }
 
 }

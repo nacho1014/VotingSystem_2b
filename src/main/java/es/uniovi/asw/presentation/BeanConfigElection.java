@@ -1,18 +1,27 @@
 package es.uniovi.asw.presentation;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.Referendum;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 import org.springframework.context.annotation.Scope;
-import org.springframework.data.repository.query.parser.Part;
 import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.Part;
+
+
 
 /**
  * Created by Ignacio Fernandez on 11/04/2016.
@@ -32,7 +41,15 @@ public class BeanConfigElection implements Serializable {
     private String expireDate;
     private String instructions;
     private UploadedFile file;
+    private String question;
 
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
     @PostConstruct
     void init() {
@@ -45,10 +62,14 @@ public class BeanConfigElection implements Serializable {
 
 
     public UploadedFile getFile() {
+
+
+        System.out.println("getter");
         return file;
     }
 
     public void setFile(UploadedFile file) {
+        System.out.println("setter");
         this.file = file;
     }
 
@@ -107,6 +128,7 @@ public class BeanConfigElection implements Serializable {
         return "exito";
     }
 
+
     public String creaAbiertas() {
 
 
@@ -118,23 +140,69 @@ public class BeanConfigElection implements Serializable {
         System.out.println("file" + file);
 
 
+
         return "exito";
     }
 
+    public void upload() {
+        System.out.println("uplodeo");        if(file != null) {
+            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+        }
+    }
 
-    public void handleFileUpload(FileUploadEvent event) {
-        System.out.println("PASO");
-        file = event.getFile();
+    private static String getFilename(Part part) {
+        for (String cd : part.getHeader("content-disposition").split(";")) {
+            if (cd.trim().startsWith("filename")) {
+                String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
+                return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
+            }
+        }
+        return null;
+    }
+
+    public void creaReferendum(){
+
+        System.out.println("al menos priqui entro");
+        System.out.println("name " + electionName);
+        System.out.println("date init" + initialDate);
+        System.out.println("date expire" + expireDate);
+        System.out.println("instructions " +instructions);
+        System.out.println("question" +question);
+
+
+        // 04/15/2016 11:25 AM
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+
         try {
-            InputStream input = file.getInputstream();
-            System.out.println(input.toString());
-        } catch (IOException e) {
+
+            Date initialDated = formatter.parse(initialDate);
+            Date expireDated = formatter.parse(expireDate);
+
+            Referendum referendum = new Referendum();
+            referendum.setStartDate(initialDated);
+            referendum.setExpiryDate(expireDated);
+            referendum.setInstructions(instructions);
+            referendum.setName(electionName);
+            referendum.setQuestion(question);
+            referendum.setNumChoices(1);
+
+            Repository.electionR.save(referendum);
+
+
+            System.out.println("everything wentWell");
+
+
+
+        } catch (ParseException e) {
             e.printStackTrace();
         }
 
 
-        // ...
+
     }
+
+
 
     public String getElectionName() {
         return electionName;
@@ -167,6 +235,7 @@ public class BeanConfigElection implements Serializable {
     public void setInstructions(String instructions) {
         this.instructions = instructions;
     }
+
 
 
 
