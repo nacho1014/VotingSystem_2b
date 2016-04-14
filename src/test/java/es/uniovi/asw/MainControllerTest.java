@@ -1,5 +1,9 @@
 package es.uniovi.asw;
 
+import java.util.Locale;
+
+import javax.faces.context.FacesContext;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
@@ -22,7 +26,6 @@ public class MainControllerTest {
 
     @Test
     public void tryingSeleniumTest() throws InterruptedException {
-
     	FirefoxProfile profile = new FirefoxProfile();
     	profile.setPreference("intl.accept_languages", "es");
         WebDriver driver = new FirefoxDriver(profile);

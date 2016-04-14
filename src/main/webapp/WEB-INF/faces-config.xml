@@ -8,14 +8,11 @@
     
     <application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-    </application>
-    
-    <application>
-		<resource-bundle>
+        <resource-bundle>
 			<base-name>messages</base-name>
 			<var>msgs</var>
 		</resource-bundle>
-	</application>
+    </application>
     
     <navigation-rule>
 		<from-view-id>*</from-view-id>
