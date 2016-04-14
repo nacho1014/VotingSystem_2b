@@ -38,13 +38,18 @@ public class RCandidateExcel{
 				row = rows.next();
 					
 				candidate = new Candidate();
-				candidate.setName(row.getCell(0).toString());
-				candidate.setCandidature((Candidature) row.getCell(1));
-				candidate.setDNI(row.getCell(2).toString());
+				candidate.setName(row.getCell(0)!=null ? row.getCell(0).toString():null);
+				
+				Candidature candidature = new Candidature();
+				candidature.setName(row.getCell(1)!=null ? row.getCell(1).toString():null);
+				
+				candidate.setDNI(row.getCell(2)!=null ?	row.getCell(2).toString():null);
 				
 				//Row empty, without cells
-				if (!candidate.isEmpty())
+				if (!candidate.isEmpty()){
+					candidate.setCandidature(candidature!=null ? candidature:null);
 					candidatos.add(candidate);
+				}
 					
 			}
 								

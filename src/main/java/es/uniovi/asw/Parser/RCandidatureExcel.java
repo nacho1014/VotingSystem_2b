@@ -37,9 +37,9 @@ public class RCandidatureExcel {
 				row = rows.next();
 					
 				candidatura = new Candidature();
-				candidatura.setName(row.getCell(0).toString());
-				candidatura.setInitial(row.getCell(1).toString());
-				candidatura.setDescription(row.getCell(2).toString());
+				candidatura.setName(row.getCell(0)!=null ? row.getCell(0).toString():null);
+				candidatura.setInitial(row.getCell(1)!=null ? row.getCell(1).toString():null);
+				candidatura.setDescription(row.getCell(2)!=null ? row.getCell(2).toString():null);
 				
 				//Row empty, without cells
 				if (!candidatura.isEmpty())

@@ -38,7 +38,7 @@ public class RRegionExcel {
 					row = rows.next();
 						
 					region = new Region();
-					region.setName(row.getCell(0).toString());
+					region.setName(row.getCell(0) != null ? row.getCell(0).toString():null);
 					
 					//Row empty, without cells
 					if (!region.isEmpty())

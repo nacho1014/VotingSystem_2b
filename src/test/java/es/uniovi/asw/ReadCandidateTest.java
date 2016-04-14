@@ -13,9 +13,11 @@ public class ReadCandidateTest {
 
 	@Test
 	public void test() {
-		List<Candidate> candidates = new RCandidateExcel().readFile("src/test/resources/TestCandidatos.xlsx");
+		List<Candidate> candidates = new RCandidateExcel().readFile("src/test/resources/testCandidatos.xlsx");
 		for(Candidate c: candidates){
 			System.out.println(c.getName());
+			System.out.println(c.getCandidature().toString());
+			System.out.println(c.getDNI());
 		}
 	}
 

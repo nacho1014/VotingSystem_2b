@@ -14,6 +14,9 @@ public class ReadRegionTest {
 	@Test
 	public void test() {
 		List<Region> regiones = new RRegionExcel().readFile("src/test/resources/testRegion.xlsx");
+		for(Region r:regiones){
+			System.out.println(r.getName());
+		}
 	}
 
 }
