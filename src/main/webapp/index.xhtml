@@ -4,7 +4,8 @@
         xmlns:h="http://java.sun.com/jsf/html"
         xmlns:ui="http://java.sun.com/jsf/facelets"
         xmlns:ng="http://xmlns.jcp.org/jsf/passthrough"
-        xmlns:prime="http://primefaces.org/ui">
+        xmlns:prime="http://primefaces.org/ui"
+        xmlns:s="http://springframework.org/tags/springfaces">
     <h:head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -38,7 +39,6 @@
 
     <h:body>
 
-
         <video class="video" autoplay="true" loop="true" muted="true">
             <source src="video/obama.mp4" type="video/mp4"/>
         </video>
@@ -56,7 +56,7 @@
                                     class="text-inverse">¡Bienvenido! Ayuda a tu pais con un voto</h1>
                             <br/>
                             <br/>
-                            <b:commandButton class="btn btn-lg btn-primary" id="botonPrimario" value="#{msgs.iniciarSesion}"
+                            <b:commandButton class="btn btn-lg btn-primary" id="botonPrimario" value="Iniciar sesión"
                                              action="#{defaultBean.action}"></b:commandButton>
                         </div>
                     </div>
