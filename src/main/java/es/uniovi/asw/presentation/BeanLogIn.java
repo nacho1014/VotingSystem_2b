@@ -7,6 +7,8 @@ import es.uniovi.asw.model.Referendum;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.faces.context.FacesContext;
+
 /**
  * Created by Ignacio Fernandez on 11/04/2016.
  */
@@ -50,6 +52,8 @@ public class BeanLogIn {
 
             Election election = Repository.electionR.findActual();
 
+
+
             return reditectToElectionType(election);
 
         }
@@ -61,11 +65,15 @@ public class BeanLogIn {
 
         if (type == null) {
             return "fallo";
-        } else if (type instanceof Referendum)
+        } else{
+
+            FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                    .put("eleccion", type);
+            if (type instanceof Referendum)
             return "referendum";
         else if (type instanceof ClosedList)
             return "cerrada";
-        else return "abierta";
+        else return "abierta";}
 
     }
 

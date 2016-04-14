@@ -163,14 +163,6 @@ public class BeanConfigElection implements Serializable {
 
     public void creaReferendum(){
 
-        System.out.println("al menos priqui entro");
-        System.out.println("name " + electionName);
-        System.out.println("date init" + initialDate);
-        System.out.println("date expire" + expireDate);
-        System.out.println("instructions " +instructions);
-        System.out.println("question" +question);
-
-
         // 04/15/2016 11:25 AM
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 
@@ -195,7 +187,7 @@ public class BeanConfigElection implements Serializable {
 
 
         } catch (ParseException e) {
-            e.printStackTrace();
+            //MENSAJE DE LOG
         }
 
 

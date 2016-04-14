@@ -35,8 +35,19 @@
 		</navigation-case>
 	</navigation-rule>
 
+    <navigation-rule>
+        <from-view-id>login.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{beanLogIn.login}</from-action>
+            <from-outcome>referendum</from-outcome>
+            <to-view-id>/paginaVotacionReferendum.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
 
-	<navigation-rule>
+
+
+    <navigation-rule>
 		<from-view-id>/selectElection.xhtml</from-view-id>
 		<navigation-case>
 			<from-action>#{beanConfigElection.creaCerradas}</from-action>
