@@ -10,6 +10,8 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import es.uniovi.asw.model.Constituency;
+import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
 
 
@@ -40,9 +42,20 @@ public class RRegionExcel {
 					region = new Region();
 					region.setName(row.getCell(0) != null ? row.getCell(0).toString():null);
 					
+					Constituency cons = new Constituency();
+					cons.setName(row.getCell(1)!=null?row.getCell(1).toString():null);
+					
+					PollingPlace p = new PollingPlace();
+					Double id = row.getCell(2)!=null?Double.parseDouble(row.getCell(2).toString()):null;
+					
+					
 					//Row empty, without cells
-					if (!region.isEmpty())
+					if (!region.isEmpty()){
 						regiones.add(region);
+						p.setConstituency(cons);
+						cons.setRegion(region);
+						p.setId(id.longValue());
+					}
 						
 				}
 									
