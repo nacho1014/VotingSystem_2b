@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxProfile;
 import org.springframework.boot.test.IntegrationTest;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -22,8 +23,9 @@ public class MainControllerTest {
     @Test
     public void tryingSeleniumTest() throws InterruptedException {
 
-
-        WebDriver driver = new FirefoxDriver();
+    	FirefoxProfile profile = new FirefoxProfile();
+    	profile.setPreference("intl.accept_languages", "es");
+        WebDriver driver = new FirefoxDriver(profile);
         driver.get("http://localhost:8080/index.xhtml");
         System.out.println(driver.getPageSource());
         WebElement boton = driver.findElement(By.id("form:botonPrimario"));
