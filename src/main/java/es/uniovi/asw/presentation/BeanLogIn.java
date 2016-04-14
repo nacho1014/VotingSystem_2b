@@ -54,7 +54,7 @@ public class BeanLogIn {
 
         }
 
-        
+
     }
 
     private String reditectToElectionType(Election type) {

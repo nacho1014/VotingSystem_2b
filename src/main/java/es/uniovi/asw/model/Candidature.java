@@ -125,5 +125,11 @@ public class Candidature {
 			return false;
 		return true;
 	}
+	
+	public boolean isEmpty() {
+		return (getName() == null )
+				&& (getDescription() == null )
+				&& (getInitial() == null );
+	}
 
 }
