@@ -1,11 +1,15 @@
 package es.uniovi.asw;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
+import es.uniovi.asw.presentation.BeanConfigElection;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -16,14 +20,22 @@ import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Controller;
+import org.springframework.util.FileCopyUtils;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.context.ServletContextAware;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+@Controller
 @SpringBootApplication
 @EnableAutoConfiguration
 @ComponentScan(basePackages = {"es.uniovi.asw"})
@@ -50,6 +62,46 @@ public class Application extends SpringBootServletInitializer implements Servlet
             servletContext.setInitParameter("javax.faces.FACELETS_SKIP_COMMENTS", Boolean.TRUE.toString());
         };
     }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/upload")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+                                   RedirectAttributes redirectAttributes) {
+
+        System.out.println("eh, que por aqui entro eh");
+        String name ="excel.xlsx";
+
+        if (name.contains("/")) {
+            redirectAttributes.addFlashAttribute("message", "Folder separators not allowed");
+            return "redirect:/selectElection.xhtml";
+        }
+        if (name.contains("/")) {
+            redirectAttributes.addFlashAttribute("message", "Relative pathnames not allowed");
+            return "redirect:/selectElection.xhtml";
+        }
+
+        if (!file.isEmpty()) {
+            try {
+                BufferedOutputStream stream = new BufferedOutputStream(
+                        new FileOutputStream(new File( "src/main/test/resources" + name)));
+                FileCopyUtils.copy(file.getInputStream(), stream);
+                stream.close();
+                redirectAttributes.addFlashAttribute("message",
+                        "You successfully uploaded " + name + "!");
+            }
+            catch (Exception e) {
+                redirectAttributes.addFlashAttribute("message",
+                        "You failed to upload " + name + " => " + e.getMessage());
+            }
+        }
+        else {
+            redirectAttributes.addFlashAttribute("message",
+                    "You failed to upload " + name + " because the file was empty");
+        }
+
+        BeanConfigElection.setExcelUploaded(true);
+        return "redirect:/selectElection.xhtml";
+    }
+
 
     @Bean
     public static CustomScopeConfigurer customScopeConfigurer(){

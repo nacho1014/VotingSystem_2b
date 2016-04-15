@@ -93,9 +93,6 @@
         </div>
 
 
-
-
-
         <b:section id="votaciones">
             <b:section class="section" rendered="#{beanConfigElection.listasAbiertas()}">
                 <div class="container">
@@ -106,12 +103,41 @@
                                 <div class="panel-body">
 
 
-                                    <h:form id="formAbiertas" enctype="multipart/form-data">
 
+                                    <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
+                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <form method="POST" enctype="multipart/form-data" action="/upload">
+
+
+                                            <h6>Sube el archivo</h6>
+
+
+                                            <div class="fileinput fileinput-new input-group"
+                                                 data-provides="fileinput">
+                                                <div class="form-control" data-trigger="fileinput"><i
+                                                        class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                                        class="fileinput-filename"></span></div>
+                                            <span class="input-group-addon btn btn-default btn-file"><span
+                                                    class="fileinput-new">Select file</span><span
+                                                    class="fileinput-exists">Change</span>    <input name="file"
+                                                                                                     type="file"/></span>
+                                                <a href="#"
+                                                   class="input-group-addon btn btn-default fileinput-exists"
+                                                   data-dismiss="fileinput">Remove</a>
+                                            </div>
+
+
+                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+
+
+                                        </form>
+                                    </b:section>
+
+
+                                    <h:form id="formAbiertas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
+
+                                        <h4>Configure ahora  las elecciones</h4>
                                         <ui:include src="/snippets/basicElections.xhtml"/>
-                                        <label class="control-label">Inserte las listas desde un xlsx</label>
-
-
 
 
                                         <b:commandLink id="crearAbiertas"
@@ -142,6 +168,10 @@
                 </div>
             </b:section>
 
+            <div>
+
+            </div>
+
 
             <b:section class="section" rendered="#{beanConfigElection.listasCerradas()}">
                 <div class="container">
@@ -151,32 +181,61 @@
                                 <div class="panel-heading"><h3 class="panel-title">Listas Cerradas</h3></div>
                                 <div class="panel-body">
 
-                                    <h:form id="formCerradas" enctype="multipart/form-data">
-
-                                        <ui:include src="/snippets/basicElections.xhtml"/>
-
-                                        <label class="control-label">Inserte las listas desde un xlsx</label>
+                                    <b:section rendered="#{beanConfigElection.isExcelUploaded() eq false}">
+                                        <h4>En primer lugar suba el archivo excel con las candidaturas</h4>
+                                        <form method="POST" enctype="multipart/form-data" action="/upload">
 
 
-                                        <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                            <div class="form-control" data-trigger="fileinput"><i
-                                                    class="glyphicon glyphicon-file fileinput-exists"></i> <span
-                                                    class="fileinput-filename"></span></div>
+                                            <h6>Sube el archivo</h6>
+
+
+                                            <div class="fileinput fileinput-new input-group"
+                                                 data-provides="fileinput">
+                                                <div class="form-control" data-trigger="fileinput"><i
+                                                        class="glyphicon glyphicon-file fileinput-exists"></i> <span
+                                                        class="fileinput-filename"></span></div>
                                             <span class="input-group-addon btn btn-default btn-file"><span
                                                     class="fileinput-new">Select file</span><span
-                                                    class="fileinput-exists">Change</span>    <h:inputFile
-                                                    value="#{beanConfigElection.file}"/>
-</span>
-                                            <a href="#" class="input-group-addon btn btn-default fileinput-exists"
-                                               data-dismiss="fileinput">Remove</a>
-                                        </div>
+                                                    class="fileinput-exists">Change</span>    <input name="file"
+                                                                                                     type="file"/></span>
+                                                <a href="#"
+                                                   class="input-group-addon btn btn-default fileinput-exists"
+                                                   data-dismiss="fileinput">Remove</a>
+                                            </div>
 
 
-                                        <h:commandButton value="Upload" action="#{beanConfigElection.creaCerradas}"/>
+                                            <input class="btn btn-primary" type="submit" value="Sube el excel"/>
+
+
+                                        </form>
+                                    </b:section>
+
+
+                                    <h:form id="formCerradas"  rendered="#{beanConfigElection.isExcelUploaded() eq true}">
+
+                                        <h4>Configure ahora  las elecciones</h4>
+                                        <ui:include src="/snippets/basicElections.xhtml"/>
+
+
+                                        <b:commandLink id="creaCerradas"
+                                                       value="Crea Elecciones de lista Abierta"
+                                                       glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"
+                                                       styleClass="btn btn-primary"
+                                                       ajaxDisableLinkOnRequest="true"
+                                                       ajaxShowWaitingDotsOnRequest="true"
+                                                       ajaxHideGlyphiconOnRequest="false"
+                                                       ajaxDisableRenderRegionsOnRequest="true"
+                                                       ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
+                                                       action="#{beanConfigElection.creaCerradas}"
+                                                       rendered="true"
+                                                       update="@form"
+                                        >
+
+
+                                        </b:commandLink>
 
 
                                     </h:form>
-
 
                                 </div>
                             </div>

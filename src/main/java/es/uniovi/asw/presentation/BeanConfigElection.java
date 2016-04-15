@@ -1,8 +1,12 @@
 package es.uniovi.asw.presentation;
 
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.Referendum;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+import javax.annotation.PostConstruct;
+import java.io.File;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -10,24 +14,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.model.Referendum;
-import org.primefaces.event.FileUploadEvent;
-import org.primefaces.model.UploadedFile;
-import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Component;
-import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.Part;
-
-
 
 /**
  * Created by Ignacio Fernandez on 11/04/2016.
  */
 @Component("beanConfigElection")
-@Scope("view")
+@Scope("application")
 
 public class BeanConfigElection implements Serializable {
 
@@ -40,8 +32,14 @@ public class BeanConfigElection implements Serializable {
     private String initialDate;
     private String expireDate;
     private String instructions;
-    private UploadedFile file;
+    private File file;
     private String question;
+    private boolean excel;
+    private static boolean excelUploaded = false;
+
+
+    private String url;
+
 
     public String getQuestion() {
         return question;
@@ -60,15 +58,14 @@ public class BeanConfigElection implements Serializable {
     }
 
 
-
-    public UploadedFile getFile() {
+    public File getFile() {
 
 
         System.out.println("getter");
         return file;
     }
 
-    public void setFile(UploadedFile file) {
+    public void setFile(File file) {
         System.out.println("setter");
         this.file = file;
     }
@@ -76,8 +73,8 @@ public class BeanConfigElection implements Serializable {
 
     public void println() {
 
+        excelUploaded=false;
 
-        System.out.println("YIIIII");
 
     }
 
@@ -121,7 +118,7 @@ public class BeanConfigElection implements Serializable {
         System.out.println("name " + electionName);
         System.out.println("date init" + initialDate);
         System.out.println("date expire" + expireDate);
-        System.out.println("instructions " +instructions);
+        System.out.println("instructions " + instructions);
         System.out.println("file" + file);
 
 
@@ -136,32 +133,14 @@ public class BeanConfigElection implements Serializable {
         System.out.println("name " + electionName);
         System.out.println("date init" + initialDate);
         System.out.println("date expire" + expireDate);
-        System.out.println("instructions " +instructions);
-        System.out.println("file" + file);
-
+        System.out.println("instructions " + instructions);
 
 
         return "exito";
     }
 
-    public void upload() {
-        System.out.println("uplodeo");        if(file != null) {
-            FacesMessage message = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");
-            FacesContext.getCurrentInstance().addMessage(null, message);
-        }
-    }
 
-    private static String getFilename(Part part) {
-        for (String cd : part.getHeader("content-disposition").split(";")) {
-            if (cd.trim().startsWith("filename")) {
-                String filename = cd.substring(cd.indexOf('=') + 1).trim().replace("\"", "");
-                return filename.substring(filename.lastIndexOf('/') + 1).substring(filename.lastIndexOf('\\') + 1); // MSIE fix.
-            }
-        }
-        return null;
-    }
-
-    public void creaReferendum(){
+    public void creaReferendum() {
 
         System.out.println("I try");
         // 04/15/2016 11:25 AM
@@ -185,16 +164,22 @@ public class BeanConfigElection implements Serializable {
             System.out.println("everything wentWell");
 
 
-
         } catch (ParseException e) {
             //MENSAJE DE LOG
         }
 
 
-
     }
 
 
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
 
     public String getElectionName() {
         return electionName;
@@ -226,6 +211,14 @@ public class BeanConfigElection implements Serializable {
 
     public void setInstructions(String instructions) {
         this.instructions = instructions;
+    }
+
+    public static boolean isExcelUploaded() {
+        return excelUploaded;
+    }
+
+    public static void setExcelUploaded(boolean excelUploaded) {
+        BeanConfigElection.excelUploaded = excelUploaded;
     }
 
 
