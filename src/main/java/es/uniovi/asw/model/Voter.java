@@ -41,7 +41,27 @@ public class Voter {
 		this.email = email;
 	}
 
-	public Long getId() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setNif(String nif) {
+        this.nif = nif;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setTurnout(Set<Turnout> turnout) {
+        this.turnout = turnout;
+    }
+
+    public Long getId() {
 		return id;
 	}
 

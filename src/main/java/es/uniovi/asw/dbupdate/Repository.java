@@ -12,4 +12,6 @@ public class Repository {
 	public static VoteRepository voteR;
 	public static VoterRepository voterR;
 
+
+
 }

@@ -171,7 +171,6 @@ public class BeanConfigElection implements Serializable {
 
             Date initialDated = formatter.parse(initialDate);
             Date expireDated = formatter.parse(expireDate);
-
             Referendum referendum = new Referendum();
             referendum.setStartDate(initialDated);
             referendum.setExpiryDate(expireDated);

@@ -49,6 +49,7 @@ public class RepositoryConfiguration {
 		Repository.turnoutR = turnoutR;
 	}
 
+
 	@Autowired
 	public void setVoteR(VoteRepository voteR) {
 		Repository.voteR = voteR;

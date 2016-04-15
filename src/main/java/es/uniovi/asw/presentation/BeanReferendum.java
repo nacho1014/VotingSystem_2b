@@ -6,9 +6,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by ignaciofernandezalvarez on 14/4/16.
@@ -39,7 +41,6 @@ public class BeanReferendum {
 
         referendum = (Referendum) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
                 .get("eleccion");
-        System.out.println(referendum);
 
     }
 
@@ -48,43 +49,71 @@ public class BeanReferendum {
 
 
 
-       // Buscamos el referendum   // hacemos un region consituencia polling place
-        PollingPlace pp = new PollingPlace();
-        pp.setId(1L);
-        Constituency c = new Constituency();
-        c.setName("La corredoria");
-        Region r = new Region();
-        r.setName("Oviedo");
-        c.setRegion(r);
-        pp.setConstituency(c);
 
-        //GUARDAR LA REGION
-        //Guardar
-        //GUARDAR EL POLLING place
-        VoteReferendum  voteReferendum  = Repository.voteR.findVoteReferendumByElectionAndPollingPlace(referendum,pp);
 
-        if(voteReferendum==null){
+        Map<String, Object> session = FacesContext.getCurrentInstance()
+                .getExternalContext().getSessionMap();
+        Voter v = (Voter) session.get("LOGGEDIN_VOTER");
+
+        VoteReferendum voteReferendum = Repository.voteR.findVoteReferendumByElectionAndPollingPlace(referendum, v.getPollingPlace());
+
+        System.out.println(voteReferendum);
+
+        if (voteReferendum == null) {
+
 
             voteReferendum = new VoteReferendum();
             voteReferendum.setElection(referendum);
-            voteReferendum.setPollingPlace(pp);
+            voteReferendum.setPollingPlace(v.getPollingPlace());
 
 
         }
 
-        System.out.println(selectedValue);
-        if("Si".equals(selectedValue)){
+        if ("Si".equals(selectedValue)) {
 
 
-            voteReferendum.setYeses(voteReferendum.getYeses()+1);
+            voteReferendum.setYeses(voteReferendum.getYeses() + 1);
 
-        }
-        else {
-            voteReferendum.setNoes(voteReferendum.getNoes()+1);
+        } else {
+            voteReferendum.setNoes(voteReferendum.getNoes() + 1);
 
         }
+
+        if (hasAlreadyVoted(v, referendum)) {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Ya ha votado"));
+            return;
+        }
+        System.out.println(v);
+
 
         Repository.voteR.save(voteReferendum);
+
+
+        saveTurnout(v);
+
+    }
+
+    private void saveTurnout(Voter v) {
+        referendum = (Referendum) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                .get("eleccion");
+        Turnout turnout = new Turnout();
+        turnout.setElection(referendum);
+        turnout.setVoter(v);
+        Repository.turnoutR.merge(turnout);
+    }
+
+
+    private boolean hasAlreadyVoted(Voter v, Election election) {
+
+
+        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
+
+        if (t == null) {
+
+            return true;
+        }
+        return false;
 
     }
 
