@@ -111,9 +111,9 @@ public class BeanReferendum {
 
         if (t == null) {
 
-            return true;
+            return false;
         }
-        return false;
+        return true;
 
     }
 
