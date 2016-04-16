@@ -1,7 +1,8 @@
 package es.uniovi.asw.presentation;
 
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.model.*;
+import es.uniovi.asw.bussiness.Factories;
+import es.uniovi.asw.model.Referendum;
+import es.uniovi.asw.model.Voter;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -22,6 +23,9 @@ public class BeanReferendum {
 
     private Referendum referendum;
     private String selectedValue;
+
+
+    private boolean voted;
 
 
     public String getSelectedValue() {
@@ -46,76 +50,28 @@ public class BeanReferendum {
 
     public void votar() {
 
+        if (!voted) {
+
+            Map<String, Object> session = FacesContext.getCurrentInstance()
+                    .getExternalContext().getSessionMap();
+            Voter v = (Voter) session.get("LOGGEDIN_VOTER");
 
 
+            boolean hasVoted = Factories.services.createVoteFactory().voteInReferendum(referendum, selectedValue, v);
 
-
-
-        Map<String, Object> session = FacesContext.getCurrentInstance()
-                .getExternalContext().getSessionMap();
-        Voter v = (Voter) session.get("LOGGEDIN_VOTER");
-
-        VoteReferendum voteReferendum = Repository.voteR.findVoteReferendumByElectionAndPollingPlace(referendum, v.getPollingPlace());
-
-        System.out.println(voteReferendum);
-
-        if (voteReferendum == null) {
-
-
-            voteReferendum = new VoteReferendum();
-            voteReferendum.setElection(referendum);
-            voteReferendum.setPollingPlace(v.getPollingPlace());
-
-
-        }
-
-        if ("Si".equals(selectedValue)) {
-
-
-            voteReferendum.setYeses(voteReferendum.getYeses() + 1);
-
+            if (hasVoted) {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                        "Ha votado correctamente, muchas gracias por su participación."));
+                voted = hasVoted;
+            }
         } else {
-            voteReferendum.setNoes(voteReferendum.getNoes() + 1);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                    "Usted ya había ejercido su derecho a voto, no intente hacerlo dos veces"));
 
         }
 
-        if (hasAlreadyVoted(v, referendum)) {
-
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Ya ha votado"));
-            return;
-        }
-        System.out.println(v);
-
-
-        Repository.voteR.save(voteReferendum);
-
-
-        saveTurnout(v);
-
     }
 
-    private void saveTurnout(Voter v) {
-        referendum = (Referendum) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                .get("eleccion");
-        Turnout turnout = new Turnout();
-        turnout.setElection(referendum);
-        turnout.setVoter(v);
-        Repository.turnoutR.merge(turnout);
-    }
-
-
-    private boolean hasAlreadyVoted(Voter v, Election election) {
-
-
-        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
-
-        if (t == null) {
-
-            return false;
-        }
-        return true;
-
-    }
 
     public Referendum getReferendum() {
         return referendum;
@@ -124,4 +80,14 @@ public class BeanReferendum {
     public void setReferendum(Referendum referendum) {
         this.referendum = referendum;
     }
+
+    public boolean isVoted() {
+        return voted;
+    }
+
+    public void setVoted(boolean voted) {
+        this.voted = voted;
+    }
+
+
 }

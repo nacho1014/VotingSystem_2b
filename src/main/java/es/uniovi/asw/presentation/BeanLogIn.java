@@ -1,5 +1,6 @@
 package es.uniovi.asw.presentation;
 
+import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.*;
 import org.springframework.context.annotation.Scope;
@@ -40,41 +41,41 @@ public class BeanLogIn {
     public String login() {
 
 
-        System.out.println(user + " pass: " + password);
 
         if ("admin".equals(getUser()) && "admin".equals(getPassword())) {
             return "exito";
         } else {
 
-            Voter voter = Repository.voterR.findByNif(user);
+            Voter voter = Factories.services.createVoterFactory().findByNif(user);
 
-            if (voter == null) {
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "No existe el usuario o la contraseña es erronea"));
-                return "fallo";
-            }
-
-            Election election = Repository.electionR.findActual();
-
-            if(hasAlreadyVoted(voter,election)){
-
-                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "Ya has votado caradura"));
-
+            if (voter==null){
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                        "No existe el usuario o la contraseña es erronea"));
                 return "fallo";
 
             }
 
-            if (voter.getPassword().equals(password)) {
+            Election election = Factories.services.createVoterFactory().login(user,password,voter);
+
+
+            if(election ==null){
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                        "Ya has votado en estas elecciones," +
+                        " o no existen elecciones para las que votar en este plazo"));
+                return "fallo";
+            }
+            else
+            {
                 putUserInSession(voter);
                 return reditectToElectionType(election);
 
-            } else {
-                password = "";
+
             }
+
 
         }
 
-        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "", "No existe el usuario o la contraseña es erronea"));
-        return "fallo";
     }
 
     private void putUserInSession(Voter user) {
@@ -84,20 +85,7 @@ public class BeanLogIn {
     }
 
 
-    private boolean hasAlreadyVoted(Voter v, Election election) {
 
-
-        Turnout t = Repository.turnoutR.findByVoterAndElection(v, election);
-
-        if (t == null) {
-
-            return false;
-        }
-
-
-        return true;
-
-    }
 
 
     private String reditectToElectionType(Election type) {
