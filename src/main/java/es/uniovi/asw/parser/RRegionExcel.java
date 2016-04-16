@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
 import java.io.File;
 import java.util.ArrayList;

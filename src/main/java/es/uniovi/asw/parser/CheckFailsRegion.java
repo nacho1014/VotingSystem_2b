@@ -1,4 +1,4 @@
-package es.uniovi.asw.Parser;
+package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;

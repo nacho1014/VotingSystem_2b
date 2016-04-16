@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import es.uniovi.asw.Parser.RCandidatureExcel;
+import es.uniovi.asw.parser.RCandidatureExcel;
 import es.uniovi.asw.model.Candidature;
 
 public class ReadCandidatureTest {

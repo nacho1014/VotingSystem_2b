@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.junit.Test;
 
-import es.uniovi.asw.Parser.RRegionExcel;
+import es.uniovi.asw.parser.RRegionExcel;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
