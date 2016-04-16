@@ -1,5 +1,6 @@
 package es.uniovi.asw.presentation;
 
+import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.Referendum;
 import org.springframework.context.annotation.Scope;
@@ -139,10 +140,10 @@ public class BeanConfigElection implements Serializable {
             referendum.setQuestion(question);
             referendum.setNumChoices(1);
 
-            Repository.electionR.save(referendum);
+
+            Factories.services.createElectionFactory().createReferendum(referendum);
 
 
-            System.out.println("everything wentWell");
 
 
         } catch (ParseException e) {

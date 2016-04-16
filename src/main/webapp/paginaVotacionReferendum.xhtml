@@ -69,7 +69,7 @@
                                                ajaxDisableRenderRegionsOnRequest="true"
                                                ajaxProcessingGlyphicon="fa fa-refresh fa-spin"
                                                action="#{beanReferendum.votar}"
-                                               rendered="true"
+                                               rendered="#{beanReferendum.isVoted() eq false}"
                                                update="votaciones"
                                 >
 
