@@ -10,6 +10,7 @@ import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
 import es.uniovi.asw.presentation.BeanConfigElection;
+import es.uniovi.asw.presentation.BeanPollingPlaces;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -63,20 +64,32 @@ public class Application extends SpringBootServletInitializer implements Servlet
         };
     }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/upload")
-    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+
+
+    @RequestMapping(method = RequestMethod.POST, value = "/uploadPolling")
+    public String handleExcelUpload(@RequestParam("file") MultipartFile file,
                                    RedirectAttributes redirectAttributes) {
 
-        System.out.println("eh, que por aqui entro eh");
+       return handleFileUpload(file,redirectAttributes,true);
+
+
+
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/upload")
+    public String handleFileUpload(@RequestParam("file") MultipartFile file,
+                                   RedirectAttributes redirectAttributes,boolean isPolling) {
+
+
         String name ="excel.xlsx";
 
         if (name.contains("/")) {
             redirectAttributes.addFlashAttribute("message", "Folder separators not allowed");
-            return "redirect:/selectElection.xhtml";
+            return redirecIfPolling(isPolling);
         }
         if (name.contains("/")) {
             redirectAttributes.addFlashAttribute("message", "Relative pathnames not allowed");
-            return "redirect:/selectElection.xhtml";
+            return redirecIfPolling(isPolling);
         }
 
         if (!file.isEmpty()) {
@@ -98,9 +111,35 @@ public class Application extends SpringBootServletInitializer implements Servlet
                     "You failed to upload " + name + " because the file was empty");
         }
 
-        BeanConfigElection.setExcelUploaded(true);
-        return "redirect:/selectElection.xhtml";
+        if(isPolling){
+            BeanPollingPlaces.setExcelUploaded(true);
+            return redirecIfPolling(isPolling);
+
+        }
+        else {
+
+            BeanConfigElection.setExcelUploaded(true);
+            return redirecIfPolling(isPolling);
+
+        }
+
     }
+
+
+    private String redirecIfPolling(boolean isPolling){
+
+        if(!isPolling){
+            return "redirect:/selectElection.xhtml";
+
+        }
+        else {
+
+            return "redirect:/configuratePollingPlaces.xhtml";
+
+        }
+
+    }
+
 
 
     @Bean

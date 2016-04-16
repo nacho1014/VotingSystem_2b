@@ -25,7 +25,7 @@
 		<navigation-case>
 			<from-action>#{beanLogIn.login}</from-action>
 			<from-outcome>exito</from-outcome>
-			<to-view-id>/selectElection.xhtml</to-view-id>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
@@ -41,24 +41,32 @@
     </navigation-rule>
 
 
-
-    <navigation-rule>
-		<from-view-id>/selectElection.xhtml</from-view-id>
+	<navigation-rule>
+		<from-view-id>configuratePollingPlaces.xhtml</from-view-id>
 		<navigation-case>
-			<from-action>#{beanConfigElection.creaCerradas}</from-action>
+			<from-action>#{beanPolling.configurePollingPlaces()}</from-action>
 			<from-outcome>exito</from-outcome>
-			<to-view-id>/login.xhtml</to-view-id>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
 
-    <filter>
-        <filter-name>primeFacesFileUploadFilter</filter-name>
-        <filter-class>org.primefaces.webapp.filter.FileUploadFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>primeFacesFileUploadFilter</filter-name>
-        <servlet-name>facesServlet</servlet-name>
-    </filter-mapping>
+
+    <navigation-rule>
+		<from-view-id>/selectElection.xhtml</from-view-id>
+		<navigation-case>
+			<from-action>#{beanConfigElection.creaReferendum}</from-action>
+			<from-outcome>exito</from-outcome>
+			<to-view-id>/administrationPortal.xhtml</to-view-id>
+
+		</navigation-case>
+		<navigation-case>
+			<from-action>#{beanConfigElection.creaReferendum}</from-action>
+			<from-outcome>error</from-outcome>
+			<to-view-id>/selectElection.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+
 
 </faces-config>

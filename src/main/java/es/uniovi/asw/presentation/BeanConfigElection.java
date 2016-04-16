@@ -1,15 +1,14 @@
 package es.uniovi.asw.presentation;
 
 import es.uniovi.asw.bussiness.Factories;
-import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.Referendum;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.io.File;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 import java.io.Serializable;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
@@ -38,9 +37,6 @@ public class BeanConfigElection implements Serializable {
     private int numChoices;
 
 
-
-
-
     @PostConstruct
     void init() {
 
@@ -50,12 +46,9 @@ public class BeanConfigElection implements Serializable {
     }
 
 
-
-
-
     public void println() {
 
-        excelUploaded=false;
+        excelUploaded = false;
 
 
     }
@@ -122,7 +115,7 @@ public class BeanConfigElection implements Serializable {
     }
 
 
-    public void creaReferendum() {
+    public String creaReferendum() {
 
         System.out.println("I try");
         // 04/15/2016 11:25 AM
@@ -132,6 +125,16 @@ public class BeanConfigElection implements Serializable {
 
             Date initialDated = formatter.parse(initialDate);
             Date expireDated = formatter.parse(expireDate);
+
+            if (initialDated.after(expireDated)) {
+
+
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                        "La fecha de inicio ha de ser antes que la de fin"));
+                return "fallo";
+
+            }
+
             Referendum referendum = new Referendum();
             referendum.setStartDate(initialDated);
             referendum.setExpiryDate(expireDated);
@@ -141,16 +144,26 @@ public class BeanConfigElection implements Serializable {
             referendum.setNumChoices(1);
 
 
-            Factories.services.createElectionFactory().createReferendum(referendum);
+            boolean created = Factories.services.createElectionFactory().createReferendum(referendum);
+
+            if (created) {
+
+                System.out.println("creoo");
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                        "Elecciones creadas con exito"));
+                return "exito";
+            }
 
 
-
-
-        } catch (ParseException e) {
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                    "Revise el formato de sus datos"));
+            return "fallo";
             //MENSAJE DE LOG
         }
-
-
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                "No se ha podido crear el referendum, existen elecciones en ese plazo"));
+        return "fallo";
     }
 
 

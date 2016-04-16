@@ -12,13 +12,18 @@ public class CreateReferendum {
     private Referendum referendum;
 
     public CreateReferendum(Referendum referendum) {
-        this.referendum=referendum;
+        this.referendum = referendum;
     }
 
 
-    public void create() {
+    public boolean create() {
 
-        Repository.electionR.save(referendum);
+        try {
+            Repository.electionR.save(referendum);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
     }
 }

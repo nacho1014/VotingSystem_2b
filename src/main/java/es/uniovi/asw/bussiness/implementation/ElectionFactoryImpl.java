@@ -13,9 +13,13 @@ public class ElectionFactoryImpl implements ElectionFactory {
     @Override
     public boolean createReferendum(Referendum referendum) {
 
-        new CreateReferendum(referendum).create();
 
-        return false;
+
+            return new CreateReferendum(referendum).create();
+
+
+
+
     }
 
     @Override
