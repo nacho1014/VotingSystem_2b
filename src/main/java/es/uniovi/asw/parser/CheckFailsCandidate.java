@@ -1,8 +1,13 @@
 package es.uniovi.asw.parser;
 
 import es.uniovi.asw.model.Candidate;
+import es.uniovi.asw.reportwriter.WReportR;
+import es.uniovi.asw.reportwriter.WriteReport;
 
 public class CheckFailsCandidate {
+	
+	private static final WriteReport reporter = new WReportR();
+	public static String file;
 
 	public static boolean check(Candidate candidate){
 		return comprobarFallosDni(candidate) && comprobarFallosNombre(candidate)
@@ -11,7 +16,7 @@ public class CheckFailsCandidate {
 	
 	public static boolean comprobarFallosNombre(Candidate candidate){
 		if (candidate.getName() == null || candidate.getName().equals("")) {
-			System.out.println(" Nombre vacío --- ---");
+			reporter.report(file + " Nombre vacío --- ---");
 			return false;
 		}
 		return true;
@@ -19,7 +24,7 @@ public class CheckFailsCandidate {
 	
 	public static boolean comprobarFallosPartido(Candidate candidate){
 		if (candidate.getCandidature() == null){
-			System.out.println(" Partido vacío --- ---");
+			reporter.report(file + " Partido vacío --- ---");
 			return false;
 		}
 		return true;
@@ -27,11 +32,11 @@ public class CheckFailsCandidate {
 	
 	public static boolean comprobarFallosDni(Candidate candidate){
 		if (candidate.getDNI() == null || candidate.getDNI().equals("")) {
-			System.out.println(" NIF vacío --- ---");
+			reporter.report(file + " NIF vacío --- ---");
 			return false;
 		} else if ((!Character.isLetter(candidate.getDNI().charAt(candidate.getDNI().length() - 1))) 
 				|| (!(candidate.getDNI().length() == 9))) {
-			System.out.println(" NIF no válido --- " + candidate.getDNI() + " ---");
+			reporter.report(file + " NIF no válido --- " + candidate.getDNI() + " ---");
 			return false;
 		}
 		return true;

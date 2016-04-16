@@ -2,12 +2,12 @@ package es.uniovi.asw.reportwriter;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 
-public class WReportP implements WriteReport {
+public class WReportR implements WriteReport {
 
-	private static final Logger log = Logger.getLogger(WReportP.class.getName());
+	private static final Logger log = Logger.getLogger(WReportR.class.getName());
 	private static FileHandler handler;
 	
-	public WReportP() {
+	public WReportR() {
 		configureLogger(log);
 	}
 	
