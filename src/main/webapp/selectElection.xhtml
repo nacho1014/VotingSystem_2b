@@ -138,7 +138,22 @@
 
                                         <h4>Configure ahora  las elecciones</h4>
                                         <ui:include src="/snippets/basicElections.xhtml"/>
-
+                                        <b:number id="input"
+                                                  label="Numero de elecciones disponibles"
+                                                  hideLabel="false"
+                                                  value="#{beanConfigElection.numChoices}"
+                                                  placeholder="Numero de posibilidades"
+                                                  min="0"
+                                                  step="1"
+                                                  styleClass="demo-big-label"
+                                                  readonly="false"
+                                                  required="false"
+                                                  disabled="false"
+                                                  autoFocus="false"
+                                                  rendered="true"/>
+                                        <b:tooltip>
+                                            Escoja el numero de opciones disponibles
+                                        </b:tooltip>
 
                                         <b:commandLink id="crearAbiertas"
                                                        value="Crea Elecciones de lista Abierta"
@@ -216,7 +231,22 @@
                                         <h4>Configure ahora  las elecciones</h4>
                                         <ui:include src="/snippets/basicElections.xhtml"/>
 
-
+                                        <b:number id="input"
+                                                  label="Numero de elecciones disponibles"
+                                                  hideLabel="false"
+                                                  value="#{beanConfigElection.numChoices}"
+                                                  placeholder="Numero de posibilidades"
+                                                  min="0"
+                                                  step="1"
+                                                  styleClass="demo-big-label"
+                                                  readonly="false"
+                                                  required="false"
+                                                  disabled="false"
+                                                  autoFocus="false"
+                                                  rendered="true"/>
+                                        <b:tooltip>
+                                            Escoja el numero de opciones disponibles
+                                        </b:tooltip>
                                         <b:commandLink id="creaCerradas"
                                                        value="Crea Elecciones de lista Abierta"
                                                        glyphicon="glyphicon glyphicon-thumbs-up glyphicon-lg"

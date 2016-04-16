@@ -32,22 +32,13 @@ public class BeanConfigElection implements Serializable {
     private String initialDate;
     private String expireDate;
     private String instructions;
-    private File file;
     private String question;
-    private boolean excel;
     private static boolean excelUploaded = false;
+    private int numChoices;
 
 
-    private String url;
 
 
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
-    }
 
     @PostConstruct
     void init() {
@@ -58,17 +49,7 @@ public class BeanConfigElection implements Serializable {
     }
 
 
-    public File getFile() {
 
-
-        System.out.println("getter");
-        return file;
-    }
-
-    public void setFile(File file) {
-        System.out.println("setter");
-        this.file = file;
-    }
 
 
     public void println() {
@@ -119,7 +100,7 @@ public class BeanConfigElection implements Serializable {
         System.out.println("date init" + initialDate);
         System.out.println("date expire" + expireDate);
         System.out.println("instructions " + instructions);
-        System.out.println("file" + file);
+        System.out.println("numChoices" + numChoices);
 
 
         return "exito";
@@ -172,15 +153,6 @@ public class BeanConfigElection implements Serializable {
     }
 
 
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     public String getElectionName() {
         return electionName;
     }
@@ -221,7 +193,19 @@ public class BeanConfigElection implements Serializable {
         BeanConfigElection.excelUploaded = excelUploaded;
     }
 
+    public String getQuestion() {
+        return question;
+    }
 
+    public void setQuestion(String question) {
+        this.question = question;
+    }
 
+    public int getNumChoices() {
+        return numChoices;
+    }
 
+    public void setNumChoices(int numChoices) {
+        this.numChoices = numChoices;
+    }
 }
