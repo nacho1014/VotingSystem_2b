@@ -23,7 +23,7 @@ public class CheckFailsCandidate {
 	}
 	
 	public static boolean comprobarFallosPartido(Candidate candidate){
-		if (candidate.getCandidature() == null){
+		if (candidate.getCandidature().getName() == null || candidate.getCandidature().getName().equals("")){
 			reporter.report(file + " Partido vacío --- ---");
 			return false;
 		}
