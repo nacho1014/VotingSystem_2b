@@ -1,6 +1,7 @@
 package es.uniovi.asw.parser;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,7 +18,7 @@ import es.uniovi.asw.model.Region;
 
 public class RRegionExcel {
 
-		public List<Region> readFile(String path) {
+		public List<Region> readFile(String path){
 			XSSFWorkbook wb;
 			XSSFSheet sheet;
 			Iterator<Row> rows;
@@ -46,15 +47,17 @@ public class RRegionExcel {
 					cons.setName(row.getCell(1)!=null?row.getCell(1).toString():null);
 					
 					PollingPlace p = new PollingPlace();
-					Double id = row.getCell(2)!=null?Double.parseDouble(row.getCell(2).toString()):null;
-					
 					
 					//Row empty, without cells
-					if (!region.isEmpty()){
-						regiones.add(region);
+					if (row.getCell(0)!=null || row.getCell(1)!=null || row.getCell(2)!=null){
 						p.setConstituency(cons);
 						cons.setRegion(region);
-						p.setId(id.longValue());
+						Double id = row.getCell(2)!=null?Double.parseDouble(row.getCell(2).toString()):null;
+						if(id!=null){
+							p.setId(id.longValue());
+						}
+						regiones.add(region);
+						
 					}
 						
 				}
