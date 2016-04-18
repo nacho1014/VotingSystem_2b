@@ -13,7 +13,7 @@ import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 
 
-public class RCandidateExcel{
+public class RCandidateExcel extends RCandidate implements ReadCandidate{
 
 	public List<Candidate> readFile(String path) {
 		XSSFWorkbook wb;
@@ -62,4 +62,6 @@ public class RCandidateExcel{
 		
 		return candidatos;
 	}
+
+
 }
