@@ -10,24 +10,18 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
-import es.uniovi.asw.model.Candidate;
-import es.uniovi.asw.parser.RCandidateExcel;
+import es.uniovi.asw.model.Region;
+import es.uniovi.asw.parser.RRegionExcel;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
 
-public class InsertCandidateTest {
+public class InsertRegionTest {
 
 	@Test
 	public void test() {
-		List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatosNombre.xlsx");
-		assertEquals(2,candidatos.size());
-	}
-	
-	@Test
-	public void testPartido() {
-		List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatosPartido.xlsx");
-		assertEquals(1,candidatos.size());
+		List<Region> regiones = new RRegionExcel().read("src/test/resources/testRegionColegio.xlsx");
+		assertEquals(1,regiones.size());
 	}
 
 }

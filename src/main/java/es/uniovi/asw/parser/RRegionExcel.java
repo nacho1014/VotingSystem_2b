@@ -16,7 +16,7 @@ import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
 
 
-public class RRegionExcel {
+public class RRegionExcel extends RRegion implements ReadRegion{
 
 		public List<Region> readFile(String path){
 			XSSFWorkbook wb;
