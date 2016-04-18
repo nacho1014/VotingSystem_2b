@@ -12,7 +12,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import es.uniovi.asw.model.Candidature;
 
-public class RCandidatureExcel {
+public class RCandidatureExcel extends RCandidature implements ReadCandidature{
 
 	public List<Candidature> readFile(String path) {
 		XSSFWorkbook wb;
