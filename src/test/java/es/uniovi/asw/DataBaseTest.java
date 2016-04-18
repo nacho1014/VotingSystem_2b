@@ -253,6 +253,7 @@ public class DataBaseTest {
 				vote = new VoteReferendum();
 				vote.setElection(referendum);
 				vote.setPollingPlace(voter.getPollingPlace());
+				vote.setReadyToRecount(false);
 			}
 			vote.increaseYeses();
 			Repository.voteR.save(vote);
@@ -265,6 +266,7 @@ public class DataBaseTest {
 		assertTrue(referendum.getTurnout().size() > 0);
 		assertTrue(referendum.getVotes().size() > 0);
 		assertTrue(referendum.getVotes().contains(vote));
+		assertFalse(vote.isReadyToRecount());
 		
 	}
 	
