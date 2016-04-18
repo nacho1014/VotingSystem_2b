@@ -21,6 +21,7 @@ public abstract class Vote {
 	private PollingPlace pollingPlace;
 	
 	private int numVotes;
+	private boolean readyToRecount;
 	
 	public Vote() {}
 
@@ -54,6 +55,14 @@ public abstract class Vote {
 			this.pollingPlace = pollingPlace;
 		if (this.pollingPlace != null)
 			this.pollingPlace._getVotes().add(this);
+	}
+
+	public boolean isReadyToRecount() {
+		return readyToRecount;
+	}
+
+	public void setReadyToRecount(boolean readyToRecount) {
+		this.readyToRecount = readyToRecount;
 	}
 
 	public Long getId() {
