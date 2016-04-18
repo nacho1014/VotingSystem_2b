@@ -11,6 +11,10 @@ public class CheckFailsRegion {
 	private static final WriteReport reporter = new WReportR();
 	public static String file;
 	
+	public static boolean check(Region r){
+		return comprobarFallosNombre(r) && comprobarFallosConstituency(r) && comprobarFallosPollingPlace(r);
+	}
+	
 	public static boolean comprobarFallosNombre(Region r){
 		if (r.getName() == null || r.getName().equals("")) {
 			reporter.report(file + " Nombre vacío --- ---");

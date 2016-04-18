@@ -46,7 +46,7 @@ public class RCandidateExcel{
 				candidate.setDNI(row.getCell(2)!=null ?	row.getCell(2).toString():null);
 				
 				//Row empty, without cells
-				if (!candidate.isEmpty()){
+				if (row.getCell(0)!=null || row.getCell(1)!=null || row.getCell(2)!=null){
 					candidate.setCandidature(candidature!=null ? candidature:null);
 					candidatos.add(candidate);
 				}

@@ -130,11 +130,5 @@ public class Candidate {
 		return "Candidate [id=" + id + ", name=" + name + ", surname=" + surname + "]";
 	}
 
-	public boolean isEmpty() {
-		return (name == null )
-				&& (getName() == null )
-				&& (getCandidature() == null )
-				&& (getDNI() == null );
-	}
 	
 }
