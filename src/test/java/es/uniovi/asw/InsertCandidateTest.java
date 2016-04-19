@@ -34,11 +34,6 @@ public class InsertCandidateTest {
 		assertEquals(1,candidatos.size());
 	}
 	
-	@Test
-	public void testDeInsercion() {
-		List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatosInsercion.xlsx");
-		assertEquals(3,candidatos.size());
-	}
 	
 	@Test
 	public void testDeComprobacion() {
