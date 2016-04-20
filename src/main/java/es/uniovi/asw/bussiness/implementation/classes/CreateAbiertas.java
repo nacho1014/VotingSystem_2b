@@ -19,18 +19,22 @@ public class CreateAbiertas {
 
     public boolean create() {
 
+        List<Candidate> candidatos = new RCandidateExcel().readFile("src/main/test/resourceselecciones.xlsx");
 
         try {
 
-            List<Candidate> candidatos = new RCandidateExcel().readFile("src/main/test/resourceselecciones.xlsx");
+
+            System.out.println(candidatos);
+            Repository.electionR.save(openList);
 
             for (Candidate candidate : candidatos) {
-                openList.addCandidate(candidate);
+                candidate.addElection(openList);
+                Repository.candidateR.save(candidate);
             }
-            Repository.electionR.save(openList);
 
 
         } catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
 

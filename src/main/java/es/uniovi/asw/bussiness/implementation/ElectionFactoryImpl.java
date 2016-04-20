@@ -18,10 +18,7 @@ public class ElectionFactoryImpl implements ElectionFactory {
     public boolean createReferendum(Referendum referendum) {
 
 
-
-            return new CreateReferendum(referendum).create();
-
-
+        return new CreateReferendum(referendum).create();
 
 
     }
@@ -30,13 +27,11 @@ public class ElectionFactoryImpl implements ElectionFactory {
     public boolean createCerradas(ClosedList closedList) {
 
 
-
         return new CreateCerradas(closedList).create();
     }
 
     @Override
     public boolean createAbiertas(OpenList openList) {
-
 
 
         return new CreateAbiertas(openList).create();

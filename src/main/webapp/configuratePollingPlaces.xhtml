@@ -34,6 +34,7 @@
                                 <div class="panel-heading"><h3
                                         class="panel-title"> Configuracion de colegios electorales</h3></div>
                                 <div class="panel-body">
+                                    <b:messages showDetail="true" autoUpdate="true" globalOnly="true" closable="true"/>
                                     <b:section rendered="#{beanPolling.isExcelUploaded() eq false}">
                                         <h4>Suba un archivo excel con la información necesaria</h4>
                                         <form method="POST" enctype="multipart/form-data" action="/uploadPolling">

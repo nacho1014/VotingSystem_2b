@@ -10,4 +10,6 @@ public interface BussinesFactory {
     VoteFactory createVoteFactory();
 
     VoterFactory createVoterFactory();
+
+    PollingPlaceFactory createPollingPlace();
 }
