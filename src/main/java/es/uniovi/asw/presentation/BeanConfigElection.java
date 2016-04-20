@@ -1,6 +1,9 @@
 package es.uniovi.asw.presentation;
 
 import es.uniovi.asw.bussiness.Factories;
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.Election;
+import es.uniovi.asw.model.OpenList;
 import es.uniovi.asw.model.Referendum;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -89,36 +92,101 @@ public class BeanConfigElection implements Serializable {
     public String creaCerradas() {
 
 
-        System.out.println("al menos priqui entro");
-        System.out.println("name " + electionName);
-        System.out.println("date init" + initialDate);
-        System.out.println("date expire" + expireDate);
-        System.out.println("instructions " + instructions);
-        System.out.println("numChoices" + numChoices);
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+
+        try {
+
+            Date initialDated = formatter.parse(initialDate);
+            Date expireDated = formatter.parse(expireDate);
+
+            if (initialDated.after(expireDated)) {
 
 
-        return "exito";
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                        "La fecha de inicio ha de ser antes que la de fin"));
+                return "fallo";
+
+            } else {
+
+
+                ClosedList closedList = new ClosedList();
+
+                putParameters(initialDated, expireDated, closedList);
+                boolean created = Factories.services.createElectionFactory().createCerradas(closedList);
+
+                if (created) {
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                            "Elecciones creadas con exito"));
+                    return "exito";
+                }
+
+            }
+        } catch (Exception e) {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                    "Error con los formatos"));
+        }
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                "Ya existen otras elecciones en esa fecha o con ese mismo ID"));
+
+        return "fallo";
     }
 
 
     public String creaAbiertas() {
 
 
-        System.out.println("al menos priqui entro");
-        System.out.println("name " + electionName);
-        System.out.println("date init" + initialDate);
-        System.out.println("date expire" + expireDate);
-        System.out.println("instructions " + instructions);
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+
+        try {
+
+            Date initialDated = formatter.parse(initialDate);
+            Date expireDated = formatter.parse(expireDate);
+
+            if (initialDated.after(expireDated)) {
 
 
-        return "exito";
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
+                        "La fecha de inicio ha de ser antes que la de fin"));
+                return "fallo";
+
+            } else {
+                OpenList openList = new OpenList();
+                putParameters(initialDated, expireDated, openList);
+                boolean created = Factories.services.createElectionFactory().createAbiertas(openList);
+
+                if (created) {
+                    FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                            "Elecciones creadas con exito"));
+                    return "exito";
+                }
+
+            }
+        } catch (Exception e) {
+
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                    "Error con los formatos"));
+        }
+
+        FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
+                "Ya existen otras elecciones en esa fecha o con ese mismo ID"));
+
+        return "fallo";
+
+    }
+
+    private void putParameters(Date initialDated, Date expireDated, Election openList) {
+        openList.setName(electionName);
+        openList.setInstructions(instructions);
+        openList.setExpiryDate(expireDated);
+        openList.setStartDate(initialDated);
+        openList.setNumChoices(numChoices);
     }
 
 
     public String creaReferendum() {
 
-        System.out.println("I try");
-        // 04/15/2016 11:25 AM
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
 
         try {
@@ -136,13 +204,8 @@ public class BeanConfigElection implements Serializable {
             }
 
             Referendum referendum = new Referendum();
-            referendum.setStartDate(initialDated);
-            referendum.setExpiryDate(expireDated);
-            referendum.setInstructions(instructions);
-            referendum.setName(electionName);
+            putParameters(initialDated, expireDated, referendum);
             referendum.setQuestion(question);
-            referendum.setNumChoices(1);
-
 
             boolean created = Factories.services.createElectionFactory().createReferendum(referendum);
 

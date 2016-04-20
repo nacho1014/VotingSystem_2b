@@ -62,7 +62,7 @@ public class VoteInReferendum {
         Repository.voteR.save(voteReferendum);
 
 
-        saveTurnout(v);
+        saveTurnout(v,referendum);
 
 
         return true;
@@ -70,9 +70,8 @@ public class VoteInReferendum {
     }
 
 
-    private void saveTurnout(Voter v) {
-        referendum = (Referendum) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                .get("eleccion");
+    private void saveTurnout(Voter v,Referendum referendum) {
+
         Turnout turnout = new Turnout();
         turnout.setElection(referendum);
         turnout.setVoter(v);

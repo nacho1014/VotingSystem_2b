@@ -1,5 +1,7 @@
 package es.uniovi.asw.bussiness;
 
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.OpenList;
 import es.uniovi.asw.model.Referendum;
 
 /**
@@ -10,9 +12,9 @@ public interface ElectionFactory {
 
     boolean createReferendum(Referendum referendum);
 
-    boolean createCerradas();
+    boolean createCerradas(ClosedList closedList);
 
-    boolean createAbiertas();
+    boolean createAbiertas(OpenList openList);
 
 
 

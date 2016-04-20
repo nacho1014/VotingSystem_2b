@@ -81,7 +81,7 @@ public class Application extends SpringBootServletInitializer implements Servlet
                                    RedirectAttributes redirectAttributes,boolean isPolling) {
 
 
-        String name ="excel.xlsx";
+        String name ="elecciones.xlsx";
 
         if (name.contains("/")) {
             redirectAttributes.addFlashAttribute("message", "Folder separators not allowed");

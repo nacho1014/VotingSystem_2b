@@ -1,8 +1,10 @@
 package es.uniovi.asw.presentation;
 
 import es.uniovi.asw.bussiness.Factories;
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.model.*;
+import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.Election;
+import es.uniovi.asw.model.Referendum;
+import es.uniovi.asw.model.Voter;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -41,32 +43,29 @@ public class BeanLogIn {
     public String login() {
 
 
-
         if ("admin".equals(getUser()) && "admin".equals(getPassword())) {
             return "exito";
         } else {
 
             Voter voter = Factories.services.createVoterFactory().findByNif(user);
 
-            if (voter==null){
+            if (voter == null) {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
                         "No existe el usuario o la contraseña es erronea"));
                 return "fallo";
 
             }
 
-            Election election = Factories.services.createVoterFactory().login(user,password,voter);
+            Election election = Factories.services.createVoterFactory().login(user, password, voter);
 
 
-            if(election ==null){
+            if (election == null) {
 
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
                         "Ya has votado en estas elecciones," +
-                        " o no existen elecciones para las que votar en este plazo"));
+                                " o no existen elecciones para las que votar en este plazo"));
                 return "fallo";
-            }
-            else
-            {
+            } else {
                 putUserInSession(voter);
                 return reditectToElectionType(election);
 
@@ -85,9 +84,6 @@ public class BeanLogIn {
     }
 
 
-
-
-
     private String reditectToElectionType(Election type) {
 
         if (type == null) {
@@ -96,11 +92,18 @@ public class BeanLogIn {
 
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
                     .put("eleccion", type);
-            if (type instanceof Referendum)
+
+            if (type instanceof Referendum) {
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                        .put("eleccion", type);
                 return "referendum";
-            else if (type instanceof ClosedList)
-                return "cerrada";
-            else return "abierta";
+            } else if (type instanceof ClosedList) {
+
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                        .put("eleccion", type);
+                return "cerradas";
+
+            } else return "abiertas";
         }
 
     }

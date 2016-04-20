@@ -1,5 +1,6 @@
 package es.uniovi.asw.bussiness;
 
+import es.uniovi.asw.model.ClosedList;
 import es.uniovi.asw.model.Referendum;
 import es.uniovi.asw.model.Voter;
 
@@ -10,5 +11,7 @@ public interface VoteFactory {
 
 
     boolean voteInReferendum(Referendum referendum, String selectedValue, Voter v);
+
+    boolean voteInCerradas(ClosedList closedList,String partyVoted,Voter v);
 
 }

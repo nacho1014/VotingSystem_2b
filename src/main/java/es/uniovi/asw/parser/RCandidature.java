@@ -17,7 +17,7 @@ public abstract class RCandidature implements ReadCandidature{
 	public List<Candidature> read(String path) {
 		
 		List<Candidature> candidaturas = readFile(path);
-		
+
 		List<Candidature> candidaturasInsertados = insertDB.insert(candidaturas, path);
 		
 		return candidaturasInsertados;

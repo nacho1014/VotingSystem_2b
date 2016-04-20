@@ -4,11 +4,11 @@
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">
-              
+
     <application>
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
     </application>
-    
+
     <navigation-rule>
 		<from-view-id>*</from-view-id>
 		<navigation-case>
@@ -38,6 +38,15 @@
             <to-view-id>/paginaVotacionReferendum.xhtml</to-view-id>
             <redirect />
         </navigation-case>
+
+
+        <navigation-case>
+            <from-action>#{beanLogIn.login}</from-action>
+            <from-outcome>cerradas</from-outcome>
+            <to-view-id>/paginaVotacionCerrada.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+
     </navigation-rule>
 
 
@@ -54,6 +63,22 @@
 
     <navigation-rule>
 		<from-view-id>/selectElection.xhtml</from-view-id>
+
+        <navigation-case>
+            <from-action>#{beanConfigElection.creaAbiertas}</from-action>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/administrationPortal.xhtml</to-view-id>
+
+        </navigation-case>
+
+
+        <navigation-case>
+            <from-action>#{beanConfigElection.creaCerradas}</from-action>
+            <from-outcome>exito</from-outcome>
+            <to-view-id>/administrationPortal.xhtml</to-view-id>
+
+        </navigation-case>
+
 		<navigation-case>
 			<from-action>#{beanConfigElection.creaReferendum}</from-action>
 			<from-outcome>exito</from-outcome>
