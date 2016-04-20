@@ -16,6 +16,7 @@ public class ReadCandidateTest {
 		List<Candidate> candidates = new RCandidateExcel().readFile("src/test/resources/testCandidatos.xlsx");
 		for(Candidate c: candidates){
 			System.out.println(c.getName());
+			System.out.println(c.getSurname());
 			System.out.println(c.getCandidature().toString());
 			System.out.println(c.getDNI());
 		}

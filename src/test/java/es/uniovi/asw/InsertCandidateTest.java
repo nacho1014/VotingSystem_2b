@@ -45,6 +45,7 @@ public class InsertCandidateTest {
 		for(Candidate cand:candidato){
 			System.out.println(cand.getName());
 			System.out.println(cand.getDNI());
+			System.out.println(cand.getSurname());
 		}		
 	}
 

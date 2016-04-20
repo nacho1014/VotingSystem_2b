@@ -10,13 +10,22 @@ public class CheckFailsCandidate {
 	public static String file;
 
 	public static boolean check(Candidate candidate){
-		return comprobarFallosDni(candidate) && comprobarFallosNombre(candidate)
+		return comprobarFallosDni(candidate) && comprobarFallosNombre(candidate) 
+				&& comprobarFallosApellido(candidate)
 				&& comprobarFallosPartido(candidate);
 	}
 	
 	public static boolean comprobarFallosNombre(Candidate candidate){
 		if (candidate.getName() == null || candidate.getName().equals("")) {
 			reporter.report(file + " Nombre vacío --- ---");
+			return false;
+		}
+		return true;
+	}
+	
+	public static boolean comprobarFallosApellido(Candidate candidate){
+		if (candidate.getSurname() == null || candidate.getSurname().equals("")) {
+			reporter.report(file + " Apellido vacío --- ---");
 			return false;
 		}
 		return true;
