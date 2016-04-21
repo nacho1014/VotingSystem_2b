@@ -9,8 +9,6 @@ import java.util.Map;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
-import es.uniovi.asw.presentation.BeanConfigElection;
-import es.uniovi.asw.presentation.BeanPollingPlaces;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -30,14 +28,19 @@ import org.springframework.web.context.ServletContextAware;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.model.Region;
-
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import es.uniovi.asw.dbupdate.InsertRCandidate;
+import es.uniovi.asw.dbupdate.InsertRCandidature;
+import es.uniovi.asw.dbupdate.InsertRRegion;
+import es.uniovi.asw.parser.RCandidateExcel;
+import es.uniovi.asw.parser.RCandidatureExcel;
+import es.uniovi.asw.parser.RRegionExcel;
+import es.uniovi.asw.presentation.BeanConfigElection;
+import es.uniovi.asw.presentation.BeanPollingPlaces;
 
 @Controller
 @SpringBootApplication
@@ -48,6 +51,9 @@ public class Application extends SpringBootServletInitializer implements Servlet
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
         app.run(args);
+        new InsertRRegion().insert(new RRegionExcel().read("src/main/test/regiones.xlsx"));
+        new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
+        new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
     }
 
     @Bean
