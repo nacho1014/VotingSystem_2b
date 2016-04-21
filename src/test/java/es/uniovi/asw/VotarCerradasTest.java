@@ -24,17 +24,15 @@ import static org.junit.Assert.assertTrue;
  */
 public class VotarCerradasTest {
 
-    @Test
-    public void nadaDEmomento(){
 
+    @Test
+    public void doNorhing(){
 
     }
 
     /*
-
     WebDriver driver;
     WebElement iterator;
-
 
 
     @Before
@@ -52,9 +50,8 @@ public class VotarCerradasTest {
 
     @Test
     public void ShowCerradasTest() {
-        restoreDB();
+
         insertEleccionesCerradasTest();
-        insertVoterDB();
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
@@ -74,6 +71,15 @@ public class VotarCerradasTest {
         closedList.setStartDate(c.getTime());
         c.add(Calendar.DATE, 2);
         closedList.setExpiryDate(c.getTime());
+
+        Election pastElecion = Repository.electionR.findActual();
+        c.add(Calendar.DATE, -2);
+        pastElecion.setExpiryDate(c.getTime());
+        c.add(Calendar.DATE, -3);
+        pastElecion.setStartDate(c.getTime());
+        Repository.electionR.save(pastElecion);
+
+
         boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
         assertTrue(result);
 
@@ -88,6 +94,6 @@ public class VotarCerradasTest {
         iterator = driver.findElement(By.id("j_idt6:botonLogin"));
         iterator.click();
     }
-*/
 
+*/
 }

@@ -1,11 +1,9 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.*;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -20,12 +18,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 
 import java.util.Calendar;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.StringJoiner;
 
 import static es.uniovi.asw.TestingUtils.*;
-import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -54,7 +48,7 @@ public class MainControllerTest {
     }
 
     @Test
-    public void hitLogButtonTest() {
+    public void test1() {
 
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
@@ -63,27 +57,27 @@ public class MainControllerTest {
 
 
     @Test
-    public void pruebaIncorrectaLogAdminTest() {
+    public void test2() {
 
-        hitLogButtonTest();
+        test1();
         logIN("pepin", "pepon");
         textoPresentePagina(driver, "No existe el usuario o la contraseña es erronea");
 
     }
 
     @Test
-    public void pruebaCorrectaLogAdminTest() {
+    public void test3() {
 
-        hitLogButtonTest();
+        test1();
         logIN("admin", "admin");
         textoPresentePagina(driver, "Portal de administración");
 
     }
 
     @Test
-    public void pruebaLlegarConfiguracionTest() {
+    public void test4() {
 
-        pruebaCorrectaLogAdminTest();
+        test3();
         iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[1]/div[2]/div[1]/a", 1);
         iterator.click();
 
@@ -91,7 +85,7 @@ public class MainControllerTest {
 
 
     @Test
-    public void pruebaAbiertasTest() {
+    public void test5() {
 
         chooseConfigOption("abi");
         esperar(1);
@@ -99,7 +93,7 @@ public class MainControllerTest {
     }
 
     @Test
-    public void pruebaCerradasTest() {
+    public void test6() {
 
         chooseConfigOption("cerr");
         esperar(1);
@@ -110,7 +104,7 @@ public class MainControllerTest {
 
 
     @Test
-    public void pruebaReferendumRightTest() {
+    public void test7() {
         insertVoterDB();
         String fecha = fechaLater(-1);
         System.out.println(fecha + "de ayer");
@@ -119,7 +113,7 @@ public class MainControllerTest {
         esperar(1);
         iterator.click();
         esperar(3);
-        hitLogButtonTest();
+        test1();
         esperar(1);
         logIN("1234567", "1");
         Election e = Repository.electionR.findActual();
@@ -142,11 +136,44 @@ public class MainControllerTest {
 
 
 
+    @Test
+    public void test8() {
+
+        insertEleccionesAbiertasTest();
+        iterator = driver.findElement(By.id("form:botonPrimario"));
+        iterator.click();
+        logIN("1234567", "1");
+        iterator = driver.findElement(By.cssSelector("#formulario\\:j_idt7\\:0\\:j_idt13 > div:nth-child(2)\n"));
+        iterator.click();
+        iterator = driver.findElement(By.id("formulario:botonLogin"));
+        iterator.click();
+        textoPresentePagina(driver, "¡Gracias por votar!");
+
+    }
+
+
+
+    public void insertEleccionesAbiertasTest() {
+        restoreDB();
+        Calendar c = Calendar.getInstance();
+        OpenList openList = new OpenList();
+        openList.setName("ClosedList");
+        openList.setStartDate(c.getTime());
+        openList.setNumChoices(1);
+        c.add(Calendar.DATE, 2);
+        openList.setExpiryDate(c.getTime());
+        boolean result = Factories.services.createElectionFactory().createAbiertas(openList, true);
+        Assert.assertTrue(result);
+
+
+    }
+
+
 
     private void chooseConfigOption(String choice) {
 
 
-        pruebaLlegarConfiguracionTest();
+        test4();
         iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"j_idt7:treebox\"]/div/div", 1);
         iterator.click();
         iterator = EsperaCargaPaginaxpath(driver, " //*[@id=\"j_idt7:treebox\"]/div/div/input", 1);
