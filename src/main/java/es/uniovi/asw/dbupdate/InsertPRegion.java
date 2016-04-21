@@ -1,46 +1,53 @@
 package es.uniovi.asw.dbupdate;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
-import es.uniovi.asw.parser.CheckFailsCandidate;
 import es.uniovi.asw.parser.CheckFailsRegion;
 
-public class InsertPRegion implements InsertRegion{
+public class InsertPRegion implements InsertRegion {
 
 	@Override
-	public List<Region> insert(List<Region> regiones, String path) {
-		CheckFailsCandidate.file=path;
-		List<Region> regionesInsertadas = new ArrayList<Region>();
-		for(Region r:regiones){
-			if(CheckFailsRegion.check(r)){
+	public List<Region> insert(List<Region> regiones) {
+		Region region;
+		Constituency constituency;
+		PollingPlace pollingPlace;
+		
+		for (Region r : regiones) {
+			if (CheckFailsRegion.check(r)) {
+
+				region = Repository.regionR.findByName(r.getName());
+				if (region == null)
+					region = r;
 				
-				Repository.regionR.save(r);
-				regionesInsertadas.add(r);
-				
-				for(Constituency c:r.getConstituencies()){
-					c.setRegion(r);
-					Repository.constituencyR.save(c);
+				Repository.regionR.save(region);
+
+				for (Constituency c : r.getConstituencies()) {
+					constituency = Repository.constituencyR.findByName(c.getName());
+					if (constituency == null)
+						constituency = c;
 					
-					for(PollingPlace p:c.getPollingPlaces()){
-						p.setConstituency(c);
+					constituency.setRegion(region);
+					Repository.constituencyR.save(constituency);
+
+					for (PollingPlace p : c.getPollingPlaces()) {
+						pollingPlace = Repository.pollingPlaceR.findOne(p.getId());
+						if (pollingPlace == null)
+							pollingPlace = p;
+						
+						pollingPlace.setConstituency(constituency);
 						Repository.pollingPlaceR.save(p);
 					}
 				}
-				
+
 			}
 		}
-		System.out.println(regiones.size() + " filas leídas del fichero");
-		
-		if (regiones.size() > regionesInsertadas.size())
-			System.out.println((regiones.size() - regionesInsertadas.size()) + " filas con errores en el fichero (ver fails.log para más información)");
-		
-		System.out.println("Se han registrado " + regionesInsertadas.size() + " regiones");
-		
-		return regionesInsertadas;
+
+		System.out.println("Se han registrado " + regiones.size() + " regiones");
+
+		return regiones;
 	}
 
 }

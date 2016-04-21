@@ -34,7 +34,7 @@ public class CheckFailsRegionTest {
 	public void testPollingPlace(){
 		List<Region> regiones = new RRegionExcel().readFile("src/test/resources/testRegionColegio.xlsx");
 		assertEquals(3, regiones.size());
-		assertFalse(CheckFailsRegion.check(regiones.get(0)));
+		assertTrue(CheckFailsRegion.check(regiones.get(0)));
 		assertFalse(CheckFailsRegion.check(regiones.get(1)));
 		assertTrue(CheckFailsRegion.check(regiones.get(2)));
 	}

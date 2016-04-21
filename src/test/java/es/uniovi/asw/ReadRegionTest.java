@@ -1,17 +1,14 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.*;
-
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 import org.junit.Test;
 
-import es.uniovi.asw.parser.RRegionExcel;
 import es.uniovi.asw.model.Constituency;
 import es.uniovi.asw.model.PollingPlace;
 import es.uniovi.asw.model.Region;
+import es.uniovi.asw.parser.RRegionExcel;
 
 public class ReadRegionTest {
 

@@ -128,8 +128,7 @@ public class Candidature {
 	
 	public boolean isEmpty() {
 		return (getName() == null )
-				&& (getDescription() == null )
-				&& (getInitial() == null );
+				|| (getInitial() == null );
 	}
 
 }

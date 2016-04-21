@@ -7,5 +7,5 @@ import es.uniovi.asw.model.Region;
 
 public interface InsertRegion {
 
-	public List<Region> insert(List<Region> regiones, String path);
+	public List<Region> insert(List<Region> regiones);
 }

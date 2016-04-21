@@ -1,13 +1,11 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import org.junit.Test;
 
-import es.uniovi.asw.parser.RCandidateExcel;
 import es.uniovi.asw.model.Candidate;
+import es.uniovi.asw.parser.RCandidateExcel;
 
 public class ReadCandidateTest {
 

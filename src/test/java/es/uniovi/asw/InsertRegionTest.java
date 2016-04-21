@@ -9,6 +9,7 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import es.uniovi.asw.dbupdate.InsertRRegion;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 import es.uniovi.asw.model.Constituency;
@@ -23,13 +24,16 @@ public class InsertRegionTest {
 	@Test
 	public void test() {
 		List<Region> regiones = new RRegionExcel().read("src/test/resources/testRegionInsercion.xlsx");
-		assertEquals(3, regiones.size());
+		assertEquals(5, regiones.size());
+		new InsertRRegion().insert(regiones);
 		for (Constituency c:Repository.regionR.findByName("Cataluña").getConstituencies()){
 			System.out.println(c.getName());
 		}
 		for (Constituency c:Repository.regionR.findByName("Galicia").getConstituencies()){
 			System.out.println(c.getName());
 		}
+		
+		new InsertRRegion().insert(regiones);
 		
 	}
 
