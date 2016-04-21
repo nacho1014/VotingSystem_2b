@@ -3,6 +3,7 @@ package es.uniovi.asw;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.*;
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,9 +24,7 @@ import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.StringJoiner;
 
-import static es.uniovi.asw.TestingUtils.EsperaCargaPaginaxpath;
-import static es.uniovi.asw.TestingUtils.esperar;
-import static es.uniovi.asw.TestingUtils.textoPresentePagina;
+import static es.uniovi.asw.TestingUtils.*;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -45,8 +44,11 @@ public class MainControllerTest {
         driver.get("http://localhost:8080/index.xhtml");
     }
 
+
     @After
     public void closeDriver() {
+
+
         driver.close();
 
     }
@@ -136,34 +138,10 @@ public class MainControllerTest {
         esperar(1);
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
-
     }
 
 
-    private void insertVoterDB() {
 
-        Voter v = new Voter();
-        v.setEmail("pepe@gmail.com");
-        v.setName("pepe");
-        v.setNif("1234567");
-        v.setPassword("1");
-        Region r = new Region();
-        r.setName("Jaen");
-        Constituency cons = new Constituency();
-        cons.setName("Oviedo");
-        cons.setRegion(r);
-        PollingPlace pp = new PollingPlace();
-        pp.setConstituency(cons);
-        pp.setId(1L);
-        v.setPollingPlace(pp);
-
-        Repository.regionR.save(r);
-        Repository.constituencyR.save(cons);
-        Repository.pollingPlaceR.save(pp);
-        Repository.voterR.save(v);
-
-
-    }
 
 
     private void chooseConfigOption(String choice) {
