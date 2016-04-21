@@ -1,9 +1,13 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.dbupdate.InsertRCandidate;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
+import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
+import es.uniovi.asw.model.OpenList;
+import es.uniovi.asw.parser.RCandidateExcel;
 import es.uniovi.asw.parser.RCandidatureExcel;
 import org.junit.After;
 import org.junit.Before;
@@ -18,11 +22,12 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-import static es.uniovi.asw.TestingUtils.*;
+import static es.uniovi.asw.TestingUtils.insertVoterDB;
+import static es.uniovi.asw.TestingUtils.restoreDB;
+import static es.uniovi.asw.TestingUtils.textoPresentePagina;
 
 /**
  * Created by Ignacio Fernandez on 21/04/2016.
@@ -31,7 +36,7 @@ import static es.uniovi.asw.TestingUtils.*;
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
 @WebAppConfiguration
 @IntegrationTest("server.port:8080")
-public class TestVotarCerradas {
+public class TestVotarAbiertas {
 
     WebDriver driver;
     WebElement iterator;
@@ -45,24 +50,24 @@ public class TestVotarCerradas {
 
     @After
     public void closeDriver() {
-        driver.close();
+        //driver.close();
 
     }
 
     @Test
-    public void ShowCerradas() {
+    public void VoteAbiertas() {
         restoreDB();
         insertEleccionesCerradas();
         insertVoterDB();
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
-        iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
+        iterator = driver.findElement(By.cssSelector("#formulario\\:j_idt7\\:0\\:j_idt13 > div:nth-child(2)\n"));
         iterator.click();
-        textoPresentePagina(driver,"Ha votado correctamente, muchas gracias por su participación.");
-
-
-
+        iterator = driver.findElement(By.id("formulario:botonLogin"));
+        iterator.click();
+        textoPresentePagina(driver,"¡Gracias por votar!");
+        
     }
 
 
@@ -79,15 +84,19 @@ public class TestVotarCerradas {
     private void insertEleccionesCerradas() {
 
         Calendar c = Calendar.getInstance();
-        ClosedList closedList = new ClosedList();
-        closedList.setName("ClosedList");
-        closedList.setStartDate(c.getTime());
+        OpenList openList = new OpenList();
+        openList.setName("ClosedList");
+        openList.setStartDate(c.getTime());
+        openList.setNumChoices(1);
         c.add(Calendar.DATE, 2);
-        closedList.setExpiryDate(c.getTime());
-        List<Candidature> candidaturas = new RCandidatureExcel().readFile("src/test/resources/testCandidatures.xlsx");
-        Repository.electionR.save(closedList);
-        candidaturas.forEach(x->x.addElection(closedList));
-        candidaturas.forEach(x->Repository.candidatureR.save(x));
+        openList.setExpiryDate(c.getTime());
+        List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatos.xlsx");
+        Repository.electionR.save(openList);
+
+        for (Candidate candidate : candidatos)
+            candidate.addElection(openList);
+
+        new InsertRCandidate().insert(candidatos);
 
 
 
