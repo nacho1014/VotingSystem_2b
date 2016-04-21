@@ -54,7 +54,7 @@ public class MainControllerTest {
     }
 
     @Test
-    public void hitLogButton() {
+    public void hitLogButtonTest() {
 
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
@@ -63,36 +63,35 @@ public class MainControllerTest {
 
 
     @Test
-    public void pruebaIncorrectaLogAdmin() {
+    public void pruebaIncorrectaLogAdminTest() {
 
-        hitLogButton();
+        hitLogButtonTest();
         logIN("pepin", "pepon");
         textoPresentePagina(driver, "No existe el usuario o la contraseña es erronea");
 
     }
 
     @Test
-    public void pruebaCorrectaLogAdmin() {
+    public void pruebaCorrectaLogAdminTest() {
 
-        hitLogButton();
+        hitLogButtonTest();
         logIN("admin", "admin");
         textoPresentePagina(driver, "Portal de administración");
 
     }
 
     @Test
-    public void pruebaLlegarConfiguracion() {
+    public void pruebaLlegarConfiguracionTest() {
 
-        pruebaCorrectaLogAdmin();
+        pruebaCorrectaLogAdminTest();
         iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[1]/div[2]/div[1]/a", 1);
         iterator.click();
-        textoPresentePagina(driver, "Configure el sistema electoral");
 
     }
 
 
     @Test
-    public void pruebaAbiertas() {
+    public void pruebaAbiertasTest() {
 
         chooseConfigOption("abi");
         esperar(1);
@@ -100,7 +99,7 @@ public class MainControllerTest {
     }
 
     @Test
-    public void pruebaCerradas() {
+    public void pruebaCerradasTest() {
 
         chooseConfigOption("cerr");
         esperar(1);
@@ -111,7 +110,7 @@ public class MainControllerTest {
 
 
     @Test
-    public void pruebaReferendumRight() {
+    public void pruebaReferendumRightTest() {
         insertVoterDB();
         String fecha = fechaLater(-1);
         System.out.println(fecha + "de ayer");
@@ -120,7 +119,7 @@ public class MainControllerTest {
         esperar(1);
         iterator.click();
         esperar(3);
-        hitLogButton();
+        hitLogButtonTest();
         esperar(1);
         logIN("1234567", "1");
         Election e = Repository.electionR.findActual();
@@ -147,7 +146,7 @@ public class MainControllerTest {
     private void chooseConfigOption(String choice) {
 
 
-        pruebaLlegarConfiguracion();
+        pruebaLlegarConfiguracionTest();
         iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"j_idt7:treebox\"]/div/div", 1);
         iterator.click();
         iterator = EsperaCargaPaginaxpath(driver, " //*[@id=\"j_idt7:treebox\"]/div/div/input", 1);

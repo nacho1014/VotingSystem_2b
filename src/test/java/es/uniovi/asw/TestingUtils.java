@@ -47,8 +47,8 @@ public class TestingUtils {
     static   void restoreDB(){
         Repository.voteR.deleteAll();
         Repository.turnoutR.deleteAll();
-        Repository.electionR.deleteAll();
         Repository.voterR.deleteAll();
+        Repository.electionR.deleteAll();
         Repository.candidatureR.deleteAll();
         Repository.pollingPlaceR.deleteAll();
         Repository.constituencyR.deleteAll();

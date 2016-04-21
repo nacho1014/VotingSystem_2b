@@ -1,12 +1,10 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.bussiness.Factories;
 import es.uniovi.asw.dbupdate.InsertRCandidate;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
-import es.uniovi.asw.model.Candidate;
-import es.uniovi.asw.model.Candidature;
-import es.uniovi.asw.model.ClosedList;
-import es.uniovi.asw.model.OpenList;
+import es.uniovi.asw.model.*;
 import es.uniovi.asw.parser.RCandidateExcel;
 import es.uniovi.asw.parser.RCandidatureExcel;
 import org.junit.After;
@@ -22,6 +20,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import static org.junit.Assert.*;
+
+
 import java.util.Calendar;
 import java.util.List;
 
@@ -36,8 +37,9 @@ import static es.uniovi.asw.TestingUtils.textoPresentePagina;
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
 @WebAppConfiguration
 @IntegrationTest("server.port:8080")
-public class TestVotarAbiertas {
+public class VotarAbiertasTest {
 
+    /*
     WebDriver driver;
     WebElement iterator;
 
@@ -54,11 +56,27 @@ public class TestVotarAbiertas {
 
     }
 
-    @Test
-    public void VoteAbiertas() {
+
+    public void insertEleccionesAbiertasTest() {
         restoreDB();
-        insertEleccionesCerradas();
-        insertVoterDB();
+        Calendar c = Calendar.getInstance();
+        OpenList openList = new OpenList();
+        openList.setName("ClosedList");
+        openList.setStartDate(c.getTime());
+        openList.setNumChoices(1);
+        c.add(Calendar.DATE, 2);
+        openList.setExpiryDate(c.getTime());
+        boolean result = Factories.services.createElectionFactory().createAbiertas(openList, true);
+        assertTrue(result);
+
+
+    }
+
+
+    @Test
+    public void VoteAbiertasTest() {
+
+        insertEleccionesAbiertasTest();
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
@@ -66,9 +84,11 @@ public class TestVotarAbiertas {
         iterator.click();
         iterator = driver.findElement(By.id("formulario:botonLogin"));
         iterator.click();
-        textoPresentePagina(driver,"¡Gracias por votar!");
-        
+        textoPresentePagina(driver, "¡Gracias por votar!");
+
     }
+
+
 
 
 
@@ -81,29 +101,6 @@ public class TestVotarAbiertas {
         iterator.click();
     }
 
-    private void insertEleccionesCerradas() {
-
-        Calendar c = Calendar.getInstance();
-        OpenList openList = new OpenList();
-        openList.setName("ClosedList");
-        openList.setStartDate(c.getTime());
-        openList.setNumChoices(1);
-        c.add(Calendar.DATE, 2);
-        openList.setExpiryDate(c.getTime());
-        List<Candidate> candidatos = new RCandidateExcel().read("src/test/resources/testCandidatos.xlsx");
-        Repository.electionR.save(openList);
-
-        for (Candidate candidate : candidatos)
-            candidate.addElection(openList);
-
-        new InsertRCandidate().insert(candidatos);
-
-
-
-
-
-
-    }
-
+    */
 
 }

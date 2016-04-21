@@ -24,16 +24,16 @@ public class ElectionFactoryImpl implements ElectionFactory {
     }
 
     @Override
-    public boolean createCerradas(ClosedList closedList) {
+    public boolean createCerradas(ClosedList closedList,boolean isTest) {
 
 
-        return new CreateCerradas(closedList).create();
+        return new CreateCerradas(closedList,isTest).create();
     }
 
     @Override
-    public boolean createAbiertas(OpenList openList) {
+    public boolean createAbiertas(OpenList openList,boolean isTest) {
 
 
-        return new CreateAbiertas(openList).create();
+        return new CreateAbiertas(openList,isTest).create();
     }
 }

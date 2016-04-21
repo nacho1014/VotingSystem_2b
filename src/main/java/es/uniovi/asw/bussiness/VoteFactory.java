@@ -11,7 +11,7 @@ import java.util.List;
 public interface VoteFactory {
 
 
-    boolean voteInReferendum(Referendum referendum, String selectedValue, Voter v);
+    boolean voteInReferendum(Referendum referendum, String selectedValue, Voter v );
 
     boolean voteInCerradas(ClosedList closedList,String partyVoted,Voter v);
 

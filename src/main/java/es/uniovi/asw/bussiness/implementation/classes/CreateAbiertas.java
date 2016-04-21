@@ -13,14 +13,20 @@ import java.util.List;
  */
 public class CreateAbiertas {
     private OpenList openList;
+    private boolean isTest;
 
-    public CreateAbiertas(OpenList openList) {
+    public CreateAbiertas(OpenList openList, boolean isTest) {
         this.openList = openList;
+        this.isTest = isTest;
     }
 
     public boolean create() {
-
-        List<Candidate> candidatos = new RCandidateExcel().readFile("src/main/test/resourceselecciones.xlsx");
+        List<Candidate> candidatos;
+        if (!isTest) {
+            candidatos = new RCandidateExcel().readFile("src/main/test/resourceselecciones.xlsx");
+        } else {
+            candidatos = new RCandidateExcel().read("src/test/resources/testCandidatos.xlsx");
+        }
 
         try {
 
@@ -30,7 +36,7 @@ public class CreateAbiertas {
 
             for (Candidate candidate : candidatos)
                 candidate.addElection(openList);
-      
+
             new InsertRCandidate().insert(candidatos);
 
         } catch (Exception e) {
