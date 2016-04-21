@@ -23,30 +23,30 @@
 
         <style>
             .btn {
-                border-radius: 0;
-                border: 0;
-                border-bottom: 4px solid #CCCCCC;
-                margin: 0;
-                -webkit-box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
-                -moz-box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
-                box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
+            border-radius: 0;
+            border: 0;
+            border-bottom: 4px solid #CCCCCC;
+            margin: 0;
+            -webkit-box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
+            -moz-box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
+            box-shadow: 0 5px 5px -6px rgba(0, 0, 0, .3);
             }
 
             .btn .btn-block:active, .btn .btn-lg:active {
-                -webkit-box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
-                -moz-box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
-                box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
+            -webkit-box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
+            -moz-box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
+            box-shadow: inset 0 3px 3px -5px rgba(0, 0, 0, .3);
             }
 
             .btn-warning {
-                background-color: #FEAF20;
-                border-color: #d79a34;
-                text-shadow: 1px 1px 0 #db9e34;
+            background-color: #FEAF20;
+            border-color: #d79a34;
+            text-shadow: 1px 1px 0 #db9e34;
             }
 
             .btn-warning:hover, .btn-warning:focus {
-                background-color: #f5a620;
-                border-color: #cd9034;
+            background-color: #f5a620;
+            border-color: #cd9034;
             }
 
         </style>
@@ -96,11 +96,14 @@
                                     <b:column id="column3"
                                               label="Votar">
 
+
                                         <b:commandLink value="Votar" action="#{beanClosed.votar(rowItem.name)}"
-                                                      rendered="#{beanClosed.isVoted() eq false}" class="btn btn-warning"></b:commandLink>
+                                                       rendered="#{beanClosed.isVoted() eq false}"
+                                                       class="btn btn-warning"></b:commandLink>
 
 
                                     </b:column>
+
                                 </b:table>
 
 

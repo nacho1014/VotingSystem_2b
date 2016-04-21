@@ -103,7 +103,8 @@ public class BeanLogIn {
                         .put("eleccion", type);
                 return "cerradas";
 
-            } else return "abiertas";
+            } else{
+            } return "abiertas";
         }
 
     }
