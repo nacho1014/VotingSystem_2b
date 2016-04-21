@@ -41,8 +41,38 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.23880596">
-              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+            <state vertical-scroll-proportion="0.09784412">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="administrationPortal.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385">
+              <caret line="207" column="46" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paginaVotacionAbierta.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionAbierta.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.1923075">
+              <caret line="47" column="41" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DataBaseTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/DataBaseTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="60" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -87,7 +117,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/selectElection.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/CreateReferendum.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/ElectionFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanConfigElection.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/parser/RCandidateExcel.java" />
@@ -121,6 +150,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanAbiertas.java" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
       </list>
     </option>
@@ -247,6 +277,88 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="VotingSystem_2b" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="asw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="presentation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -784,29 +896,11 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="18363000" />
+      <workItem from="1461237683814" duration="19772000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 21m 49s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 22m 33s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 23m 37s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 25m 16s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 25m 42s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 27m 25s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 33m 26s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
@@ -816,12 +910,30 @@
     <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 34m 26s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 44m 47s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 48m 42s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 50m 18s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 56m 45s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 57m 24s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
     <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 31m 47s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 47m 31s.xml">
       <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144688000" />
+    <option name="totallyTimeSpent" value="146097000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
@@ -872,7 +984,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="15" />
+      <option name="time" value="16" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -881,21 +993,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="241" column="67" selection-start-line="241" selection-start-column="67" selection-end-line="241" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/parser/RCandidatureExcel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/parser/ReadCandidate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -957,13 +1054,6 @@
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/InsertCandidateTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
-          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1208,14 +1298,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionAbierta.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.807693">
-          <caret line="75" column="122" selection-start-line="75" selection-start-column="122" selection-end-line="75" selection-end-column="122" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/VotarEnCerradas.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1266,6 +1348,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/InsertCandidateTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028192371">
+          <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/DataBaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="60" selection-start-line="35" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionAbierta.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.1923075">
+          <caret line="47" column="41" selection-start-line="47" selection-start-column="28" selection-end-line="47" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385">
+          <caret line="207" column="46" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1278,8 +1392,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.23880596">
-          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
+        <state vertical-scroll-proportion="0.09784412">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>

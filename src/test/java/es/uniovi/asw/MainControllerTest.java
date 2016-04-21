@@ -1,5 +1,7 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -111,37 +113,59 @@ public class MainControllerTest {
 
 
 
-    @Test
-    public void pruebaReferendumWrong(){
-
-
-        String fecha = fechaLater(3);
-        fillRef(driver, fecha, "La fecha de inicio ha de ser antes que la de fin");
-
-
-
-    }
 
 
 
 
     @Test
     public void pruebaReferendumRight(){
-
+        insertVoterDB();
         String fecha = fechaLater(-1);
         fillRef(driver, fecha, "Elecciones creadas con exito");
-        driver.get("http://localhost:8080/index.xhtml");
+        iterator = driver.findElement(By.id("linkInicio"));
+        iterator.click();
         hitLogButton();
-        
+        logIN("1234567","1");
+
+
+
+
 
     }
 
 
 
+    private void insertVoterDB(){
+
+        Voter  v = new Voter();
+        v.setEmail("pepe@gmail.com");
+        v.setName("pepe");
+        v.setNif("1234567");
+        v.setPassword("1");
+        Region r = new Region();
+        r.setName("Jaen");
+        Constituency cons = new Constituency();
+        cons.setName("Oviedo");
+        cons.setRegion(r);
+        PollingPlace pp = new PollingPlace();
+        pp.setConstituency(cons);
+        pp.setId(1L);
+        v.setPollingPlace(pp);
+
+        Repository.regionR.save(r);
+        Repository.constituencyR.save(cons);
+        Repository.pollingPlaceR.save(pp);
+        Repository.voterR.save(v);
+
+
+
+    }
 
 
 
     private void chooseConfigOption(String choice) {
+
+
 
         pruebaLlegarConfiguracion();
         iterator =EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:treebox\"]/div/div",1);
@@ -195,11 +219,13 @@ public class MainControllerTest {
         chooseConfigOption("ref");
         esperar(1);
         textoPresentePagina(driver, "Referendum");
+        esperar(2);
         fillReferendum("TestR", fechaInicio, fecha, "instrucciones", "RefQ");
         iterator = driver.findElement(By.id("formReferendum:crearReferendum"));
         iterator.click();
         esperar(3);
         textoPresentePagina(driver, texto);
+
     }
 
 
