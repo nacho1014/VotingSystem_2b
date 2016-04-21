@@ -44,7 +44,6 @@ public class Application extends SpringBootServletInitializer implements Servlet
 
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
-        System.out.println("Entro por el main ");
         app.run(args);
     }
 

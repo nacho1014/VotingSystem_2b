@@ -6,5 +6,5 @@ import es.uniovi.asw.model.Candidate;
 
 public interface InsertCandidate {
 
-	public List<Candidate> insert(List<Candidate> candidatos, String path);
+	public List<Candidate> insert(List<Candidate> candidatos);
 }

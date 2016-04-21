@@ -1,5 +1,6 @@
 package es.uniovi.asw.bussiness.implementation.classes;
 
+import es.uniovi.asw.dbupdate.InsertRCandidate;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.OpenList;
@@ -24,14 +25,13 @@ public class CreateAbiertas {
         try {
 
 
-            System.out.println(candidatos);
+            System.out.println(openList);
             Repository.electionR.save(openList);
 
-            for (Candidate candidate : candidatos) {
+            for (Candidate candidate : candidatos)
                 candidate.addElection(openList);
-                Repository.candidateR.save(candidate);
-            }
-
+      
+            new InsertRCandidate().insert(candidatos);
 
         } catch (Exception e) {
             e.printStackTrace();
