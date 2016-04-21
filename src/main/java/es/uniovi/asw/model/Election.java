@@ -124,4 +124,16 @@ public abstract class Election {
 		return true;
 	}
 	
+	public boolean isReferendum() {
+		return this instanceof Referendum;
+	}
+	
+	public boolean isClosedList() {
+		return this instanceof ClosedList;
+	}
+	
+	public boolean isOpenList() {
+		return this instanceof OpenList;
+	}
+	
 }

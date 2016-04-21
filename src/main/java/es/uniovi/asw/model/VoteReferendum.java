@@ -12,6 +12,11 @@ public class VoteReferendum extends Vote {
 	
 	public VoteReferendum() { }
 	
+	@Override
+	public int getNumVotes() {
+		return yeses + noes;
+	}
+	
 	public int increaseYeses() {
 		return yeses++;
 	}
