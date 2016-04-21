@@ -1,6 +1,6 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.util.List;
 
@@ -44,9 +44,17 @@ public class InsertCandidateTest {
 		c = Repository.candidatureR.findByName("EE");
 		List<Candidate> candidato = Repository.candidateR.findByCandidature(c);
 		for(Candidate cand:candidato){
-			System.out.println(cand.getName());
-			System.out.println(cand.getDNI());
-			System.out.println(cand.getSurname());
+			assertEquals("Edgar",cand.getName());
+			assertEquals("55555555E",cand.getDNI());
+			assertEquals("Estevez",cand.getSurname());
+		}
+		Candidature c2 = new Candidature();
+		c2 = Repository.candidatureR.findByName("GG");
+		List<Candidate> candidato2 = Repository.candidateR.findByCandidature(c2);
+		for(Candidate cand2:candidato2){
+			assertNull(cand2.getName());
+			assertNull(cand2.getDNI());
+			assertNull(cand2.getSurname());
 		}
 		new InsertRCandidate().insert(candidatos);
 	}
