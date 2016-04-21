@@ -16,6 +16,8 @@ import org.springframework.test.context.web.WebAppConfiguration;
 
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.StringJoiner;
 
@@ -112,7 +114,9 @@ public class MainControllerTest {
     @Test
     public void pruebaReferendumWrong(){
 
-        fillRef(driver, "05/13/2016 8:03 PM", "La fecha de inicio ha de ser antes que la de fin");
+
+        String fecha = fechaLater(3);
+        fillRef(driver, fecha, "La fecha de inicio ha de ser antes que la de fin");
 
 
 
@@ -124,10 +128,16 @@ public class MainControllerTest {
     @Test
     public void pruebaReferendumRight(){
 
-        fillRef(driver, "05/11/2016 8:03 PM", "Elecciones creadas con exito");
-
+        String fecha = fechaLater(-1);
+        fillRef(driver, fecha, "Elecciones creadas con exito");
+        driver.get("http://localhost:8080/index.xhtml");
+        hitLogButton();
+        
 
     }
+
+
+
 
 
 
@@ -178,13 +188,30 @@ public class MainControllerTest {
 
 
     private void fillRef(WebDriver driver, String fechaInicio, String texto) {
+
+        String fecha = fechaLater(1);
+
+
         chooseConfigOption("ref");
         esperar(1);
         textoPresentePagina(driver, "Referendum");
-        fillReferendum("TestR", fechaInicio, "05/12/2016 8:03 PM", "instrucciones", "RefQ");
+        fillReferendum("TestR", fechaInicio, fecha, "instrucciones", "RefQ");
         iterator = driver.findElement(By.id("formReferendum:crearReferendum"));
         iterator.click();
+        esperar(3);
         textoPresentePagina(driver, texto);
     }
 
+
+    private String fechaLater(int resta){
+        int day,month,year;
+        Calendar cal = Calendar.getInstance();
+        cal.add(Calendar.DATE,resta);
+        day = cal.get(Calendar.DAY_OF_MONTH );
+        System.out.println(day);
+        month = cal.get(Calendar.MONTH);
+        year = cal.get(Calendar.YEAR);
+        String fecha = month+"/"+day+"/"+year+" 0:00 PM";
+        return fecha;
+    }
 }

@@ -41,8 +41,8 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5771144">
-              <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.23880596">
+              <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -784,44 +784,44 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="16986000" />
+      <workItem from="1461237683814" duration="18363000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainControllerTest_pruebaReferendum - 2016.04.21 at 19h 49m 29s.xml">
-      <configuration name="MainControllerTest.pruebaReferendum" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 08m 46s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 21m 49s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 01m 33s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 22m 33s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 01s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 23m 37s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 04s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 25m 16s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 56s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 25m 42s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 03m 59s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 27m 25s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 05m 16s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 33m 26s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 07m 14s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 33m 41s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 07m 52s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 34m 26s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 31m 47s.xml">
       <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="143311000" />
+    <option name="totallyTimeSpent" value="144688000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
@@ -872,7 +872,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="14" />
+      <option name="time" value="15" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1278,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5771144">
-          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.23880596">
+          <caret line="134" column="8" selection-start-line="134" selection-start-column="8" selection-end-line="134" selection-end-column="8" />
           <folding />
         </state>
       </provider>
