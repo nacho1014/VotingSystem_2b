@@ -20,21 +20,25 @@ import es.uniovi.asw.parser.RRegionExcel;
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
 
 public class InsertRegionTest {
-
+	
 	@Test
 	public void test() {
 		List<Region> regiones = new RRegionExcel().read("src/test/resources/testRegionInsercion.xlsx");
 		assertEquals(5, regiones.size());
 		new InsertRRegion().insert(regiones);
 		for (Constituency c:Repository.regionR.findByName("Cataluña").getConstituencies()){
-			System.out.println(c.getName());
-		}
+			assertEquals("C",c.getName());
+		}		
 		for (Constituency c:Repository.regionR.findByName("Galicia").getConstituencies()){
-			System.out.println(c.getName());
+			assertEquals("G",c.getName());
 		}
+		assertNull(Repository.regionR.findByName("Navarra"));
+		
+		long id = 8;
+		assertEquals("P",Repository.pollingPlaceR.findOne(id).getConstituency().getName());
+		assertEquals("Pais Vasco",Repository.pollingPlaceR.findOne(id).getConstituency().getRegion().getName());
 		
 		new InsertRRegion().insert(regiones);
-		
 	}
 
 }

@@ -15,9 +15,11 @@ public class CheckFailsCandidatureTest {
 	@Test
 	public void testNombre() {
 		List<Candidature> candidatures = new RCandidatureExcel().readFile("src/test/resources/testCandidaturesNombre.xlsx");
-		assertEquals(2, candidatures.size());
+		assertEquals(3, candidatures.size());
 		assertTrue(CheckFailsCandidature.check(candidatures.get(0)));
-		assertTrue(CheckFailsCandidature.check(candidatures.get(1)));
+		assertFalse(CheckFailsCandidature.check(candidatures.get(1)));
+		assertTrue(CheckFailsCandidature.check(candidatures.get(2)));
+
 	
 	}
 	
@@ -34,9 +36,10 @@ public class CheckFailsCandidatureTest {
 	@Test
 	public void testInitial() {
 		List<Candidature> candidatures = new RCandidatureExcel().readFile("src/test/resources/testCandidaturesInitial.xlsx");
-		assertEquals(1, candidatures.size());
-		assertTrue(CheckFailsCandidature.check(candidatures.get(0)));
-	
+		assertEquals(3, candidatures.size());
+		assertFalse(CheckFailsCandidature.check(candidatures.get(0)));
+		assertTrue(CheckFailsCandidature.check(candidatures.get(1)));
+		assertFalse(CheckFailsCandidature.check(candidatures.get(2)));
 	}
 	
 	
