@@ -15,6 +15,8 @@ import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.parser.RCandidateExcel;
+import es.uniovi.asw.reportwriter.WReportR;
+import es.uniovi.asw.reportwriter.WriteReport;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
