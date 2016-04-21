@@ -19,6 +19,7 @@ import org.springframework.boot.context.embedded.ServletRegistrationBean;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +37,8 @@ import es.uniovi.asw.configuration.ViewScope;
 import es.uniovi.asw.dbupdate.InsertRCandidate;
 import es.uniovi.asw.dbupdate.InsertRCandidature;
 import es.uniovi.asw.dbupdate.InsertRRegion;
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.Voter;
 import es.uniovi.asw.parser.RCandidateExcel;
 import es.uniovi.asw.parser.RCandidatureExcel;
 import es.uniovi.asw.parser.RRegionExcel;
@@ -54,6 +57,30 @@ public class Application extends SpringBootServletInitializer implements Servlet
         new InsertRRegion().insert(new RRegionExcel().read("src/main/test/regiones.xlsx"));
         new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
         new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
+        
+        Voter voter = new Voter();
+        voter.setName("Labra");
+        voter.setNif("88888888A");
+        voter.setEmail("labra@uniovi.es");
+        voter.setPassword("labra");
+        voter.setPollingPlace(Repository.pollingPlaceR.findOne((long) 9001));
+        try {
+    		Repository.voterR.save(voter);
+    	} catch (DataIntegrityViolationException e) {}
+        
+        String letras="BCDEFGHIJKLMOPQRSTUVWXYZ";
+        for (int i = 0; i < 12*2; i++) {
+        	voter = new Voter();
+        	voter.setName("VotanteApp" + i);
+        	voter.setNif("88888888" + letras.charAt(i));
+        	voter.setEmail("votanteApp" + i + "uniovi.es");
+        	voter.setPassword("88888888" + letras.charAt(i));
+        	voter.setPollingPlace(Repository.pollingPlaceR.findOne((long) (9001 + (i+1)%12)));
+        	try {
+        		Repository.voterR.save(voter);
+        	} catch (DataIntegrityViolationException e) {}
+        }
+        
     }
 
     @Bean
