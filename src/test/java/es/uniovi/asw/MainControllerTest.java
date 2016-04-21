@@ -20,6 +20,7 @@ import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 import java.util.Calendar;
 
 import static es.uniovi.asw.TestingUtils.*;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -143,7 +144,7 @@ public class MainControllerTest {
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
-        iterator = driver.findElement(By.cssSelector("#formulario\\:j_idt7\\:0\\:j_idt13 > div:nth-child(2)\n"));
+        iterator = EsperaCargaPaginaxpath(driver,"//*[@id=\"formulario:j_idt7:0:j_idt13\"]/div[2]/span",1);
         iterator.click();
         iterator = driver.findElement(By.id("formulario:botonLogin"));
         iterator.click();
@@ -163,11 +164,42 @@ public class MainControllerTest {
         c.add(Calendar.DATE, 2);
         openList.setExpiryDate(c.getTime());
         boolean result = Factories.services.createElectionFactory().createAbiertas(openList, true);
-        Assert.assertTrue(result);
+        assertTrue(result);
+
+
+    }
+    @Test
+    public void test9() {
+
+        insertEleccionesCerradasTest();
+        iterator = driver.findElement(By.id("form:botonPrimario"));
+        iterator.click();
+        logIN("1234567", "1");
+        iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
+        iterator.click();
+        textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
 
     }
 
+
+    private void insertEleccionesCerradasTest() {
+
+        Calendar c = Calendar.getInstance();
+        ClosedList closedList = new ClosedList();
+        closedList.setName("ClosedList");
+        closedList.setStartDate(c.getTime());
+        c.add(Calendar.DATE, 2);
+        closedList.setExpiryDate(c.getTime());
+
+        Repository.voteR.deleteAll();
+        Repository.turnoutR.deleteAll();
+        //Repository.electionR.deleteForeign();
+        Repository.electionR.deleteAll();
+        boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
+        assertTrue(result);
+
+    }
 
 
     private void chooseConfigOption(String choice) {

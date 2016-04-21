@@ -48,8 +48,9 @@ public class TestingUtils {
         Repository.voteR.deleteAll();
         Repository.turnoutR.deleteAll();
         Repository.electionR.deleteAll();
-
     }
+
+
 
     static void insertVoterDB() {
 
