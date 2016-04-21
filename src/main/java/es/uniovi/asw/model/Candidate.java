@@ -18,7 +18,7 @@ public class Candidate {
 	@Id @GeneratedValue
 	private Long id;
 	@Column(unique = true)
-	private String DNI;
+	private String dni;
 	private String name;
 	private String surname;
 	
@@ -32,11 +32,11 @@ public class Candidate {
 	public Candidate() {}
 	
 	public String getDNI() {
-		return DNI;
+		return dni;
 	}
 
 	public void setDNI(String dNI) {
-		DNI = dNI;
+		dni = dNI;
 	}
 
 	public String getName() {
@@ -104,7 +104,7 @@ public class Candidate {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((DNI == null) ? 0 : DNI.hashCode());
+		result = prime * result + ((dni == null) ? 0 : dni.hashCode());
 		return result;
 	}
 
@@ -117,10 +117,10 @@ public class Candidate {
 		if (getClass() != obj.getClass())
 			return false;
 		Candidate other = (Candidate) obj;
-		if (DNI == null) {
-			if (other.DNI != null)
+		if (dni == null) {
+			if (other.dni != null)
 				return false;
-		} else if (!DNI.equals(other.DNI))
+		} else if (!dni.equals(other.dni))
 			return false;
 		return true;
 	}

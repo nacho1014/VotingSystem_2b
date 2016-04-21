@@ -1,5 +1,10 @@
 package es.uniovi.asw;
 
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.Constituency;
+import es.uniovi.asw.model.PollingPlace;
+import es.uniovi.asw.model.Region;
+import es.uniovi.asw.model.Voter;
 import org.apache.tomcat.jni.Thread;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -38,5 +43,38 @@ public class TestingUtils {
             e.printStackTrace();
         }
     }
+
+    static   void restoreDB(){
+        Repository.voteR.deleteAll();
+        Repository.turnoutR.deleteAll();
+        Repository.electionR.deleteAll();
+    }
+
+
+
+    static void insertVoterDB() {
+
+        Voter v = new Voter();
+        v.setEmail("pepe@gmail.com");
+        v.setName("prueba");
+        v.setNif("1234567");
+        v.setPassword("1");
+        Region r = new Region();
+        r.setName("Jaen");
+        Constituency cons = new Constituency();
+        cons.setName("Oviedo");
+        cons.setRegion(r);
+        PollingPlace pp = new PollingPlace();
+        pp.setConstituency(cons);
+        pp.setId(1L);
+        v.setPollingPlace(pp);
+
+        Repository.regionR.save(r);
+        Repository.constituencyR.save(cons);
+        Repository.pollingPlaceR.save(pp);
+        Repository.voterR.save(v);
+
+    }
+
 
 }

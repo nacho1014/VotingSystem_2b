@@ -12,9 +12,9 @@ public interface ElectionFactory {
 
     boolean createReferendum(Referendum referendum);
 
-    boolean createCerradas(ClosedList closedList);
+    boolean createCerradas(ClosedList closedList,boolean isTest);
 
-    boolean createAbiertas(OpenList openList);
+    boolean createAbiertas(OpenList openList,boolean isTest);
 
 
 

@@ -52,7 +52,6 @@ public class BeanPhysicalVoting {
 
 	public void search() {
 		voter = Repository.voterR.findByNif(dni);
-		System.out.println(voter);
 
 		if (voter == null)
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "",
@@ -60,16 +59,11 @@ public class BeanPhysicalVoting {
 		else
 			turnout = new GetHasVotedR().get(voter);
 		
-		System.out.println(turnout);
-		
 		dni = null;
 	}
 	
 	public void confirm() {
-		System.out.println("entra");
-		System.out.println(voter);
 		new InsertHasVotedR().insert(voter);
-		System.out.println("sale");
 		FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
                 "Registrada participación del votante correctamente"));
 		voter = null;

@@ -112,7 +112,7 @@ public class BeanConfigElection implements Serializable {
                 ClosedList closedList = new ClosedList();
 
                 putParameters(initialDated, expireDated, closedList);
-                boolean created = Factories.services.createElectionFactory().createCerradas(closedList);
+                boolean created = Factories.services.createElectionFactory().createCerradas(closedList, false);
 
                 if (created) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",
@@ -154,7 +154,7 @@ public class BeanConfigElection implements Serializable {
             } else {
                 OpenList openList = new OpenList();
                 putParameters(initialDated, expireDated, openList);
-                boolean created = Factories.services.createElectionFactory().createAbiertas(openList);
+                boolean created = Factories.services.createElectionFactory().createAbiertas(openList, false);
 
                 if (created) {
                     FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "",

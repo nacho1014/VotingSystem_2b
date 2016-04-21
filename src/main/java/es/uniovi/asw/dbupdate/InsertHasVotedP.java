@@ -3,7 +3,7 @@ package es.uniovi.asw.dbupdate;
 import es.uniovi.asw.model.Turnout;
 import es.uniovi.asw.model.Voter;
 
-public class InsertHasVotedP implements InsertHasVoted{
+public class InsertHasVotedP implements InsertHasVoted {
 
 	@Override
 	public void insert(Voter voter) {
@@ -12,5 +12,4 @@ public class InsertHasVotedP implements InsertHasVoted{
 		Repository.turnoutR.merge(turnout);
 	}
 
-	
 }

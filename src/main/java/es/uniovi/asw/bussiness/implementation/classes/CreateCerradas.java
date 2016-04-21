@@ -14,11 +14,13 @@ import java.util.List;
 public class CreateCerradas {
 
     private ClosedList closedList;
+    private boolean isTest;
 
 
-    public CreateCerradas(ClosedList closedList) {
+    public CreateCerradas(ClosedList closedList, boolean isTest) {
 
         this.closedList = closedList;
+        this.isTest = isTest;
 
     }
 
@@ -30,9 +32,13 @@ public class CreateCerradas {
         try {
 
             ReadCandidature readCandidature = new RCandidatureExcel();
+            List<Candidature> candidatures;
+            if (!isTest) {
+                candidatures = readCandidature.read("src/main/test/resourceselecciones.xlsx");
+            } else {
+                candidatures = new RCandidatureExcel().read("src/test/resources/testCandidatures.xlsx");
 
-            List<Candidature> candidatures = readCandidature.read("src/main/test/resourceselecciones.xlsx");
-
+            }
 
             Repository.electionR.save(closedList);
 
