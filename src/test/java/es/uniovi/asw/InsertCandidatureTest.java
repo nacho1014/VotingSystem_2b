@@ -30,7 +30,7 @@ public class InsertCandidatureTest {
 	@Test
 	public void testInsercionDeCandidaturas() {
 		List<Candidature> candidaturas = new RCandidatureExcel().read("src/test/resources/testCandidaturesInsercion.xlsx");
-		assertEquals(3,candidaturas.size());
+		assertEquals(4,candidaturas.size());
 		new InsertRCandidature().insert(candidaturas);
 		assertEquals("Inicio4",Repository.candidatureR.findByName("Candidatura4").getInitial());
 		assertEquals("Inicio5",Repository.candidatureR.findByName("Candidatura5").getInitial());
