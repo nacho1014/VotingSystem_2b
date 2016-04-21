@@ -41,8 +41,18 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.09784412">
-              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.64842457">
+              <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="paginaVotacionReferendum.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionReferendum.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.692307">
+              <caret line="43" column="54" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="54" />
               <folding />
             </state>
           </provider>
@@ -113,7 +123,6 @@
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/VoterFactoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanReferendum.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/LogIn.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/paginaVotacionReferendum.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/index.xhtml" />
         <option value="$PROJECT_DIR$/src/main/webapp/selectElection.xhtml" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/CreateReferendum.java" />
@@ -151,6 +160,7 @@
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanAbiertas.java" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/paginaVotacionReferendum.xhtml" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
       </list>
     </option>
@@ -403,59 +413,7 @@
       <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainControllerTest.pruebaReferendumRight">
-    <configuration default="false" name="MainControllerTest.pruebaAbiertas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="es.uniovi.asw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="VotingSystem_2b" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="es.uniovi.asw" />
-      <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaAbiertas" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="MainControllerTest.pruebaCerradas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="es.uniovi.asw.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="VotingSystem_2b" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="es.uniovi.asw" />
-      <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaCerradas" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.MainControllerTest">
     <configuration default="false" name="MainControllerTest.pruebaReferendum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -522,6 +480,58 @@
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
       <option name="METHOD_NAME" value="pruebaReferendumRight" />
       <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainControllerTest.pruebaVotarRef" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="es.uniovi.asw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="VotingSystem_2b" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="es.uniovi.asw" />
+      <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
+      <option name="METHOD_NAME" value="pruebaVotarRef" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="MainControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="es.uniovi.asw.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="VotingSystem_2b" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="es.uniovi.asw" />
+      <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -849,19 +859,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaAbiertas" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCerradas" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaVotarRef" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCerradas" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaAbiertas" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaVotarRef" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
       </list>
     </recent_temporary>
   </component>
@@ -896,44 +906,44 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="19772000" />
+      <workItem from="1461237683814" duration="21852000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 33m 26s.xml">
+    <history-entry file="MainControllerTest - 2016.04.21 at 21h 31m 17s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest - 2016.04.21 at 21h 32m 41s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 15m 36s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 33m 41s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 16m 41s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 34m 26s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 17m 46s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 44m 47s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 18m 33s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 48m 42s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 23m 01s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 50m 18s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 27m 32s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 56m 45s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 29m 20s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 57m 24s.xml">
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 21h 30m 55s.xml">
       <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 31m 47s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 47m 31s.xml">
-      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="146097000" />
+    <option name="totallyTimeSpent" value="148177000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
@@ -984,7 +994,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="16" />
+      <option name="time" value="19" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1202,14 +1212,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionReferendum.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20552677">
-          <caret line="55" column="59" selection-start-line="0" selection-start-column="0" selection-end-line="88" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/PollingPlaceConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1390,10 +1392,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/paginaVotacionReferendum.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.692307">
+          <caret line="43" column="54" selection-start-line="43" selection-start-column="47" selection-end-line="43" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09784412">
-          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.64842457">
+          <caret line="49" column="7" selection-start-line="49" selection-start-column="7" selection-end-line="49" selection-end-column="7" />
           <folding />
         </state>
       </provider>

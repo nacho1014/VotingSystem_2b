@@ -47,14 +47,14 @@ public class MainControllerTest {
 
     @After
     public void closeDriver() {
-        //  driver.close();
+        driver.close();
 
     }
 
     @Test
     public void hitLogButton() {
 
-         iterator = driver.findElement(By.id("form:botonPrimario"));
+        iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
 
     }
@@ -82,62 +82,67 @@ public class MainControllerTest {
     public void pruebaLlegarConfiguracion() {
 
         pruebaCorrectaLogAdmin();
-        iterator = EsperaCargaPaginaxpath(driver,"/html/body/div/ul/li[1]/div[2]/div[1]/a",1);
+        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[1]/div[2]/div[1]/a", 1);
         iterator.click();
-        textoPresentePagina(driver,"Configure el sistema electoral");
+        textoPresentePagina(driver, "Configure el sistema electoral");
 
     }
 
 
     @Test
-    public void pruebaAbiertas(){
+    public void pruebaAbiertas() {
 
         chooseConfigOption("abi");
         esperar(1);
-        textoPresentePagina(driver,"Listas Abiertas");
+        textoPresentePagina(driver, "Listas Abiertas");
     }
 
     @Test
-    public void pruebaCerradas(){
+    public void pruebaCerradas() {
 
         chooseConfigOption("cerr");
         esperar(1);
-        textoPresentePagina(driver,"Listas Cerradas");
-
-
+        textoPresentePagina(driver, "Listas Cerradas");
 
 
     }
-
-
-
-
-
-
-
 
 
     @Test
-    public void pruebaReferendumRight(){
+    public void pruebaReferendumRight() {
         insertVoterDB();
         String fecha = fechaLater(-1);
+        System.out.println(fecha + "de ayer");
         fillRef(driver, fecha, "Elecciones creadas con exito");
         iterator = driver.findElement(By.id("linkInicio"));
+        esperar(1);
         iterator.click();
+        esperar(3);
         hitLogButton();
-        logIN("1234567","1");
-
-
-
+        esperar(1);
+        logIN("1234567", "1");
+        Election e = Repository.electionR.findActual();
+        System.out.println(e);
+        textoPresentePagina(driver, "TestR");
+        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formId:treebox\"]/div/div", 1);
+        iterator.click();
+        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formId:treebox\"]/div/div/input", 1);
+        iterator.click();
+        iterator.sendKeys("Si");
+        iterator.sendKeys(Keys.ARROW_DOWN);
+        iterator.sendKeys(Keys.ENTER);
+        iterator = driver.findElement(By.id("formId:Votar"));
+        iterator.click();
+        esperar(1);
+        textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
 
     }
 
 
+    private void insertVoterDB() {
 
-    private void insertVoterDB(){
-
-        Voter  v = new Voter();
+        Voter v = new Voter();
         v.setEmail("pepe@gmail.com");
         v.setName("pepe");
         v.setNif("1234567");
@@ -158,30 +163,24 @@ public class MainControllerTest {
         Repository.voterR.save(v);
 
 
-
     }
-
 
 
     private void chooseConfigOption(String choice) {
 
 
-
         pruebaLlegarConfiguracion();
-        iterator =EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:treebox\"]/div/div",1);
+        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"j_idt7:treebox\"]/div/div", 1);
         iterator.click();
-        iterator =EsperaCargaPaginaxpath(driver," //*[@id=\"j_idt7:treebox\"]/div/div/input",1);
+        iterator = EsperaCargaPaginaxpath(driver, " //*[@id=\"j_idt7:treebox\"]/div/div/input", 1);
         iterator.click();
         iterator.sendKeys(choice);
         iterator.sendKeys(Keys.ARROW_DOWN);
         iterator.sendKeys(Keys.ENTER);
-        EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:Configurar\"]/span[2]",1).click();
-
-
+        EsperaCargaPaginaxpath(driver, "//*[@id=\"j_idt7:Configurar\"]/span[2]", 1).click();
 
 
     }
-
 
 
     private void logIN(String user, String password) {
@@ -193,7 +192,7 @@ public class MainControllerTest {
         iterator.click();
     }
 
-    private void fillInput(String text,String idInput){
+    private void fillInput(String text, String idInput) {
 
         iterator = driver.findElement(By.name(idInput));
         iterator.click();
@@ -201,19 +200,20 @@ public class MainControllerTest {
 
     }
 
-    private void fillReferendum(String name, String fechaInicio, String fechafinal,String instrucciones,String question){
+    private void fillReferendum(String name, String fechaInicio, String fechafinal, String instrucciones, String question) {
 
-        fillInput(name,"formReferendum:nombreElecciones");
-        fillInput(fechaInicio,"formReferendum:calendarioInicio");
-        fillInput(fechafinal,"formReferendum:calendarioFinal");
-        fillInput(instrucciones,"formReferendum:instrucciones");
-        fillInput(question,"formReferendum:referendumInput");
+        fillInput(name, "formReferendum:nombreElecciones");
+        fillInput(fechaInicio, "formReferendum:calendarioInicio");
+        fillInput(fechafinal, "formReferendum:calendarioFinal");
+        fillInput(instrucciones, "formReferendum:instrucciones");
+        fillInput(question, "formReferendum:referendumInput");
     }
 
 
     private void fillRef(WebDriver driver, String fechaInicio, String texto) {
 
         String fecha = fechaLater(1);
+        System.out.println(fecha + "de mañana");
 
 
         chooseConfigOption("ref");
@@ -229,15 +229,16 @@ public class MainControllerTest {
     }
 
 
-    private String fechaLater(int resta){
-        int day,month,year;
+    private String fechaLater(int resta) {
+        int day, month, year;
         Calendar cal = Calendar.getInstance();
-        cal.add(Calendar.DATE,resta);
-        day = cal.get(Calendar.DAY_OF_MONTH );
+        cal.add(Calendar.DATE, resta);
+        day = cal.get(Calendar.DAY_OF_MONTH);
         System.out.println(day);
         month = cal.get(Calendar.MONTH);
+        month++;
         year = cal.get(Calendar.YEAR);
-        String fecha = month+"/"+day+"/"+year+" 0:00 PM";
+        String fecha = month + "/" + day + "/" + year + " 0:00 PM";
         return fecha;
     }
 }
