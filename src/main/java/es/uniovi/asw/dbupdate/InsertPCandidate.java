@@ -11,17 +11,21 @@ public class InsertPCandidate implements InsertCandidate{
 	@Override
 	public List<Candidate> insert(List<Candidate> candidatos) {
 		Candidature cand;
+		Candidate candidato;
 		int cont = 0;
 		for(Candidate c:candidatos){
 			if(CheckFailsCandidate.check(c)){
 				cand = Repository.candidatureR.findByName(c.getCandidature().getName());
+				candidato = Repository.candidateR.findByDni(c.getDNI());
 				if (cand == null) {
 					cand = new Candidature();
 					cand.setName(c.getCandidature().getName());
 				}
-				c.setCandidature(cand);
+				if (candidato == null)
+					candidato = c;
+				candidato.setCandidature(cand);
 				Repository.candidatureR.save(cand);
-				Repository.candidateR.save(c);
+				Repository.candidateR.save(candidato);
 				cont ++;
 			}
 		}

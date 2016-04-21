@@ -15,5 +15,6 @@ public interface CandidateRepository extends CrudRepository<Candidate, Long> {
 	@Query("SELECT c FROM Candidate c inner join fetch c.elections e where e = :election")
 	List<Candidate> findByElection(@Param("election")Election election);
 	List<Candidate> findByCandidature(Candidature candidature);
+	Candidate findByDni(String dni);
 	
 }
