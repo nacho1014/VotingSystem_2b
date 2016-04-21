@@ -26,14 +26,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TestVotarCerradas.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TestVotarCerradas.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestVotarCerradas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12666667">
+            <state vertical-scroll-proportion="0.0">
               <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="fails.log" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/fails.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -982,7 +992,7 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="25776000" />
+      <workItem from="1461237683814" duration="25821000" />
     </task>
     <servers />
   </component>
@@ -1019,11 +1029,11 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="152101000" />
+    <option name="totallyTimeSpent" value="152146000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1079,13 +1089,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/dbupdate/TurnoutRepositoryImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/VoterFactoryImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1478,11 +1481,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestVotarCerradas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12666667">
+        <state vertical-scroll-proportion="0.0">
           <caret line="55" column="20" selection-start-line="55" selection-start-column="20" selection-end-line="55" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fails.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -11,6 +11,7 @@ public class InsertPCandidate implements InsertCandidate{
 	@Override
 	public List<Candidate> insert(List<Candidate> candidatos) {
 		Candidature cand;
+		int cont = 0;
 		for(Candidate c:candidatos){
 			if(CheckFailsCandidate.check(c)){
 				cand = Repository.candidatureR.findByName(c.getCandidature().getName());
@@ -21,10 +22,11 @@ public class InsertPCandidate implements InsertCandidate{
 				c.setCandidature(cand);
 				Repository.candidatureR.save(cand);
 				Repository.candidateR.save(c);
+				cont ++;
 			}
 		}
 		
-		System.out.println("Se han registrado " + candidatos.size() + " candidatos");
+		System.out.println("Se han registrado " + cont + " candidatos");
 		
 		return candidatos;
 	}

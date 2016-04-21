@@ -15,6 +15,8 @@ public class InsertPRegion implements InsertRegion {
 		Constituency constituency;
 		PollingPlace pollingPlace;
 		
+		int cont = 0;
+		
 		for (Region r : regiones) {
 			if (CheckFailsRegion.check(r)) {
 
@@ -23,6 +25,7 @@ public class InsertPRegion implements InsertRegion {
 					region = r;
 				
 				Repository.regionR.save(region);
+				cont ++;
 
 				for (Constituency c : r.getConstituencies()) {
 					constituency = Repository.constituencyR.findByName(c.getName());
@@ -45,7 +48,7 @@ public class InsertPRegion implements InsertRegion {
 			}
 		}
 
-		System.out.println("Se han registrado " + regiones.size() + " regiones");
+		System.out.println("Se han registrado " + cont + " regiones");
 
 		return regiones;
 	}
