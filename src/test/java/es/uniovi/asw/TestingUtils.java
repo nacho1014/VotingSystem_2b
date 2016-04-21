@@ -56,7 +56,7 @@ public class TestingUtils {
 
         Voter v = new Voter();
         v.setEmail("pepe@gmail.com");
-        v.setName("pepe");
+        v.setName("prueba");
         v.setNif("1234567");
         v.setPassword("1");
         Region r = new Region();

@@ -158,7 +158,7 @@ public class MainControllerTest {
         restoreDB();
         Calendar c = Calendar.getInstance();
         OpenList openList = new OpenList();
-        openList.setName("ClosedList");
+        openList.setName("OpenList");
         openList.setStartDate(c.getTime());
         openList.setNumChoices(1);
         c.add(Calendar.DATE, 2);
@@ -172,6 +172,7 @@ public class MainControllerTest {
     public void test9() {
 
         insertEleccionesCerradasTest();
+        /*
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
@@ -179,7 +180,7 @@ public class MainControllerTest {
         iterator.click();
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
-
+        */
     }
 
 
@@ -188,14 +189,13 @@ public class MainControllerTest {
         Calendar c = Calendar.getInstance();
         ClosedList closedList = new ClosedList();
         closedList.setName("ClosedList");
-        closedList.setStartDate(c.getTime());
         c.add(Calendar.DATE, 2);
+        closedList.setStartDate(c.getTime());
+        c.add(Calendar.DATE, 3);
         closedList.setExpiryDate(c.getTime());
 
-        Repository.voteR.deleteAll();
-        Repository.turnoutR.deleteAll();
-        //Repository.electionR.deleteForeign();
-        Repository.electionR.deleteAll();
+
+
         boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
         assertTrue(result);
 

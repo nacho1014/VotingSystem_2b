@@ -12,8 +12,7 @@ public interface ElectionRepository extends CrudRepository<Election, Long> {
 	@Query("SELECT e FROM Election e where e.startDate < CURRENT_TIMESTAMP and e.expiryDate > CURRENT_TIMESTAMP")
 	Election findActual();
 
-	//@Query("DELETE FROM candidate_elections")
-	//Election deleteForeign();
+
 
 
 	
