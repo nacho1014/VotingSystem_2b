@@ -34,6 +34,9 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
+import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.model.Region;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
