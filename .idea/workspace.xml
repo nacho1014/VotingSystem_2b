@@ -30,7 +30,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="32" />
+              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,8 +41,8 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8026534">
-              <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
+            <state vertical-scroll-proportion="0.5771144">
+              <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -120,8 +120,8 @@
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/VoteInAbiertas.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/faces-config.xml" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanAbiertas.java" />
-        <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
       </list>
     </option>
   </component>
@@ -291,8 +291,8 @@
       <recent name="$PROJECT_DIR$/src/main/webapp" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.MainControllerTest.pruebaCrearReferendum">
-    <configuration default="false" name="MainControllerTest.pruebaIncorrectaLogAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.MainControllerTest.pruebaReferendumRight">
+    <configuration default="false" name="MainControllerTest.pruebaAbiertas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="es.uniovi.asw.*" />
@@ -304,7 +304,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="es.uniovi.asw" />
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaIncorrectaLogAdmin" />
+      <option name="METHOD_NAME" value="pruebaAbiertas" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -318,7 +318,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MainControllerTest.pruebaCorrectaLogAdmin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MainControllerTest.pruebaCerradas" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="es.uniovi.asw.*" />
@@ -330,7 +330,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="es.uniovi.asw" />
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaCorrectaLogAdmin" />
+      <option name="METHOD_NAME" value="pruebaCerradas" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -344,7 +344,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MainControllerTest.pruebaConfigurarReferendum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MainControllerTest.pruebaReferendum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="es.uniovi.asw.*" />
@@ -356,7 +356,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="es.uniovi.asw" />
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaConfigurarReferendum" />
+      <option name="METHOD_NAME" value="pruebaReferendum" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -370,7 +370,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MainControllerTest.pruebaLlegarConfiguracion" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MainControllerTest.pruebaReferendumWrong" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="es.uniovi.asw.*" />
@@ -382,7 +382,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="es.uniovi.asw" />
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaLlegarConfiguracion" />
+      <option name="METHOD_NAME" value="pruebaReferendumWrong" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -396,7 +396,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="MainControllerTest.pruebaCrearReferendum" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="MainControllerTest.pruebaReferendumRight" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="es.uniovi.asw.*" />
@@ -408,7 +408,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="es.uniovi.asw" />
       <option name="MAIN_CLASS_NAME" value="es.uniovi.asw.MainControllerTest" />
-      <option name="METHOD_NAME" value="pruebaCrearReferendum" />
+      <option name="METHOD_NAME" value="pruebaReferendumRight" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -737,19 +737,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaIncorrectaLogAdmin" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCorrectaLogAdmin" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaConfigurarReferendum" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaLlegarConfiguracion" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCrearReferendum" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaAbiertas" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCerradas" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCrearReferendum" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaLlegarConfiguracion" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaConfigurarReferendum" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCorrectaLogAdmin" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaIncorrectaLogAdmin" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumRight" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendumWrong" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaReferendum" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaCerradas" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.MainControllerTest.pruebaAbiertas" />
       </list>
     </recent_temporary>
   </component>
@@ -784,44 +784,44 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="15076000" />
+      <workItem from="1461237683814" duration="16986000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 32m 32s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendum - 2016.04.21 at 19h 49m 29s.xml">
+      <configuration name="MainControllerTest.pruebaReferendum" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 33m 17s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumRight - 2016.04.21 at 20h 08m 46s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumRight" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 34m 06s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 01m 33s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 34m 43s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 01s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 35m 48s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 04s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 36m 47s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 02m 56s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 37m 11s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 03m 59s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 37m 32s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 05m 16s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 38m 09s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 07m 14s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_pruebaCrearReferendum - 2016.04.21 at 19h 39m 40s.xml">
-      <configuration name="MainControllerTest.pruebaCrearReferendum" configurationId="JUnit" />
+    <history-entry file="MainControllerTest_pruebaReferendumWrong - 2016.04.21 at 20h 07m 52s.xml">
+      <configuration name="MainControllerTest.pruebaReferendumWrong" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141401000" />
+    <option name="totallyTimeSpent" value="143311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
@@ -872,7 +872,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="14" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1269,7 +1269,7 @@
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="12" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="32" />
+          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1278,8 +1278,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8026534">
-          <caret line="105" column="25" selection-start-line="105" selection-start-column="25" selection-end-line="105" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.5771144">
+          <caret line="129" column="5" selection-start-line="129" selection-start-column="5" selection-end-line="129" selection-end-column="5" />
           <folding />
         </state>
       </provider>

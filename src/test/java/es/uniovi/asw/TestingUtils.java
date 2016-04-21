@@ -31,7 +31,7 @@ public class TestingUtils {
         return resultado;
     }
 
-    static public void wait(int seconds){
+    static public void esperar(int seconds){
         try {
             java.lang.Thread.sleep(seconds*1000);
         } catch (InterruptedException e) {

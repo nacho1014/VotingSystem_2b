@@ -17,8 +17,10 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 
 import java.util.List;
+import java.util.StringJoiner;
 
 import static es.uniovi.asw.TestingUtils.EsperaCargaPaginaxpath;
+import static es.uniovi.asw.TestingUtils.esperar;
 import static es.uniovi.asw.TestingUtils.textoPresentePagina;
 import static org.springframework.test.util.AssertionErrors.assertTrue;
 
@@ -82,20 +84,71 @@ public class MainControllerTest {
 
     }
 
-    @Test
-    public void pruebaCrearReferendum() {
 
-       pruebaLlegarConfiguracion();
-        iterator =EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:treebox\"]/div/div",1);
-        iterator.click();
-        iterator.sendKeys("ref");
-        iterator.sendKeys(Keys.ARROW_DOWN);
-        iterator.sendKeys(Keys.ENTER);
+    @Test
+    public void pruebaAbiertas(){
+
+        chooseConfigOption("abi");
+        esperar(1);
+        textoPresentePagina(driver,"Listas Abiertas");
+    }
+
+    @Test
+    public void pruebaCerradas(){
+
+        chooseConfigOption("cerr");
+        esperar(1);
+        textoPresentePagina(driver,"Listas Cerradas");
+
+
+
 
     }
 
 
-//*[@id="j_idt7:treebox"]/div/div/input
+
+
+
+    @Test
+    public void pruebaReferendumWrong(){
+
+        fillRef(driver, "05/13/2016 8:03 PM", "La fecha de inicio ha de ser antes que la de fin");
+
+
+
+    }
+
+
+
+
+    @Test
+    public void pruebaReferendumRight(){
+
+        fillRef(driver, "05/11/2016 8:03 PM", "Elecciones creadas con exito");
+
+
+    }
+
+
+
+    private void chooseConfigOption(String choice) {
+
+        pruebaLlegarConfiguracion();
+        iterator =EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:treebox\"]/div/div",1);
+        iterator.click();
+        iterator =EsperaCargaPaginaxpath(driver," //*[@id=\"j_idt7:treebox\"]/div/div/input",1);
+        iterator.click();
+        iterator.sendKeys(choice);
+        iterator.sendKeys(Keys.ARROW_DOWN);
+        iterator.sendKeys(Keys.ENTER);
+        EsperaCargaPaginaxpath(driver,"//*[@id=\"j_idt7:Configurar\"]/span[2]",1).click();
+
+
+
+
+    }
+
+
 
     private void logIN(String user, String password) {
         iterator = driver.findElement(By.name("j_idt6:nombreUsuario"));
@@ -106,6 +159,32 @@ public class MainControllerTest {
         iterator.click();
     }
 
+    private void fillInput(String text,String idInput){
 
+        iterator = driver.findElement(By.name(idInput));
+        iterator.click();
+        iterator.sendKeys(text);
+
+    }
+
+    private void fillReferendum(String name, String fechaInicio, String fechafinal,String instrucciones,String question){
+
+        fillInput(name,"formReferendum:nombreElecciones");
+        fillInput(fechaInicio,"formReferendum:calendarioInicio");
+        fillInput(fechafinal,"formReferendum:calendarioFinal");
+        fillInput(instrucciones,"formReferendum:instrucciones");
+        fillInput(question,"formReferendum:referendumInput");
+    }
+
+
+    private void fillRef(WebDriver driver, String fechaInicio, String texto) {
+        chooseConfigOption("ref");
+        esperar(1);
+        textoPresentePagina(driver, "Referendum");
+        fillReferendum("TestR", fechaInicio, "05/12/2016 8:03 PM", "instrucciones", "RefQ");
+        iterator = driver.findElement(By.id("formReferendum:crearReferendum"));
+        iterator.click();
+        textoPresentePagina(driver, texto);
+    }
 
 }
