@@ -60,26 +60,25 @@ public class TestingUtils {
         v.setNif("1234567");
         v.setPassword("1");
         if (Repository.voterR.findByNif(v.getNif()) != null)
-        	v = Repository.voterR.findByNif(v.getNif());
+            v = Repository.voterR.findByNif(v.getNif());
         Region r = new Region();
         r.setName("Barcelona");
         if (Repository.regionR.findByName(r.getName()) != null)
-        	r = Repository.regionR.findByName(r.getName());
+            r = Repository.regionR.findByName(r.getName());
         Constituency cons = new Constituency();
         cons.setName("Tarragona");
         if (Repository.constituencyR.findByName(cons.getName()) != null)
-        	cons = Repository.constituencyR.findByName(cons.getName());
+            cons = Repository.constituencyR.findByName(cons.getName());
         cons.setRegion(r);
         PollingPlace pp = new PollingPlace();
         pp.setId(100000L);
         if (Repository.pollingPlaceR.findOne(pp.getId()) != null)
-        	pp = Repository.pollingPlaceR.findOne(pp.getId());
+            pp = Repository.pollingPlaceR.findOne(pp.getId());
         pp.setConstituency(cons);
         v.setPollingPlace(pp);
-
-        Repository.pollingPlaceR.save(pp);
         Repository.regionR.save(r);
         Repository.constituencyR.save(cons);
+        Repository.pollingPlaceR.save(pp);
         Repository.voterR.save(v);
 
     }

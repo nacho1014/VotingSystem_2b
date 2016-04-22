@@ -18,6 +18,7 @@ import org.springframework.test.context.web.WebAppConfiguration;
 import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 
 import java.util.Calendar;
+import java.util.List;
 
 import static es.uniovi.asw.TestingUtils.*;
 import static org.junit.Assert.assertTrue;
@@ -44,12 +45,12 @@ public class MainControllerTest {
     public void closeDriver() {
 
 
-        driver.close();
+        // driver.close();
 
     }
 
     @Test
-    public void test1() {
+    public void test01() {
 
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
@@ -58,27 +59,27 @@ public class MainControllerTest {
 
 
     @Test
-    public void test2() {
+    public void test02() {
 
-        test1();
+        test01();
         logIN("pepin", "pepon");
         textoPresentePagina(driver, "No existe el usuario o la contraseña es erronea");
 
     }
 
     @Test
-    public void test3() {
+    public void test03() {
 
-        test1();
+        test01();
         logIN("admin", "admin");
         textoPresentePagina(driver, "Portal de administración");
 
     }
 
     @Test
-    public void test4() {
+    public void test04() {
 
-        test3();
+        test03();
         iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[1]/div[2]/div[1]/a", 1);
         iterator.click();
 
@@ -86,7 +87,7 @@ public class MainControllerTest {
 
 
     @Test
-    public void test5() {
+    public void test05() {
 
         chooseConfigOption("abi");
         esperar(1);
@@ -94,7 +95,7 @@ public class MainControllerTest {
     }
 
     @Test
-    public void test6() {
+    public void test06() {
 
         chooseConfigOption("cerr");
         esperar(1);
@@ -105,7 +106,9 @@ public class MainControllerTest {
 
 
     @Test
-    public void test7() {
+    public void test07() {
+
+
         insertVoterDB();
         String fecha = fechaLater(-1);
         System.out.println(fecha + "de ayer");
@@ -114,7 +117,7 @@ public class MainControllerTest {
         esperar(1);
         iterator.click();
         esperar(3);
-        test1();
+        test01();
         esperar(1);
         logIN("1234567", "1");
         Election e = Repository.electionR.findActual();
@@ -135,23 +138,20 @@ public class MainControllerTest {
     }
 
 
-
-
     @Test
-    public void test8() {
+    public void test08() {
 
         insertEleccionesAbiertasTest();
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
-        iterator = EsperaCargaPaginaxpath(driver,"//*[@id=\"formulario:j_idt7:0:j_idt13\"]/div[2]/span",1);
+        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formulario:j_idt7:0:j_idt13\"]/div[2]/span", 1);
         iterator.click();
         iterator = driver.findElement(By.id("formulario:botonLogin"));
         iterator.click();
         textoPresentePagina(driver, "¡Gracias por votar!");
 
     }
-
 
 
     public void insertEleccionesAbiertasTest() {
@@ -168,11 +168,11 @@ public class MainControllerTest {
 
 
     }
-    @Test
-    public void test9() {
 
-        insertEleccionesCerradasTest();
-        /*
+    @Test
+    public void test09() {
+
+        creaCerradas();
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
@@ -180,21 +180,49 @@ public class MainControllerTest {
         iterator.click();
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
 
-        */
+
     }
 
+    @Test
+    public void test10() {
 
-    private void insertEleccionesCerradasTest() {
+
+        test03();
+        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[4]/div[2]/div[1]/a", 1);
+        iterator.click();
+        iterator = driver.findElement(By.id("input_formId:j_idt9"));
+        iterator.click();
+        iterator.sendKeys("1234567");
+        iterator = driver.findElement(By.id("formId:j_idt10"));
+        iterator.click();
+        esperar(1);
+        textoPresentePagina(driver, "Ya ha emitido su voto");
+
+    }
+
+   
+
+
+    private void creaCerradas() {
 
         Calendar c = Calendar.getInstance();
         ClosedList closedList = new ClosedList();
         closedList.setName("ClosedList");
-        c.add(Calendar.DATE, 2);
         closedList.setStartDate(c.getTime());
         c.add(Calendar.DATE, 3);
         closedList.setExpiryDate(c.getTime());
 
+        Repository.turnoutR.deleteAll();
+        Repository.voteR.deleteAll();
+        OpenList current = (OpenList) Repository.electionR.findActual();
+        List<Candidate> candidates = Repository.candidateR.findByElection(current);
 
+        candidates.forEach(x -> {
+            x.removeElection(current);
+            Repository.candidateR.save(x);
+            current.removeCandidate(x);
+        });
+        Repository.electionR.deleteAll();
 
         boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
         assertTrue(result);
@@ -205,7 +233,7 @@ public class MainControllerTest {
     private void chooseConfigOption(String choice) {
 
 
-        test4();
+        test04();
         iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"j_idt7:treebox\"]/div/div", 1);
         iterator.click();
         iterator = EsperaCargaPaginaxpath(driver, " //*[@id=\"j_idt7:treebox\"]/div/div/input", 1);

@@ -98,7 +98,7 @@ public class BeanLogIn {
                         .put("eleccion", type);
                 return "referendum";
             } else if (type instanceof ClosedList) {
-                
+
                 FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
                         .put("eleccion", type);
                 return "cerradas";

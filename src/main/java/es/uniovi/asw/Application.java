@@ -55,19 +55,19 @@ public class Application extends SpringBootServletInitializer implements Servlet
         SpringApplication app = new SpringApplication(Application.class);
         app.run(args);
         new InsertRRegion().insert(new RRegionExcel().read("src/main/test/regiones.xlsx"));
-        new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
-        new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
-        
+       // new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
+      //  new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
+
         Voter voter = new Voter();
         voter.setName("Labra");
-        voter.setNif("88888888A");
+        voter.setNif("labra");
         voter.setEmail("labra@uniovi.es");
         voter.setPassword("labra");
         voter.setPollingPlace(Repository.pollingPlaceR.findOne((long) 9001));
         try {
     		Repository.voterR.save(voter);
     	} catch (DataIntegrityViolationException e) {}
-        
+
         String letras="BCDEFGHIJKLMOPQRSTUVWXYZ";
         for (int i = 0; i < 12*2; i++) {
         	voter = new Voter();

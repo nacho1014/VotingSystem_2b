@@ -30,6 +30,8 @@ public class BeanClosedList implements Serializable, TableSingleSelectionListene
 
     @PostConstruct
     public void init() {
+
+
         closedList = (ClosedList) FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
                 .get("eleccion");
     }
