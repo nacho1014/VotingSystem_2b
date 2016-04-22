@@ -19,7 +19,7 @@ Voting System
 Para lanzar la aplicación se seguirán los siguientes pasos
 * Abrir XAMPP y/o un servidor de MySQL
 * Ejecutar mvn spring-boot:run en una consola de comandos en la carpeta del proyecto
-* Abrir un navegador en la URI calhost:8080
+* Abrir en un navegador  la URI localhost:8080
 
 
 
