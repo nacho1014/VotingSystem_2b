@@ -45,7 +45,7 @@ public class MainControllerTest {
     public void closeDriver() {
 
 
-        // driver.close();
+        driver.close();
 
     }
 

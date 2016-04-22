@@ -1,6 +1,7 @@
 package es.uniovi.asw;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 import java.util.List;
 
@@ -15,8 +16,6 @@ import es.uniovi.asw.dbupdate.RepositoryConfiguration;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.parser.RCandidateExcel;
-import es.uniovi.asw.reportwriter.WReportR;
-import es.uniovi.asw.reportwriter.WriteReport;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})

@@ -34,13 +34,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
-import es.uniovi.asw.dbupdate.InsertRCandidate;
-import es.uniovi.asw.dbupdate.InsertRCandidature;
 import es.uniovi.asw.dbupdate.InsertRRegion;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.Voter;
-import es.uniovi.asw.parser.RCandidateExcel;
-import es.uniovi.asw.parser.RCandidatureExcel;
 import es.uniovi.asw.parser.RRegionExcel;
 import es.uniovi.asw.presentation.BeanConfigElection;
 import es.uniovi.asw.presentation.BeanPollingPlaces;

@@ -33,14 +33,15 @@ public class InsertPRegion implements InsertRegion {
 						constituency = c;
 					
 					constituency.setRegion(region);
+					Repository.constituencyR.save(constituency);
 
 					for (PollingPlace p : c.getPollingPlaces()) {
 						pollingPlace = Repository.pollingPlaceR.findOne(p.getId());
 						if (pollingPlace == null)
 							pollingPlace = p;
 						
+						
 						pollingPlace.setConstituency(constituency);
-						Repository.constituencyR.save(pollingPlace.getConstituency());
 						Repository.pollingPlaceR.save(pollingPlace);
 					}
 				}
