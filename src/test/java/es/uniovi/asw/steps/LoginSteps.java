@@ -25,7 +25,7 @@ import es.uniovi.asw.Application;
 import es.uniovi.asw.dbupdate.Repository;
 import es.uniovi.asw.model.Referendum;
 
-@ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
+//@ContextConfiguration(classes = Application.class, loader = SpringApplicationContextLoader.class)
 @IntegrationTest
 @WebAppConfiguration
 public class LoginSteps {
