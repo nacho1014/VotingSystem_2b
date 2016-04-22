@@ -29,8 +29,28 @@
       <file leaf-file-name="MainControllerTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15422885">
-              <caret line="202" column="3" selection-start-line="202" selection-start-column="3" selection-end-line="202" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.29519072">
+              <caret line="148" column="107" selection-start-line="148" selection-start-column="107" selection-end-line="148" selection-end-column="107" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="physicalVoting.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/physicalVoting.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-8.3396225">
+              <caret line="35" column="58" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="58" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="administrationPortal.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-2.6153846">
+              <caret line="207" column="35" selection-start-line="207" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -41,6 +61,16 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="7" column="57" selection-start-line="7" selection-start-column="57" selection-end-line="7" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="configuratePollingPlaces.xhtml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/configuratePollingPlaces.xhtml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.65384614">
+              <caret line="36" column="119" selection-start-line="36" selection-start-column="119" selection-end-line="36" selection-end-column="119" />
               <folding />
             </state>
           </provider>
@@ -80,7 +110,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,7 +141,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/FindVoterByNif.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/classes/VoterFactoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/bussiness/implementation/VoterFactoryImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanReferendum.java" />
@@ -158,9 +187,10 @@
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/dbupdate/ElectionRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanLogIn.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/presentation/BeanClosedList.java" />
-        <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java" />
         <option value="$PROJECT_DIR$/src/main/java/es/uniovi/asw/Application.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application-test.properties" />
+        <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/physicalVoting.xhtml" />
         <option value="$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java" />
       </list>
     </option>
@@ -1095,7 +1125,7 @@
       <workItem from="1461075512291" duration="292000" />
       <workItem from="1461079641257" duration="7126000" />
       <workItem from="1461178383689" duration="10099000" />
-      <workItem from="1461237683814" duration="42297000" />
+      <workItem from="1461237683814" duration="42919000" />
     </task>
     <servers />
   </component>
@@ -1124,15 +1154,15 @@
     <history-entry file="MainControllerTest - 2016.04.22 at 03h 15m 06s.xml">
       <configuration name="MainControllerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="MainControllerTest_test07 - 2016.04.22 at 02h 49m 07s.xml">
-      <configuration name="MainControllerTest.test07" configurationId="JUnit" />
+    <history-entry file="MainControllerTest - 2016.04.22 at 03h 26m 01s.xml">
+      <configuration name="MainControllerTest" configurationId="JUnit" />
     </history-entry>
     <history-entry file="MainControllerTest_test07 - 2016.04.22 at 02h 53m 50s.xml">
       <configuration name="MainControllerTest.test07" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168622000" />
+    <option name="totallyTimeSpent" value="169244000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1923" height="1047" extended-state="0" />
@@ -1192,25 +1222,10 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/parser/RRegionExcel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.7223382">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/es/uniovi/asw/parser/RRegion.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12526096">
           <caret line="8" column="22" selection-start-line="8" selection-start-column="22" selection-end-line="8" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/configuratePollingPlaces.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="119" selection-start-line="36" selection-start-column="119" selection-end-line="36" selection-end-column="119" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1300,14 +1315,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385">
-          <caret line="207" column="46" selection-start-line="207" selection-start-column="36" selection-end-line="207" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1589,16 +1596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application-test.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1607,10 +1604,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/TestingUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/administrationPortal.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6153846">
+          <caret line="207" column="35" selection-start-line="207" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/configuratePollingPlaces.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.65384614">
+          <caret line="36" column="119" selection-start-line="36" selection-start-column="119" selection-end-line="36" selection-end-column="119" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/physicalVoting.xhtml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-8.3396225">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/es/uniovi/asw/MainControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15422885">
-          <caret line="202" column="3" selection-start-line="202" selection-start-column="3" selection-end-line="202" selection-end-column="3" />
+        <state vertical-scroll-proportion="0.29519072">
+          <caret line="148" column="107" selection-start-line="148" selection-start-column="107" selection-end-line="148" selection-end-column="107" />
           <folding />
         </state>
       </provider>

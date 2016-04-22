@@ -52,12 +52,12 @@ public class TestingUtils {
 
 
 
-    static void insertVoterDB() {
+    static void insertVoterDB(String nif) {
 
         Voter v = new Voter();
-        v.setEmail("pepe@gmail.com");
+        v.setEmail(nif+"@gmail.com");
         v.setName("prueba");
-        v.setNif("1234567");
+        v.setNif(nif);
         v.setPassword("1");
         if (Repository.voterR.findByNif(v.getNif()) != null)
             v = Repository.voterR.findByNif(v.getNif());

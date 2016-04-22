@@ -109,7 +109,7 @@ public class MainControllerTest {
     public void test07() {
 
 
-        insertVoterDB();
+        insertVoterDB("1234567");
         String fecha = fechaLater(-1);
         System.out.println(fecha + "de ayer");
         fillRef(driver, fecha, "Elecciones creadas con exito");
@@ -145,7 +145,8 @@ public class MainControllerTest {
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
-        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formulario:j_idt7:0:j_idt13\"]/div[2]/span", 1);
+        esperar(2);
+        iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formulario:j_idt7:0:j_idt13\"]/div[2]/span", 2);
         iterator.click();
         iterator = driver.findElement(By.id("formulario:botonLogin"));
         iterator.click();
@@ -176,6 +177,7 @@ public class MainControllerTest {
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
+        esperar(2);
         iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
         iterator.click();
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
@@ -200,7 +202,7 @@ public class MainControllerTest {
 
     }
 
-   
+
 
 
     private void creaCerradas() {
