@@ -21,5 +21,9 @@ Para lanzar la aplicación se seguirán los siguientes pasos
 * Ejecutar mvn spring-boot:run en una consola de comandos en la carpeta del proyecto
 * Abrir en un navegador  la URI localhost:8080
 
+## Mas información
+
+http://arquisoft.github.io/VotingSystem_2b/
+
 
 
