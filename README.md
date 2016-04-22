@@ -15,7 +15,7 @@ Voting System
 * Jorge Riopedre
 
 
-
+Para lanzar la aplicación se ejecutará "spring-boot:run" con el xampp abierto
 
 
 
