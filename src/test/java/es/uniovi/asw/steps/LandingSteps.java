@@ -21,7 +21,7 @@ import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import es.uniovi.asw.Application;
 
-//@ContextConfiguration(classes=Application.class, loader=SpringApplicationContextLoader.class)
+@ContextConfiguration(classes=Application.class, loader=SpringApplicationContextLoader.class)
 @IntegrationTest
 @WebAppConfiguration
 public class LandingSteps {

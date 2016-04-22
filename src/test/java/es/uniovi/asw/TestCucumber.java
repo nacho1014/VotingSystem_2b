@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @IntegrationTest("server.port:8080")
 @CucumberOptions(features = "src/test/resources/features")
-public class CucumberTest{
+public class TestCucumber{
 }
 
 
