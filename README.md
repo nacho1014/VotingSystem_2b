@@ -15,7 +15,11 @@ Voting System
 * Jorge Riopedre
 
 
-Para lanzar la aplicación se ejecutará "spring-boot:run" con el xampp abierto
+## Ejecución 
+Para lanzar la aplicación se seguirán los siguientes pasos
+* Abrir XAMPP y/o un servidor de MySQL
+* Ejecutar mvn spring-boot:run en una consola de comandos en la carpeta del proyecto
+* Abrir en un navegador  la URI localhost:8080
 
 
 
