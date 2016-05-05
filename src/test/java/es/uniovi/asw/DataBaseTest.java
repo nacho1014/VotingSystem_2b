@@ -16,8 +16,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import es.uniovi.asw.dbupdate.Repository;
-import es.uniovi.asw.dbupdate.RepositoryConfiguration;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
 import es.uniovi.asw.model.Candidate;
 import es.uniovi.asw.model.Candidature;
 import es.uniovi.asw.model.ClosedList;
@@ -31,6 +31,7 @@ import es.uniovi.asw.model.VoteClosedList;
 import es.uniovi.asw.model.VoteOpenList;
 import es.uniovi.asw.model.VoteReferendum;
 import es.uniovi.asw.model.Voter;
+
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})

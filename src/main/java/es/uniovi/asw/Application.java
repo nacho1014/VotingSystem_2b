@@ -9,6 +9,7 @@ import java.util.Map;
 import javax.faces.webapp.FacesServlet;
 import javax.servlet.ServletContext;
 
+import es.uniovi.asw.model.User;
 import org.springframework.beans.factory.config.CustomScopeConfigurer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -34,12 +35,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.sun.faces.config.ConfigureListener;
 
 import es.uniovi.asw.configuration.ViewScope;
-import es.uniovi.asw.dbupdate.InsertRRegion;
-import es.uniovi.asw.dbupdate.Repository;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.electionday.BeanConfigElection;
+import es.uniovi.asw.electionday.BeanPollingPlaces;
+import es.uniovi.asw.electionday.InsertElectoralListsR;
+import es.uniovi.asw.electionday.parser.RRegionExcel;
 import es.uniovi.asw.model.Voter;
-import es.uniovi.asw.parser.RRegionExcel;
-import es.uniovi.asw.presentation.BeanConfigElection;
-import es.uniovi.asw.presentation.BeanPollingPlaces;
 
 @Controller
 @SpringBootApplication
@@ -50,9 +51,18 @@ public class Application extends SpringBootServletInitializer implements Servlet
     public static void main(String[] args) {
         SpringApplication app = new SpringApplication(Application.class);
         app.run(args);
-        new InsertRRegion().insert(new RRegionExcel().read("src/main/test/regiones.xlsx"));
+
+        System.out.println(Repository.voterR.count());
+        new InsertElectoralListsR().insertRegions(new RRegionExcel().read("src/main/test/regiones.xlsx"));
        // new InsertRCandidature().insert(new RCandidatureExcel().read("src/main/test/candidatures.xlsx"));
       //  new InsertRCandidate().insert(new RCandidateExcel().read("src/main/test/candidatos.xlsx"));
+
+
+        User junta = Repository.userR.findByEmailAndPassword("junta","junta");
+        if(junta==null){
+            User user = new User("junta","junta","junta",1,"junta");
+            Repository.userR.save(user);
+        }
 
         Voter voter = new Voter();
         voter.setName("Labra");
@@ -64,19 +74,6 @@ public class Application extends SpringBootServletInitializer implements Servlet
     		Repository.voterR.save(voter);
     	} catch (DataIntegrityViolationException e) {}
 
-        String letras="BCDEFGHIJKLMOPQRSTUVWXYZ";
-        for (int i = 0; i < 12*2; i++) {
-        	voter = new Voter();
-        	voter.setName("VotanteApp" + i);
-        	voter.setNif("88888888" + letras.charAt(i));
-        	voter.setEmail("votanteApp" + i + "uniovi.es");
-        	voter.setPassword("88888888" + letras.charAt(i));
-        	voter.setPollingPlace(Repository.pollingPlaceR.findOne((long) (9001 + (i+1)%12)));
-        	try {
-        		Repository.voterR.save(voter);
-        	} catch (DataIntegrityViolationException e) {}
-        }
-        
     }
 
     @Bean

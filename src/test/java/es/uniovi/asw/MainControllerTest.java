@@ -1,9 +1,20 @@
 package es.uniovi.asw;
 
-import es.uniovi.asw.bussiness.Factories;
-import es.uniovi.asw.dbupdate.Repository;
+import static es.uniovi.asw.TestingUtils.EsperaCargaPaginaxpath;
+import static es.uniovi.asw.TestingUtils.esperar;
+import static es.uniovi.asw.TestingUtils.insertVoterDB;
+import static es.uniovi.asw.TestingUtils.restoreDB;
+import static es.uniovi.asw.TestingUtils.textoPresentePagina;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
+import java.util.Calendar;
+import java.util.List;
+
 import es.uniovi.asw.model.*;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -15,13 +26,9 @@ import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
-import es.uniovi.asw.dbupdate.RepositoryConfiguration;
-
-import java.util.Calendar;
-import java.util.List;
-
-import static es.uniovi.asw.TestingUtils.*;
-import static org.junit.Assert.assertTrue;
+import es.uniovi.asw.dbupdate.InsertElectionInfoP;
+import es.uniovi.asw.dbupdate.repositories.Repository;
+import es.uniovi.asw.dbupdate.repositories.RepositoryConfiguration;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = {Application.class, RepositoryConfiguration.class})
@@ -119,10 +126,14 @@ public class MainControllerTest {
         esperar(3);
         test01();
         esperar(1);
+        long t1,t2;
+        t1= System.currentTimeMillis();
         logIN("1234567", "1");
-        Election e = Repository.electionR.findActual();
-        System.out.println(e);
         textoPresentePagina(driver, "TestR");
+        t2=System.currentTimeMillis();
+        assertEquals(true,((t2-t1)/1000)<3L);
+
+
         iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formId:treebox\"]/div/div", 1);
         iterator.click();
         iterator = EsperaCargaPaginaxpath(driver, "//*[@id=\"formId:treebox\"]/div/div/input", 1);
@@ -131,9 +142,16 @@ public class MainControllerTest {
         iterator.sendKeys(Keys.ARROW_DOWN);
         iterator.sendKeys(Keys.ENTER);
         iterator = driver.findElement(By.id("formId:Votar"));
+        /*
+        * Atribuo de calidad 24
+        * */
+        t1= System.currentTimeMillis();
         iterator.click();
         esperar(1);
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
+        t2 = System.currentTimeMillis();
+        assertEquals(true,((t2-t1)/1000)<4L);
+
 
     }
 
@@ -141,7 +159,13 @@ public class MainControllerTest {
     @Test
     public void test08() {
 
+        long t1,t2;
+        t1= System.currentTimeMillis();
         insertEleccionesAbiertasTest();
+        t2=System.currentTimeMillis();
+        System.out.println(t2-t1);
+        assertEquals(true,((t2-t1)/1000)<3L);
+
         iterator = driver.findElement(By.id("form:botonPrimario"));
         iterator.click();
         logIN("1234567", "1");
@@ -150,6 +174,7 @@ public class MainControllerTest {
         iterator.click();
         iterator = driver.findElement(By.id("formulario:botonLogin"));
         iterator.click();
+
         textoPresentePagina(driver, "¡Gracias por votar!");
 
     }
@@ -164,8 +189,9 @@ public class MainControllerTest {
         openList.setNumChoices(1);
         c.add(Calendar.DATE, 2);
         openList.setExpiryDate(c.getTime());
-        boolean result = Factories.services.createElectionFactory().createAbiertas(openList, true);
-        assertTrue(result);
+        Object result = new InsertElectionInfoP(true).insertOpenList(openList);
+        assertTrue(result!=null);
+
 
 
     }
@@ -173,14 +199,30 @@ public class MainControllerTest {
     @Test
     public void test09() {
 
+        long t1,t2;
+        t1= System.currentTimeMillis();
         creaCerradas();
+        t2=System.currentTimeMillis();
+        System.out.println(t2-t1);
+        assertEquals(true,((t2-t1)/1000)<3L);
+        esperar(10);
         iterator = driver.findElement(By.id("form:botonPrimario"));
+        esperar(5);
         iterator.click();
         logIN("1234567", "1");
-        esperar(4);
+        esperar(10);
         iterator = driver.findElement(By.id("j_idt7:table:0:j_idt10"));
         iterator.click();
+        esperar(3);
         textoPresentePagina(driver, "Ha votado correctamente, muchas gracias por su participación.");
+        Election election = Repository.electionR.findActual();
+        int numParticipaciones =  Repository.turnoutR.findByElection(election).size();
+        List<Vote> vote = Repository.voteR.findByElection(election);
+        int numvotes  =vote.size();
+        assertEquals(numParticipaciones,numvotes);
+
+
+
 
 
 
@@ -191,14 +233,19 @@ public class MainControllerTest {
 
 
         test03();
-        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[4]/div[2]/div[1]/a", 1);
+        esperar(2);
+        iterator = EsperaCargaPaginaxpath(driver, "/html/body/div/ul/li[3]/div[2]/div[1]/a", 1);
+        esperar(2);
         iterator.click();
+        esperar(5);
         iterator = driver.findElement(By.id("input_formId:j_idt9"));
+        esperar(2);
         iterator.click();
         iterator.sendKeys("1234567");
+        esperar(2);
         iterator = driver.findElement(By.id("formId:j_idt10"));
         iterator.click();
-        esperar(3);
+        esperar(5);
         textoPresentePagina(driver, "Ya ha emitido su voto");
 
 
@@ -229,8 +276,8 @@ public class MainControllerTest {
         });
         Repository.electionR.deleteAll();
 
-        boolean result = Factories.services.createElectionFactory().createCerradas(closedList, true);
-        assertTrue(result);
+        Object result = new InsertElectionInfoP(true).insertClosedList(closedList);
+        assertTrue(result!=null);
 
     }
 

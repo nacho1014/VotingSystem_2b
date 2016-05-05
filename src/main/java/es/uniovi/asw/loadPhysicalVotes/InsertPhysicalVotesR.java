@@ -1,4 +1,4 @@
-package es.uniovi.asw.loadPhysicalVotes;
+package es.uniovi.asw.loadphysicalvotes;
 
 import java.util.List;
 
