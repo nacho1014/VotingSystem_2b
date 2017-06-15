@@ -24,7 +24,7 @@ public class InsertRegionTest {
 	
 	@Test
 	public void test() {
-		List<Region> regiones = new RRegionExcel().read("src/test/resources/testRegionInsercion.xlsx");
+		List<Region> regioneds = new RRegionExcel().read("src/test/resources/testRegionInsercion.xlsx");
 		assertEquals(5, regiones.size());
 		new InsertElectoralListsR().insertRegions(regiones);
 		for (Constituency c:Repository.regionR.findByName("Cataluña").getConstituencies()){
